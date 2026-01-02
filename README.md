@@ -2,7 +2,7 @@
 # 👋 Hi, I'm Lokesh M  
 **Senior Infrastructure Engineer | IT Infrastructure & Microsoft 365 Specialist**
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-bluemurali45%40gmail.com* with 10+ years in enterprise environments.
+I am a Senior Infrastructure Engineer with 10+ years in enterprise environments.
 - Expertise in **Microsoft 365 Administration**, **Azure AD**, **SharePoint Online**, **MS Intune**, and **Cybersecurity**.
 - Passionate about **vulnerability management**, **endpoint security**, and **disaster recovery**.
 - Currently working at **Celegence Systems Pvt Ltd**, Bengaluru.
@@ -38,14 +38,20 @@
 
 ---
 
-## 🎓 Education
-**B.Tech in Electrical and Electronics Engineering**  
-SITAM, Chittoor (2010 – 2014)
+
+### 📰 Latest Blog Posts
+
+- [**MFA and Identity Protection in SC‑900: Why Extra Verification Matters**](https://techcertguide.blog/) • Dec 27, 2025  
+- [**Authentication vs Authorization in SC‑900: Understanding Access Decisions Clearly**](https://techcertguide.blog/) • Dec 26, 2025  
+- [**SC‑900 Identity Fundamentals: Why Identity Is the Foundation of Microsoft Security**](https://techcertguide.blog/) • Dec 24, 2025  
+- [**Who Should Take SC‑900? A Clear Guide for Freshers vs Professionals**](https://techcertguide.blog/) • Dec 23, 2025  
+- [**SC‑900 vs AZ‑900 vs SC‑300: Career Guide for 2026**](https://techcertguide.blog/) • Dec 22, 2025  
+
 
 ---
 
 ## 📜 Certifications
-- **MS-102: Microsoft 365 Administrator** *(In Progress)*
+- **SC-900: Security and Compliance Fundamentals** *(In Progress)*
 
 ---
 
