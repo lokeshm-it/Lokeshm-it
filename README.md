@@ -2,10 +2,9 @@
 # 👋 Hi, I'm Lokesh M  
 **Senior Infrastructure Engineer | IT Infrastructure & Microsoft 365 Specialist**
 
-I am a Senior Infrastructure Engineer with 10+ years in enterprise environments.
-- Expertise in **Microsoft 365 Administration**, **Azure AD**, **SharePoint Online**, **MS Intune**, and **Cybersecurity**.
-- Passionate about **vulnerability management**, **endpoint security**, and **disaster recovery**.
-- Currently working at **Celegence Systems Pvt Ltd**, Bengaluru.
+I am a Senior Infrastructure Engineer with over a decade of experience in managing enterprise IT environments. Specializing in Microsoft 365 Administration, Azure Active Directory, and SharePoint Online, I have a proven track record of implementing robust cybersecurity policies, performing vulnerability assessments, and optimizing cloud-based solutions for large-scale organizations.
+Throughout my career, I has successfully led projects involving Office 365 security, endpoint management, and network administration, earning multiple awards for excellence in cybersecurity and SharePoint configuration. My expertise extends to Backup and disaster recovery, and patch management, ensuring secure and efficient IT operations.
+I am a passionate about continuous learning and sharing knowledge through his blog TechCertGuide, where he writes about Microsoft certifications and cloud security best practices. When not working on infrastructure solutions, I enjoys exploring new technologies, traveling, and connecting with professionals on LinkedIn.
 
 ---
 
