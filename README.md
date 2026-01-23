@@ -15,7 +15,7 @@
   <a href="https://www.linkedin.com/in/lokesh-itinfra/" target="_blank">
     <img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
   </a>
-  <a href="./DETAILS.md">
+  <a href="./details.md">
     <img src="https://img.shields.io/badge/PORTFOLIO-FF5722?style=for-the-badge&logo=readme&logoColor=white"/>
   </a>
   <a href="https://x.com/LokeshM365" target="_blank">
