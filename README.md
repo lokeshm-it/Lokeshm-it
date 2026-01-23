@@ -8,8 +8,8 @@
 </h3>  
 Senior Infrastructure Engineer → Microsoft 365 & Security (Cloud Journey in Progress)
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Lokeshm-it/Lokeshm-it/main/headline.gif"
-       alt="Lokesh M - Microsoft 365 & Security"
+  <img src="https://user-images.githubusercontent.com/XXXXXX/XXXXXXXX.gif"
+       alt="Senior Infrastructure Engineer Microsoft 365 Security Azure"
        width="700" />
 </p>
 I’m an IT Infrastructure professional with **10+ years of hands-on experience** supporting enterprise environments and a strong focus on the **Microsoft ecosystem**.
