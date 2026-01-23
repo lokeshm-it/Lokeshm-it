@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/lokeshm-it/lokeshm-it/main/banner.png"
+  <img src="https://raw.githubusercontent.com/Lokeshm-it/Lokeshm-it/main/banner.jpg"
        alt="Microsoft 365 Azure Security Banner"
        width="100%" />
 </p>
