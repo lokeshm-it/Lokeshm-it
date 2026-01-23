@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/lokeshm-it/lokeshm-it/main/assets/banner.png"
+       alt="Microsoft 365 Azure Security Banner"
+       width="100%" />
+</p>
 # 👋 Hi, I’m Lokesh M  
 ### Senior Infrastructure Engineer → Microsoft 365 & Security (Cloud Journey in Progress)
 
