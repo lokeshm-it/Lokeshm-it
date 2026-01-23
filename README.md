@@ -8,7 +8,7 @@
 </h3>  
 Senior Infrastructure Engineer → Microsoft 365 & Security (Cloud Journey in Progress)
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/XXXXXX/XXXXXXXX.gif"
+  <img src="(https://github.com/lokeshm-it/Lokeshm-it/issues/1#issue-3846623113)"
        alt="Senior Infrastructure Engineer Microsoft 365 Security Azure"
        width="700" />
 </p>
