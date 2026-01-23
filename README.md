@@ -19,7 +19,7 @@
     <img src="https://img.shields.io/badge/PORTFOLIO-FF5722?style=for-the-badge&logo=readme&logoColor=white"/>
   </a>
   <a href="https://x.com/LokeshM365" target="_blank">
-    <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white"/>
+   <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white"/>
   </a>
   <a href="https://www.instagram.com/lokesh.m.it/" target="_blank">
     <img src="https://img.shields.io/badge/INSTAGRAM-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/>
