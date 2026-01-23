@@ -3,7 +3,10 @@
        alt="Microsoft 365 Azure Security Banner"
        width="100%" />
 </p>
-# 👋 Hi, I’m Lokesh M  
+# 
+<h1 align="center">Lokesh M</h1>
+<h3 align="center">
+</h3>  
 ### Senior Infrastructure Engineer → Microsoft 365 & Security (Cloud Journey in Progress)
 
 I’m an IT Infrastructure professional with **10+ years of hands-on experience** supporting enterprise environments and a strong focus on the **Microsoft ecosystem**.
