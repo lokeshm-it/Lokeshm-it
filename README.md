@@ -25,7 +25,7 @@
     <img src="https://img.shields.io/badge/INSTAGRAM-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/>
   </a>
   <a href="https://techcertguide.blog/" target="_blank">
-    <img src="https://img.shields.io/badge/BLOG-0D1117?style=for-the-badge&logo=hashnode&logoColor=white"/>
+    <img src="https://img.shields.io/badge/TechCertGuide-0D1117?style=for-the-badge&logo=hashnode&logoColor=white"/>
   </a>
 </p>
 <p align="center">
