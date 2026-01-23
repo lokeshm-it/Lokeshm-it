@@ -11,6 +11,28 @@
        alt="Senior Infrastructure Engineer Microsoft 365 Security Azure"
        width="700" />
 </p>
+<p align="center">
+  <a href="https://www.linkedin.com/in/lokesh-itinfra/" target="_blank">
+    <img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
+  </a>
+  <a href="./DETAILS.md">
+    <img src="https://img.shields.io/badge/PORTFOLIO-FF5722?style=for-the-badge&logo=readme&logoColor=white"/>
+  </a>
+  <a href="https://x.com/LokeshM365" target="_blank">
+    <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white"/>
+  </a>
+  <a href="https://www.instagram.com/lokesh.m.it/" target="_blank">
+    <img src="https://img.shields.io/badge/INSTAGRAM-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/>
+  </a>
+  <a href="https://techcertguide.blog/" target="_blank">
+    <img src="https://img.shields.io/badge/BLOG-0D1117?style=for-the-badge&logo=hashnode&logoColor=white"/>
+  </a>
+</p>
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=lokeshm-it&style=for-the-badge&color=blueviolet"/>
+  <img src="https://img.shields.io/github/followers/lokeshm-it?style=for-the-badge"/>
+  <img src="https://img.shields.io/github/stars/lokeshm-it?style=for-the-badge"/>
+</p>
 I’m an IT Infrastructure professional with **10+ years of hands-on experience** supporting enterprise environments and a strong focus on the **Microsoft ecosystem**.
 
 My current work centers around **Microsoft 365 administration, identity & access management, endpoint security, and security operations fundamentals**. I enjoy translating security concepts into **practical, repeatable configurations**—the kind that actually work in real organizations.
