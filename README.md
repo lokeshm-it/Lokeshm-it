@@ -51,9 +51,7 @@ My current work centers around **Microsoft 365 administration, identity & access
 I actively document my learning through labs, blog posts, and GitHub projects as I continue my transition deeper into **Microsoft Security and Cloud**.
 
 <section class="experience-skills">
-  <h2 style="text-align:center;">Core Experience</h2>
-  <h3 align="center">
-</h3>  
+  <h2 align="center">Experience</h2>
   <div style="display:flex; max-width:900px; margin:30px auto; gap:40px;">
     <ul style="flex:1; line-height:1.8;">
       <li>Microsoft 365 administration</li>
@@ -71,9 +69,8 @@ I actively document my learning through labs, blog posts, and GitHub projects as
   </div>
 
 <section class="GitHub-Activity">
-  <h2 style="text-align:center;">📊 GitHub Activity</h2>
-  <h3 align="center">
-</h3>
+  <h2 align="center">📊 GitHub Activity</h2>
+  
 I use GitHub as a **learning log**, not just a code dump:
 - Labs
 - Notes
