@@ -60,15 +60,13 @@ I actively document my learning through labs, blog posts, and GitHub projects as
       <li>Microsoft Defender (Endpoint & O365)</li>
       <li>Identity lifecycle management</li>
       <li>Security baselines & MFA</li>
-    </ul>
-
-    <ul style="flex:1; line-height:1.8;">
       <li>Windows Server & Active Directory</li>
       <li>Endpoint security & patch management</li>
       <li>PowerShell automation</li>
       <li>Backup & disaster recovery</li>
       <li>Hybrid IT operations</li>
     </ul>
+
   </div>
 </section>
 
