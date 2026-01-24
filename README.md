@@ -18,7 +18,7 @@
     <img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
   </a>
 
-  <a href="https://lokeshm-it.github.io/lokeshm-it/" target="_blank">
+  <a href="https://lokeshm-it.github.io/Lokeshm-it/" target="_blank">
     <img src="https://img.shields.io/badge/PORTFOLIO-FF5722?style=for-the-badge&logo=readme&logoColor=white"/>
   </a>
 
