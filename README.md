@@ -44,7 +44,7 @@
 <h2 align="center">About Me</h2>
 <h3 align="center">
 </h3>  
-I’m an IT Infrastructure professional with 9+ years of hands-on experience supporting enterprise environments and a strong focus on the **Microsoft ecosystem**.
+I’m an IT Infrastructure professional with 9+ years of hands-on experience supporting enterprise environments and a strong focus on the Microsoft ecosystem.
 
 My current work centers around Microsoft 365 administration, identity & access management, endpoint security, and security operations fundamentals. I enjoy translating security concepts into practical, repeatable configurations, the kind that actually work in real organizations.
 
