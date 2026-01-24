@@ -367,3 +367,19 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===============================
+   CENTER HEADINGS (ABOUT / SKILLS / EXPERIENCE)
+================================ */
+
+.about-page h1,
+.about-page h2,
+.skills-page h1,
+.skills-page h2,
+.experience-page h1,
+.experience-page h2,
+.resume-page h1,
+.resume-page h2 {
+  text-align: center;
+}
+
