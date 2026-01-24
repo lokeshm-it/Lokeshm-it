@@ -82,8 +82,19 @@ I use GitHub as a **learning log**, not just a code dump:
 
 ---
 
-## 🤝 Let’s Connect
-- 🔗 LinkedIn: https://www.linkedin.com/in/lokesh-itinfra/
-- ✍️ Blog: https://techcertguide.blog
-- 🐦 X (Twitter): https://x.com/LokeshM365
-- 💬 Open to discussions on Microsoft 365, Security, and Cloud learning paths
+## 🤝 Connect With Me
+
+I'm always open to collaborating on interesting projects, discussing AI/ML innovations, and contributing to community projects — fixing bugs, improving documentation, and building reusable components for data and AI tooling.
+
+<p align="center">
+  <a href="https://www.linkedin.com/in/lokesh-itinfra/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
+  </a>
+  <a href="https://github.com/lokeshm-it" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
+  </a>
+  <a href="https://lokeshm-it.github.io/Lokeshm-it/" target="_blank">
+    <img src="https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=readme&logoColor=white"/>
+  </a>
+</p>
+
