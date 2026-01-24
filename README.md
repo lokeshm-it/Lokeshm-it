@@ -13,23 +13,6 @@ Senior Infrastructure Engineer • Microsoft 365 • Security • Azure
   <a href="https://lokeshm-it.github.io/Lokeshm-it/"><strong>▶ View Interactive Portfolio</strong></a>
 </p>
 
----
-
-### About This Repository
-
-This repository hosts my **interactive portfolio website**, built using
-HTML and CSS and deployed via **GitHub Pages**.
-
-The portfolio includes:
-- About Me
-- Skills & Technologies
-- Professional Experience
-- Projects & Labs
-- Resume (HTML + ATS DOCX)
-
-👉 **Click above to view the full experience.**
-
-
 </p>
 <h1 align="center">Lokesh M</h1>
 <h3 align="center">
