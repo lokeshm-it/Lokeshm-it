@@ -4,15 +4,6 @@
   </a>
 </p>
 
-<h2 align="center">Lokesh M</h2>
-<p align="center">
-Senior Infrastructure Engineer • Microsoft 365 • Security • Azure
-</p>
-
-<p align="center">
-  <a href="https://lokeshm-it.github.io/Lokeshm-it/"><strong>▶ View Interactive Portfolio</strong></a>
-</p>
-
 </p>
 <h1 align="center">Lokesh M</h1>
 <h3 align="center">
@@ -26,9 +17,9 @@ Senior Infrastructure Engineer • Microsoft 365 • Security • Azure
   <a href="https://www.linkedin.com/in/lokesh-itinfra/" target="_blank">
     <img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
   </a>
-  <a href="./details.md">
+  [<a href="./details.md">
     <img src="https://img.shields.io/badge/PORTFOLIO-FF5722?style=for-the-badge&logo=readme&logoColor=white"/>
-  </a>
+  </a>](https://lokeshm-it.github.io/lokeshm-it/)
   <a href="https://x.com/LokeshM365" target="_blank">
    <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white"/>
   </a>
