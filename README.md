@@ -1,7 +1,35 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Lokeshm-it/Lokeshm-it/main/banner.jpg"
-       alt="Microsoft 365 Azure Security Banner"
-       width="100%" />
+  <a href="https://lokeshm-it.github.io/lokeshm-it/">
+    <img src="banner.jpg" alt="Lokesh M Portfolio" />
+  </a>
+</p>
+
+<h2 align="center">Lokesh M</h2>
+<p align="center">
+Senior Infrastructure Engineer • Microsoft 365 • Security • Azure
+</p>
+
+<p align="center">
+  <a href="https://lokeshm-it.github.io/lokeshm-it/"><strong>▶ View Interactive Portfolio</strong></a>
+</p>
+
+---
+
+### About This Repository
+
+This repository hosts my **interactive portfolio website**, built using
+HTML and CSS and deployed via **GitHub Pages**.
+
+The portfolio includes:
+- About Me
+- Skills & Technologies
+- Professional Experience
+- Projects & Labs
+- Resume (HTML + ATS DOCX)
+
+👉 **Click above to view the full experience.**
+
+
 </p>
 <h1 align="center">Lokesh M</h1>
 <h3 align="center">
