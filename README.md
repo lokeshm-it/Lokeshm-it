@@ -52,7 +52,8 @@ I actively document my learning through labs, blog posts, and GitHub projects as
 
 <section class="experience-skills">
   <h2 style="text-align:center;">Core Experience</h2>
-
+  <h3 align="center">
+</h3>  
   <div style="display:flex; max-width:900px; margin:30px auto; gap:40px;">
     <ul style="flex:1; line-height:1.8;">
       <li>Microsoft 365 administration</li>
@@ -68,9 +69,11 @@ I actively document my learning through labs, blog posts, and GitHub projects as
     </ul>
 
   </div>
-</section>
 
-## 📊 GitHub Activity
+<section class="GitHub Activity">
+  <h2 style="text-align:center;">📊 GitHub Activity</h2>
+  <h3 align="center">
+</h3>
 I use GitHub as a **learning log**, not just a code dump:
 - Labs
 - Notes
@@ -80,10 +83,11 @@ I use GitHub as a **learning log**, not just a code dump:
 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=lokeshm&show_icons=true&theme=radical)
 
----
 
-## 🤝 Connect With Me
-
+<section class="Connect With Me">
+  <h2 style="text-align:center;">🤝 Connect With Me</h2>
+  <h3 align="center">
+</h3>
 I'm always open to collaborating on interesting projects, discussing AI/ML innovations, and contributing to community projects — fixing bugs, improving documentation, and building reusable components for data and AI tooling.
 
 <p align="center">
@@ -97,4 +101,4 @@ I'm always open to collaborating on interesting projects, discussing AI/ML innov
     <img src="https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=readme&logoColor=white"/>
   </a>
 </p>
-
+</section>
