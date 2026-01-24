@@ -1,63 +1,66 @@
-# Hi, I’m LOKESH M
+# Lokesh M  
+**Senior Infrastructure Engineer | Microsoft 365 | Security | Azure**
 
-### Senior Infrastructure Engineer with 9+ years of hands-on experience building, securing, and operating hybrid IT environments (on-prem + Microsoft cloud).
-
----
-
-<p align="center">
-  <a href="./projects">
-    <strong>View Projects</strong>
-  </a>
-  &nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="./resume">
-    <strong>Resume</strong>
-  </a>
-</p>
+IT Infrastructure professional with **9+ years of hands-on experience** supporting
+enterprise environments, with a strong focus on Microsoft 365 administration,
+identity & access management, endpoint security, and security operations.
 
 ---
 
-## Core Focus Areas
+## 🌐 Portfolio Website (HTML)
 
-### Microsoft 365 & Security Solutions  
-Designing, securing, and managing Microsoft 365 environments with a strong focus on identity, endpoint protection, and compliance controls.
-
-### Cloud & Identity (Microsoft Azure)  
-Working with Microsoft Azure fundamentals, Entra ID, and hybrid identity models to support secure, scalable cloud adoption.
-
-### Infrastructure & Automation (PowerShell, Hybrid IT)  
-Supporting on-prem and hybrid infrastructure with automation, monitoring, patching, and operational reliability in mind.
-
-### GitHub Open-Source & Documentation Contributor  
-Sharing practical labs, scripts, and documentation to help IT professionals learn Microsoft 365, security, and cloud concepts clearly.
+👉 **Live Portfolio (Recommended View)**  
+https://lokeshm-it.github.io/lokeshm-it/index.html
 
 ---
 
-## Key Metrics
+## 🔗 Quick Navigation
 
-<p align="center">
-  <strong>15+</strong><br/>
-  Projects Completed
-</p>
+- 🏠 **Home**  
+  https://lokeshm-it.github.io/lokeshm-it/index.html
 
-<p align="center">
-  <strong>9+</strong><br/>
-  Years Experience
-</p>
+- 👤 **About Me**  
+  https://lokeshm-it.github.io/lokeshm-it/About.html
 
-<p align="center">
-  <strong>15+</strong><br/>
-  GitHub Contributions
-</p>
+- 🛠 **Skills & Technologies**  
+  https://lokeshm-it.github.io/lokeshm-it/Skills.html
 
-<p align="center">
-  <strong>30+</strong><br/>
-  Microsoft & IT Skills
-</p>
+- 🧭 **Professional Experience**  
+  https://lokeshm-it.github.io/lokeshm-it/Experience.html
+
+- 📂 **Projects & Labs**  
+  https://lokeshm-it.github.io/lokeshm-it/projects/
+
+- 📄 **Resume (HTML)**  
+  https://lokeshm-it.github.io/lokeshm-it/Resume.html
+
+- ⬇ **Resume (ATS DOCX Download)**  
+  https://github.com/lokeshm-it/lokeshm-it/raw/main/Resume.docx
 
 ---
 
-### Professional Focus
+## 🧠 Focus Areas
 
-This portfolio highlights **real-world IT operations**, not theory.  
-My work reflects hands-on experience with enterprise environments, security-first thinking, and continuous learning across Microsoft 365, security, and cloud platforms.
+- Microsoft 365 tenant administration & security
+- Microsoft Entra ID & Conditional Access
+- Microsoft Defender (Endpoint & Office 365)
+- Microsoft Purview (compliance fundamentals)
+- Hybrid IT infrastructure & operations
+- PowerShell automation for administrators
 
+---
+
+## ✍️ Writing & Knowledge Sharing
+
+I document hands-on labs and certification learning at:
+
+**TechCertGuide**  
+https://techcertguide.blog/
+
+---
+
+## 📫 Connect
+
+- LinkedIn: https://www.linkedin.com/in/lokesh-itinfra/
+- GitHub: https://github.com/lokeshm-it
+- X (Twitter): https://x.com/LokeshM365
