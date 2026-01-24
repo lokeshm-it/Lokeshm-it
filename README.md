@@ -84,9 +84,10 @@ I use GitHub as a **learning log**, not just a code dump:
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=lokeshm&show_icons=true&theme=radical)
 
 
-<section class="Connect-With-Me">
-  <h2 style="text-align:center;">🤝 Connect With Me</h2>
-  <h3 align="center"></h3>
+  <section class="connect-with-me">
+  <h2>🤝 Connect With Me</h2>
+</section>
+
 I'm always open to collaborating on interesting projects, discussing AI/ML innovations, and contributing to community projects — fixing bugs, improving documentation, and building reusable components for data and AI tooling.
 
 <p align="center">
