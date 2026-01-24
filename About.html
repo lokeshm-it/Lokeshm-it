@@ -2,135 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Lokesh M | About</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | Lokesh M</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
 
-<main class="about-page">
+<!-- LEFT PROFILE PANEL (SAME ON ALL PAGES) -->
+<aside class="profile-card">
+  <h2>LOKESH M</h2>
+  <p class="title">Senior Infrastructure Engineer</p>
+  <p class="tags">Microsoft 365 • Security • Azure</p>
 
-  <!-- HERO -->
-  <header class="about-hero">
-    <h1>About Me</h1>
-    <p>
-      IT Infrastructure professional with <strong>10+ years of hands-on experience</strong>
-      supporting enterprise environments and a strong focus on the
-      <strong>Microsoft ecosystem</strong>.
-    </p>
-  </header>
+  <div class="availability">
+    <span class="dot"></span>
+    Open to learning • Freelance
+  </div>
 
-  <hr class="section-divider" />
+  <div class="social-row">
+    <a href="https://www.linkedin.com/in/lokesh-itinfra/" target="_blank">in</a>
+    <a href="https://github.com/lokeshm-it" target="_blank">GH</a>
+    <a href="https://techcertguide.blog/" target="_blank">Blog</a>
+  </div>
 
-  <!-- INTRO -->
-  <section class="about-section">
-    <h2>Who I Am</h2>
-    <p>
-      My current work centers around Microsoft 365 administration, identity and access
-      management, endpoint security, and security operations fundamentals.
-      I enjoy translating security concepts into
-      <strong>practical, repeatable configurations</strong> — the kind that actually
-      work in real organizations.
-    </p>
-    <p>
-      I actively document my learning through labs, blog posts, and GitHub projects as I
-      continue my transition deeper into <strong>Microsoft Security and Cloud</strong>.
-    </p>
-  </section>
+  <a class="big-btn outline" href="mailto:lokeshmurali45@gmail.com">✉ Email</a>
+  <a class="big-btn solid" href="Resume.html">⬇ Resume</a>
+</aside>
 
-  <hr class="section-divider" />
+<!-- MAIN CONTENT (ONLY THIS CHANGES) -->
+<main class="content">
 
-  <!-- CURRENT FOCUS -->
-  <section class="about-section">
-    <h2>What I’m Focused On Right Now</h2>
-    <ul>
-      <li>Securing Microsoft 365 tenants using real-world security controls</li>
-      <li>Identity-first security with Microsoft Entra ID</li>
-      <li>Understanding threats, alerts, and investigations using Microsoft Defender</li>
-      <li>Learning Microsoft Purview for data protection and compliance</li>
-      <li>Building cloud fundamentals with Azure (AZ-900 → intermediate concepts)</li>
-    </ul>
-  </section>
+  <section class="about-page">
 
-  <hr class="section-divider" />
+    <div class="about-hero">
+      <h1>About Me</h1>
+      <p>
+        I’m an IT Infrastructure professional with 10+ years of hands-on experience
+        supporting enterprise environments with a strong focus on the Microsoft ecosystem.
+      </p>
+    </div>
 
-  <!-- SECURITY STACK -->
-  <section class="about-section">
-    <h2>Microsoft Security Stack (Hands-On)</h2>
-    <ul>
-      <li>Microsoft Defender for Endpoint (alerts and investigation basics)</li>
-      <li>Microsoft Defender for Office 365</li>
-      <li>Microsoft Entra ID (Azure AD) and Conditional Access</li>
-      <li>Microsoft Purview (information protection fundamentals)</li>
-      <li>Security baselines and policy-driven security</li>
-    </ul>
-  </section>
+    <hr class="section-divider">
 
-  <hr class="section-divider" />
+    <div class="about-section">
+      <h2>What I’m Focused On</h2>
+      <ul>
+        <li>Securing Microsoft 365 tenants using real-world controls</li>
+        <li>Identity-first security with Microsoft Entra ID</li>
+        <li>Microsoft Defender alerts and investigations</li>
+        <li>Microsoft Purview fundamentals</li>
+        <li>Azure cloud fundamentals</li>
+      </ul>
+    </div>
 
-  <!-- M365 ADMIN -->
-  <section class="about-section">
-    <h2>Microsoft 365 Administration</h2>
-    <ul>
-      <li>Exchange Online administration</li>
-      <li>SharePoint Online and OneDrive governance</li>
-      <li>Microsoft Teams administration</li>
-      <li>Tenant-level security and compliance configuration</li>
-      <li>User lifecycle management (joiners, movers, leavers)</li>
-    </ul>
-  </section>
-
-  <hr class="section-divider" />
-
-  <!-- INFRA -->
-  <section class="about-section">
-    <h2>Infrastructure & Operations</h2>
-    <ul>
-      <li>Windows Server and Active Directory</li>
-      <li>Backup and Disaster Recovery planning</li>
-      <li>Patch management and vulnerability remediation</li>
-      <li>Network administration fundamentals</li>
-      <li>Endpoint management and baseline security hardening</li>
-    </ul>
-  </section>
-
-  <hr class="section-divider" />
-
-  <!-- AUTOMATION -->
-  <section class="about-section">
-    <h2>Automation & Scripting</h2>
-    <ul>
-      <li>PowerShell for user management, reporting, and security checks</li>
-      <li>Administrative task automation for consistency and scale</li>
-      <li>Beginner-level KQL through Defender and Sentinel learning scenarios</li>
-    </ul>
-    <p class="about-note">
-      My goal isn’t flashy code — it’s <strong>clear, reusable security understanding</strong>.
-    </p>
-  </section>
-
-  <hr class="section-divider" />
-
-  <!-- WRITING -->
-  <section class="about-section">
-    <h2>Writing & Knowledge Sharing</h2>
-    <p>
-      I write beginner-friendly, practical content on Microsoft certifications and
-      security concepts at <strong>TechCertGuide</strong>.
-    </p>
-    <ul>
-      <li>MFA & Identity Protection in SC-900</li>
-      <li>Authentication vs Authorization (Explained Simply)</li>
-      <li>Why Identity Is the Foundation of Microsoft Security</li>
-      <li>SC-900 vs AZ-900 vs SC-300 (Career Guidance)</li>
-    </ul>
-    <p class="about-note">
-      I write the way I learn: <strong>slow, structured, and practical</strong>.
-    </p>
   </section>
 
 </main>
+
+<!-- RIGHT NAV (SAME ON ALL PAGES) -->
+<nav class="side-nav">
+  <a href="index.html">Home</a>
+  <a href="About.html">About</a>
+  <a href="Skills.html">Skills</a>
+  <a href="Experience.html">Experience</a>
+  <a href="https://github.com/lokeshm-it/Lokeshm-it/projects?query=is%3Aopen" target="_blank">Projects</a>
+  <a href="Resume.html">Resume</a>
+</nav>
 
 </body>
 </html>
