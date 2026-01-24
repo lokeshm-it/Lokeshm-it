@@ -175,12 +175,22 @@ body {
 
 .hero {
   text-align: center;
+  max-width: 900px;
+  margin: 0 auto 80px;
 }
 
 .hero h1 {
-  font-size: 42px;
-  margin-bottom: 15px;
+  font-size: 3rem;
+  margin-bottom: 16px;
 }
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
 
 .hero p {
   font-size: 16px;
@@ -190,9 +200,9 @@ body {
 }
 
 .hero-buttons {
-  margin-top: 20px;
   display: flex;
   justify-content: center;
+  gap: 16px;
 }
 
 .hero-buttons {
@@ -200,20 +210,29 @@ body {
 }
 
 .btn {
-  padding: 10px 16px;
-  border-radius: 6px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
   text-decoration: none;
-  margin-right: 10px;
+  font-size: 0.95rem;
 }
 
 .btn.primary {
-  background: #1f6feb;
+  background: #2563eb;
   color: #fff;
 }
 
 .btn.secondary {
-  background: #1f6feb;
-  color: #ffffff;
+  background: #e5e7eb;
+  color: #111;
+}
+
+.btn.primary:hover {
+  background: #1d4ed8;
+}
+
+.btn.secondary:hover {
+  background: #d1d5db;
 }
 
 
@@ -518,4 +537,5 @@ body {
   height: 100vh;
   border: none;
 }
+
 
