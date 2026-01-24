@@ -85,8 +85,7 @@ I use GitHub as a **learning log**, not just a code dump:
 
 
   <section class="connect-with-me">
-  <h2>🤝 Connect With Me</h2>
-</section>
+<h2 align="center">🤝 Connect With Me</h2>
 
 I'm always open to collaborating on interesting projects, discussing AI/ML innovations, and contributing to community projects — fixing bugs, improving documentation, and building reusable components for data and AI tooling.
 
