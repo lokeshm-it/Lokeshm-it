@@ -50,7 +50,27 @@ My current work centers around **Microsoft 365 administration, identity & access
 
 I actively document my learning through labs, blog posts, and GitHub projects as I continue my transition deeper into **Microsoft Security and Cloud**.
 
+<section class="experience-skills">
+  <h2 style="text-align:center;">Core Experience</h2>
 
+  <div style="display:flex; max-width:900px; margin:30px auto; gap:40px;">
+    <ul style="flex:1; line-height:1.8;">
+      <li>Microsoft 365 administration</li>
+      <li>Microsoft Entra ID & Conditional Access</li>
+      <li>Microsoft Defender (Endpoint & O365)</li>
+      <li>Identity lifecycle management</li>
+      <li>Security baselines & MFA</li>
+    </ul>
+
+    <ul style="flex:1; line-height:1.8;">
+      <li>Windows Server & Active Directory</li>
+      <li>Endpoint security & patch management</li>
+      <li>PowerShell automation</li>
+      <li>Backup & disaster recovery</li>
+      <li>Hybrid IT operations</li>
+    </ul>
+  </div>
+</section>
 
 ## 📊 GitHub Activity
 I use GitHub as a **learning log**, not just a code dump:
