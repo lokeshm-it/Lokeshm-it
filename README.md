@@ -71,7 +71,7 @@ I actively document my learning through labs, blog posts, and GitHub projects as
 <section class="GitHub-Activity">
   <h2 align="center">📊 GitHub Activity</h2>
   
-I use GitHub as a **learning log**, not just a code dump:
+I use GitHub as a learning log, not just a code dump:
 - Labs
 - Notes
 - Scripts
