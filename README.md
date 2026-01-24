@@ -10,7 +10,7 @@ Senior Infrastructure Engineer • Microsoft 365 • Security • Azure
 </p>
 
 <p align="center">
-  <a href="https://lokeshm-it.github.io/lokeshm-it/"><strong>▶ View Interactive Portfolio</strong></a>
+  <a href="https://lokeshm-it.github.io/Lokeshm-it/"><strong>▶ View Interactive Portfolio</strong></a>
 </p>
 
 ---
