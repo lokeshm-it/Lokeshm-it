@@ -383,3 +383,70 @@ body {
   text-align: center;
 }
 
+
+/* PROJECTS PAGE */
+
+.projects-page {
+  max-width: 1100px;
+  margin: 60px auto;
+}
+
+.projects-hero {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.projects-hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.projects-hero p {
+  color: #57606a;
+}
+
+.role-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.role-card {
+  background: linear-gradient(145deg, #ffffff, #f3f4f6);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  color: #0d1117;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.role-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+.role-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.role-card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.role-card p {
+  font-size: 14px;
+  color: #57606a;
+}
+
+/* Accent colors */
+
+.m365 { border-top: 4px solid #0078d4; }
+.intune { border-top: 4px solid #5c2d91; }
+.security { border-top: 4px solid #d83b01; }
+.compliance { border-top: 4px solid #107c10; }
