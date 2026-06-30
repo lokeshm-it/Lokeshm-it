@@ -1048,4 +1048,379 @@ graph TD
                     <thead>
                         <tr>
                             <th scope="col">Category</th>
-                            <th scope="col
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Device Enrollment</td><td>Completed</td></tr>
+                        <tr><td>Configuration Profiles</td><td>Completed</td></tr>
+                        <tr><td>Compliance Policies</td><td>Completed</td></tr>
+                        <tr><td>Endpoint Security</td><td>Completed</td></tr>
+                        <tr><td>Conditional Access Integration</td><td>Completed</td></tr>
+                        <tr><td>Reporting &amp; Monitoring</td><td>Completed</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 8. SECURITY CONTROLS IMPLEMENTED -->
+            <section class="pd-section" aria-labelledby="section-security-controls">
+                <h2 class="pd-section-title" id="section-security-controls">&#128737;&#65039; Security Controls Implemented</h2>
+                <div class="project-tech-row" role="list" aria-label="Security controls implemented">
+                    <span class="tech-tag" role="listitem">Zero Trust</span>
+                    <span class="tech-tag" role="listitem">Microsoft Entra ID</span>
+                    <span class="tech-tag" role="listitem">Conditional Access</span>
+                    <span class="tech-tag" role="listitem">Compliance Policies</span>
+                    <span class="tech-tag" role="listitem">BitLocker</span>
+                    <span class="tech-tag" role="listitem">Windows Firewall</span>
+                    <span class="tech-tag" role="listitem">Microsoft Defender</span>
+                    <span class="tech-tag" role="listitem">Endpoint Security</span>
+                    <span class="tech-tag" role="listitem">Device Compliance</span>
+                    <span class="tech-tag" role="listitem">Cloud Management</span>
+                </div>
+            </section>
+
+            <!-- 9. KEY HIGHLIGHTS -->
+            <section class="pd-section" aria-labelledby="section-highlights">
+                <h2 class="pd-section-title" id="section-highlights">&#11088; Key Highlights</h2>
+                <ul>
+                    <li>Implemented Microsoft Zero Trust principles across the entire device lifecycle.</li>
+                    <li>Configured an enterprise-grade Microsoft Intune environment from the ground up.</li>
+                    <li>Applied device compliance policies enforcing BitLocker, Defender, and OS version requirements.</li>
+                    <li>Deployed configuration profiles standardising password policies and Windows security settings.</li>
+                    <li>Integrated Conditional Access to block non-compliant devices from Microsoft 365 resources.</li>
+                    <li>Implemented endpoint protection using Microsoft Defender with Attack Surface Reduction rules.</li>
+                    <li>Validated successful policy deployment and confirmed compliance status in the Intune portal.</li>
+                    <li>Documented the complete implementation with 30+ screenshots for evidence and review.</li>
+                </ul>
+            </section>
+
+            <!-- 10. IMPLEMENTATION SCREENSHOTS -->
+            <section class="pd-section" aria-labelledby="section-screenshots">
+                <h2 class="pd-section-title" id="section-screenshots">&#128248; Implementation Screenshots</h2>
+                <p class="pd-section-lead">
+                    The following screenshots document each stage of the implementation. They provide evidence of the Microsoft Intune configuration and validation process.
+                </p>
+                <div class="project-gallery">
+                    <div class="gallery-item">
+                        <img src="images/01-device-enrollment.png"
+                             alt="Device Enrollment — Microsoft Intune portal showing enrolled Windows 11 device"
+                             width="400" height="250"
+                             loading="lazy">
+                        <p class="gallery-caption">Device Enrollment</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/02-configuration-profiles.png"
+                             alt="Configuration Profiles — Intune configuration profiles list"
+                             width="400" height="250"
+                             loading="lazy">
+                        <p class="gallery-caption">Configuration Profiles</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/03-compliance-policy.png"
+                             alt="Compliance Policy — Windows compliance policy settings"
+                             width="400" height="250"
+                             loading="lazy">
+                        <p class="gallery-caption">Compliance Policy</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/04-endpoint-security.png"
+                             alt="Endpoint Security — Endpoint security configuration in Intune"
+                             width="400" height="250"
+                             loading="lazy">
+                        <p class="gallery-caption">Endpoint Security</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/05-conditional-access.png"
+                             alt="Conditional Access Integration — Entra ID Conditional Access policy"
+                             width="400" height="250"
+                             loading="lazy">
+                        <p class="gallery-caption">Conditional Access Integration</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/06-device-status.png"
+                             alt="Deployment Validation — Device compliance status in Intune portal"
+                             width="400" height="250"
+                             loading="lazy">
+                        <p class="gallery-caption">Deployment Validation</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 11. POWERSHELL AUTOMATION -->
+            <section class="pd-section" aria-labelledby="section-powershell">
+                <h2 class="pd-section-title" id="section-powershell">&#128187; PowerShell Automation</h2>
+                <p class="pd-section-lead">
+                    PowerShell was used to automate administrative tasks, validate device configuration, and interact with Microsoft Graph where applicable.
+                </p>
+                <pre class="code-block"><code class="language-powershell"># Connect to Microsoft Graph
+Connect-MgGraph -Scopes "DeviceManagementManagedDevices.Read.All"
+
+# Retrieve all managed devices
+Get-MgDeviceManagementManagedDevice
+
+# Retrieve Intune managed devices (legacy cmdlet)
+Get-IntuneManagedDevice</code></pre>
+                <p>
+                    Additional production-ready PowerShell scripts are included in the
+                    <strong>scripts</strong> folder of this repository.
+                </p>
+            </section>
+
+            <!-- 12. VALIDATION -->
+            <section class="pd-section" aria-labelledby="section-validation">
+                <h2 class="pd-section-title" id="section-validation">&#9989; Validation</h2>
+                <table class="project-table" aria-label="Validation results">
+                    <thead>
+                        <tr>
+                            <th scope="col">Validation Item</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Device Successfully Enrolled</td><td>&#9989; Passed</td></tr>
+                        <tr><td>Configuration Profiles Applied</td><td>&#9989; Passed</td></tr>
+                        <tr><td>Compliance Policy Evaluated</td><td>&#9989; Passed</td></tr>
+                        <tr><td>Conditional Access Tested</td><td>&#9989; Passed</td></tr>
+                        <tr><td>Microsoft Defender Reporting</td><td>&#9989; Passed</td></tr>
+                        <tr><td>Device Synchronization</td><td>&#9989; Passed</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 13. LESSONS LEARNED -->
+            <section class="pd-section" aria-labelledby="section-lessons">
+                <h2 class="pd-section-title" id="section-lessons">&#128218; Lessons Learned</h2>
+                <ul>
+                    <li>Always pilot Intune policies on a test group before deploying to production.</li>
+                    <li>Use dynamic device groups to simplify policy assignment and administration.</li>
+                    <li>Integrate Compliance Policies with Conditional Access for end-to-end enforcement.</li>
+                    <li>Test Configuration Profiles on a small device group before broad assignment.</li>
+                    <li>Use Security Baselines as a starting point rather than relying on default policies.</li>
+                    <li>Monitor deployment reports regularly to identify failed or pending assignments.</li>
+                    <li>Document every configuration change for audit trails and future troubleshooting.</li>
+                </ul>
+            </section>
+
+            <!-- 14. TROUBLESHOOTING -->
+            <section class="pd-section" aria-labelledby="section-troubleshooting">
+                <h2 class="pd-section-title" id="section-troubleshooting">&#128295; Troubleshooting</h2>
+                <table class="project-table" aria-label="Troubleshooting guide">
+                    <thead>
+                        <tr>
+                            <th scope="col">Issue</th>
+                            <th scope="col">Resolution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Device not enrolling</td><td>Verify MDM user scope and licensing assignment.</td></tr>
+                        <tr><td>Compliance policy not evaluating</td><td>Force device synchronization from the Intune portal.</td></tr>
+                        <tr><td>Configuration Profile failed</td><td>Review assignment groups and check for policy conflicts.</td></tr>
+                        <tr><td>Conditional Access blocking device</td><td>Verify compliance state in Microsoft Entra ID.</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 15. SKILLS DEMONSTRATED -->
+            <section class="pd-section" aria-labelledby="section-skills">
+                <h2 class="pd-section-title" id="section-skills">&#127919; Skills Demonstrated</h2>
+                <div class="project-tech-row" role="list" aria-label="Skills demonstrated">
+                    <span class="tech-tag" role="listitem">Microsoft Intune</span>
+                    <span class="tech-tag" role="listitem">Windows Autopilot</span>
+                    <span class="tech-tag" role="listitem">Compliance Policies</span>
+                    <span class="tech-tag" role="listitem">Configuration Profiles</span>
+                    <span class="tech-tag" role="listitem">Conditional Access</span>
+                    <span class="tech-tag" role="listitem">Microsoft Entra ID</span>
+                    <span class="tech-tag" role="listitem">Endpoint Security</span>
+                    <span class="tech-tag" role="listitem">Microsoft Defender</span>
+                    <span class="tech-tag" role="listitem">PowerShell</span>
+                    <span class="tech-tag" role="listitem">Microsoft Graph</span>
+                    <span class="tech-tag" role="listitem">Zero Trust</span>
+                    <span class="tech-tag" role="listitem">Enterprise Security</span>
+                </div>
+            </section>
+
+            <!-- 16. FUTURE IMPROVEMENTS -->
+            <section class="pd-section" aria-labelledby="section-future">
+                <h2 class="pd-section-title" id="section-future">&#128640; Future Improvements</h2>
+                <ul>
+                    <li>Windows LAPS integration for local administrator password management.</li>
+                    <li>Microsoft Tunnel deployment for secure on-premises resource access.</li>
+                    <li>Endpoint Privilege Management for least-privilege enforcement.</li>
+                    <li>Application Protection Policies for mobile application management.</li>
+                    <li>Windows Autopatch implementation for automated OS and driver updates.</li>
+                    <li>Microsoft Defender for Endpoint full integration and advanced threat hunting.</li>
+                    <li>Device Health Attestation for hardware-based compliance verification.</li>
+                    <li>Automated compliance reporting using Microsoft Graph API.</li>
+                </ul>
+            </section>
+
+            <!-- 17. REFERENCES -->
+            <section class="pd-section" aria-labelledby="section-references">
+                <h2 class="pd-section-title" id="section-references">&#128214; References</h2>
+                <ul>
+                    <li><a href="https://learn.microsoft.com/en-us/mem/intune/" target="_blank" rel="noopener noreferrer">Microsoft Learn &#8212; Microsoft Intune</a></li>
+                    <li><a href="https://learn.microsoft.com/en-us/entra/identity/" target="_blank" rel="noopener noreferrer">Microsoft Learn &#8212; Microsoft Entra ID</a></li>
+                    <li><a href="https://learn.microsoft.com/en-us/entra/identity/conditional-access/" target="_blank" rel="noopener noreferrer">Microsoft Learn &#8212; Conditional Access</a></li>
+                    <li><a href="https://learn.microsoft.com/en-us/autopilot/" target="_blank" rel="noopener noreferrer">Microsoft Learn &#8212; Windows Autopilot</a></li>
+                    <li><a href="https://learn.microsoft.com/en-us/security/" target="_blank" rel="noopener noreferrer">Microsoft Security Documentation</a></li>
+                    <li><a href="https://learn.microsoft.com/en-us/powershell/microsoftgraph/" target="_blank" rel="noopener noreferrer">Microsoft Graph PowerShell SDK</a></li>
+                </ul>
+            </section>
+
+            <!-- THANK YOU CTA -->
+            <section class="pd-cta" aria-labelledby="section-thankyou">
+                <h2 id="section-thankyou">Thank You for Reviewing This Project</h2>
+                <p>
+                    This project demonstrates practical enterprise implementation of Microsoft Intune and Zero Trust device management using Microsoft best practices. It forms part of my Microsoft Infrastructure Portfolio, showcasing real-world administration, security and endpoint management skills developed through hands-on lab environments.
+                </p>
+                <div class="project-detail-hero-actions">
+                    <a href="https://github.com/lokeshm-it/Zero-Trust-Device-Enforcement"
+                       class="btn-view-project"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View GitHub Repository &#8594;
+                    </a>
+                    <a href="intune-admin.html" class="btn-view-github">
+                        &#8592; Back to Intune Projects
+                    </a>
+                </div>
+            </section>
+
+            <!-- RELATED PROJECTS -->
+            <section class="pd-section" aria-labelledby="section-related">
+                <h2 class="pd-section-title" id="section-related">&#128279; Related Projects</h2>
+                <div class="project-cards-grid">
+
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">Microsoft 365 Administration</h3>
+                            <p class="project-card-desc">
+                                Enterprise administration of Exchange Online, Microsoft Teams, SharePoint Online, OneDrive, Licensing, Hybrid Identity and Microsoft 365 services.
+                            </p>
+                            <a href="microsoft365.html" class="btn-view-project">
+                                View Microsoft 365 &#8594;
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">Microsoft Security</h3>
+                            <p class="project-card-desc">
+                                Microsoft Defender XDR, Sentinel, Identity Protection, Conditional Access and Zero Trust Security.
+                            </p>
+                            <button class="btn-coming-soon" disabled aria-disabled="true">
+                                Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">Microsoft Compliance</h3>
+                            <p class="project-card-desc">
+                                Microsoft Purview, DLP, Information Protection, Insider Risk, eDiscovery and Compliance.
+                            </p>
+                            <button class="btn-coming-soon" disabled aria-disabled="true">
+                                Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- PROJECT INFORMATION -->
+            <section class="pd-section" aria-labelledby="section-project-info">
+                <h2 class="pd-section-title" id="section-project-info">&#128204; Project Information</h2>
+                <table class="project-table" aria-label="Project information">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Category</th>
+                            <td>Microsoft Intune Administration</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Project</th>
+                            <td>Zero Trust Device Enforcement</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Status</th>
+                            <td>&#9989; Completed</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Experience Level</th>
+                            <td>Enterprise</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Author</th>
+                            <td>Lokesh M</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Repository</th>
+                            <td>
+                                <a href="https://github.com/lokeshm-it/Zero-Trust-Device-Enforcement"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    GitHub Repository &#8594;
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Technology</th>
+                            <td>Microsoft Intune, Entra ID, Defender, PowerShell</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </main><!-- /main -->
+
+    </div><!-- /project-detail-page -->
+
+    <!-- PORTFOLIO CTA + FOOTER -->
+    <footer class="pd-footer">
+        <div class="pd-footer-inner">
+
+            <!-- Portfolio CTA -->
+            <section class="pd-cta" aria-labelledby="section-portfolio-cta">
+                <h2 id="section-portfolio-cta">Interested in my Microsoft Infrastructure Portfolio?</h2>
+                <p>
+                    This project is part of my enterprise Microsoft Infrastructure Portfolio documenting real-world Microsoft 365, Intune, Security, Identity and PowerShell implementations.
+                </p>
+                <div class="project-detail-hero-actions">
+                    <a href="https://github.com/lokeshm-it/Zero-Trust-Device-Enforcement"
+                       class="btn-view-project"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        GitHub Repository &#8594;
+                    </a>
+                    <a href="intune-admin.html" class="btn-view-github">
+                        &#8592; Back to Intune Projects
+                    </a>
+                    <a href="Projects.html" class="btn-view-github">
+                        All Projects
+                    </a>
+                </div>
+            </section>
+
+            <!-- Site Navigation -->
+            <nav aria-label="Site navigation">
+                <ul class="pd-footer-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="Skills.html">Skills</a></li>
+                    <li><a href="Experience.html">Experience</a></li>
+                    <li><a href="Projects.html">Projects</a></li>
+                    <li><a href="Resume.html">Resume</a></li>
+                </ul>
+            </nav>
+
+            <p class="pd-footer-copy">
+                &copy; 2026 Lokesh M &#8212; Microsoft Infrastructure Portfolio
+            </p>
+
+        </div>
+    </footer>
+
+</body>
+</html>
