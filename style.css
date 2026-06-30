@@ -1320,3 +1320,54 @@ body {
     flex-wrap: wrap;
   }
 }
+
+.resume-page {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.resume-header h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.resume-header p {
+  font-size: 16px;
+  color: #57606a;
+  max-width: 750px;
+}
+
+.resume-section {
+  margin-top: 50px;
+}
+
+.resume-section h2 {
+  font-size: 24px;
+  border-bottom: 2px solid #eaeef2;
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+}
+
+.item {
+  margin-bottom: 24px;
+}
+
+.item .year {
+  font-size: 13px;
+  color: #57606a;
+}
+
+.item h3 {
+  font-size: 18px;
+  margin: 4px 0;
+}
+
+.cert-list {
+  padding-left: 18px;
+}
+
+.resume-download {
+  margin-top: 60px;
+  text-align: center;
+}
