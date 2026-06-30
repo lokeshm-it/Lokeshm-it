@@ -56,22 +56,10 @@
   <section class="pd-section">
     <h2 class="pd-section-title"><span class="pd-section-icon">&#128196;</span> Project Overview</h2>
     <div class="pd-overview-grid">
-      <div class="pd-overview-card">
-        <h4>Objective</h4>
-        <p>Implement the Identity pillar of Microsoft Zero Trust by replacing Security Defaults with a layered Conditional Access policy framework integrating Entra ID Protection risk signals.</p>
-      </div>
-      <div class="pd-overview-card">
-        <h4>Deployment Pattern</h4>
-        <p>Every policy was first deployed in <strong>Report-Only</strong> mode, monitored via Sign-in Logs, validated for impact, then switched to <strong>Enabled (Enforced)</strong> &mdash; zero-disruption rollout.</p>
-      </div>
-      <div class="pd-overview-card">
-        <h4>Environment</h4>
-        <p>Live Microsoft 365 tenant using Business Premium / E3 licensing. Entra ID P2 features (Identity Protection + PIM) required. All configurations validated with portal screenshots.</p>
-      </div>
-      <div class="pd-overview-card">
-        <h4>Core Principle</h4>
-        <p><em>&ldquo;Verify explicitly, use least privilege access, assume breach.&rdquo;</em> Applied across all identity-driven access decisions in the Microsoft 365 environment.</p>
-      </div>
+      <div class="pd-overview-card"><h4>Objective</h4><p>Implement the Identity pillar of Microsoft Zero Trust by replacing Security Defaults with a layered Conditional Access policy framework integrating Entra ID Protection risk signals.</p></div>
+      <div class="pd-overview-card"><h4>Deployment Pattern</h4><p>Every policy was first deployed in <strong>Report-Only</strong> mode, monitored via Sign-in Logs, validated for impact, then switched to <strong>Enabled (Enforced)</strong> &mdash; zero-disruption rollout.</p></div>
+      <div class="pd-overview-card"><h4>Environment</h4><p>Live Microsoft 365 tenant using Business Premium / E3 licensing. Entra ID P2 features (Identity Protection + PIM) required. All configurations validated with portal screenshots.</p></div>
+      <div class="pd-overview-card"><h4>Core Principle</h4><p><em>&ldquo;Verify explicitly, use least privilege access, assume breach.&rdquo;</em> Applied across all identity-driven access decisions in the Microsoft 365 environment.</p></div>
     </div>
   </section>
 
@@ -80,30 +68,10 @@
     <h2 class="pd-section-title"><span class="pd-section-icon">&#9888;&#65039;</span> Business Problem</h2>
     <p class="pd-section-lead">Modern enterprises face an identity-centric threat landscape. Without a structured Conditional Access framework, organisations rely entirely on password strength &mdash; a fundamentally insufficient control against modern credential-based attacks.</p>
     <div class="pd-problem-list">
-      <div class="pd-problem-item">
-        <div class="pd-problem-icon">&#128272;</div>
-        <div>
-          <strong>Over 99% of account compromise attacks</strong> can be prevented by enabling MFA &mdash; yet many organisations still rely on Security Defaults alone.
-        </div>
-      </div>
-      <div class="pd-problem-item">
-        <div class="pd-problem-icon">&#128683;</div>
-        <div>
-          <strong>Legacy authentication protocols</strong> (SMTP AUTH, POP3, IMAP, Basic Auth) bypass modern authentication controls and cannot enforce MFA.
-        </div>
-      </div>
-      <div class="pd-problem-item">
-        <div class="pd-problem-icon">&#128081;</div>
-        <div>
-          <strong>Privileged accounts with standing access</strong> represent a critical blast radius &mdash; if compromised, attackers have unlimited, time-unrestricted access.
-        </div>
-      </div>
-      <div class="pd-problem-item">
-        <div class="pd-problem-icon">&#127760;</div>
-        <div>
-          <strong>Risky sign-ins</strong> from anonymous IPs, unfamiliar locations, and atypical travel go unchallenged without intelligent risk-based policies.
-        </div>
-      </div>
+      <div class="pd-problem-item"><div class="pd-problem-icon">&#128272;</div><div><strong>Over 99% of account compromise attacks</strong> can be prevented by enabling MFA &mdash; yet many organisations still rely on Security Defaults alone.</div></div>
+      <div class="pd-problem-item"><div class="pd-problem-icon">&#128683;</div><div><strong>Legacy authentication protocols</strong> (SMTP AUTH, POP3, IMAP, Basic Auth) bypass modern authentication controls and cannot enforce MFA.</div></div>
+      <div class="pd-problem-item"><div class="pd-problem-icon">&#128081;</div><div><strong>Privileged accounts with standing access</strong> represent a critical blast radius &mdash; if compromised, attackers have unlimited, time-unrestricted access.</div></div>
+      <div class="pd-problem-item"><div class="pd-problem-icon">&#127760;</div><div><strong>Risky sign-ins</strong> from anonymous IPs, unfamiliar locations, and atypical travel go unchallenged without intelligent risk-based policies.</div></div>
     </div>
   </section>
 
@@ -112,20 +80,11 @@
     <h2 class="pd-section-title"><span class="pd-section-icon">&#128161;</span> Solution Overview</h2>
     <p class="pd-section-lead">This implementation replaces Microsoft Security Defaults with a layered Conditional Access policy framework, integrating Entra ID Protection signals to create an adaptive, risk-aware access control plane.</p>
     <div class="pd-solution-stack">
-      <div class="pd-solution-layer pd-solution-top">
-        <strong>ACCESS REQUEST</strong>
-        <span>User + Device + Location + Application</span>
-      </div>
+      <div class="pd-solution-layer pd-solution-top"><strong>ACCESS REQUEST</strong><span>User + Device + Location + Application</span></div>
       <div class="pd-solution-arrow">&#9660;</div>
       <div class="pd-solution-layer pd-solution-engine">
         <strong>CONDITIONAL ACCESS POLICY ENGINE</strong>
-        <div class="pd-solution-policies">
-          <span>Baseline MFA Policy</span>
-          <span>Risk-Based Policies</span>
-          <span>Named Locations</span>
-          <span>Block Legacy Auth</span>
-          <span>Authentication Methods</span>
-        </div>
+        <div class="pd-solution-policies"><span>Baseline MFA Policy</span><span>Risk-Based Policies</span><span>Named Locations</span><span>Block Legacy Auth</span><span>Authentication Methods</span></div>
       </div>
       <div class="pd-solution-arrow">&#9660;</div>
       <div class="pd-solution-outcomes">
@@ -151,22 +110,10 @@
   <section class="pd-section">
     <h2 class="pd-section-title"><span class="pd-section-icon">&#127963;&#65039;</span> Architecture</h2>
     <div class="pd-arch-grid">
-      <div class="pd-arch-card">
-        <h4>&#128100; Identity Layer</h4>
-        <p>Microsoft Entra ID as the identity provider with Entra ID P2 features. Centralised authentication method management replacing legacy per-user MFA settings.</p>
-      </div>
-      <div class="pd-arch-card">
-        <h4>&#128275; Access Control Layer</h4>
-        <p>5 Conditional Access policies covering baseline MFA, risk-based access, legacy auth blocking, named location policies, and authentication method requirements.</p>
-      </div>
-      <div class="pd-arch-card">
-        <h4>&#129332; Intelligence Layer</h4>
-        <p>Entra ID Protection processing 30+ trillion signals daily, feeding User Risk and Sign-in Risk scores directly into the Conditional Access policy engine.</p>
-      </div>
-      <div class="pd-arch-card">
-        <h4>&#128081; Privileged Access Layer</h4>
-        <p>Privileged Identity Management converting all permanent Global Admin assignments to Eligible (JIT) assignments with MFA, justification, and optional approval workflow.</p>
-      </div>
+      <div class="pd-arch-card"><h4>&#128100; Identity Layer</h4><p>Microsoft Entra ID as the identity provider with Entra ID P2 features. Centralised authentication method management replacing legacy per-user MFA settings.</p></div>
+      <div class="pd-arch-card"><h4>&#128275; Access Control Layer</h4><p>5 Conditional Access policies covering baseline MFA, risk-based access, legacy auth blocking, named location policies, and authentication method requirements.</p></div>
+      <div class="pd-arch-card"><h4>&#129332; Intelligence Layer</h4><p>Entra ID Protection processing 30+ trillion signals daily, feeding User Risk and Sign-in Risk scores directly into the Conditional Access policy engine.</p></div>
+      <div class="pd-arch-card"><h4>&#128081; Privileged Access Layer</h4><p>Privileged Identity Management converting all permanent Global Admin assignments to Eligible (JIT) assignments with MFA, justification, and optional approval workflow.</p></div>
     </div>
     <div class="pd-tech-table-wrap">
       <h4>Lab Environment</h4>
@@ -197,3 +144,209 @@
       <div class="pd-tech-item"><span class="pd-tech-icon">&#128202;</span><strong>Microsoft Graph API</strong><small>PowerShell automation &amp; reporting</small></div>
     </div>
   </section>
+
+  <!-- IMPLEMENTATION PHASES -->
+  <section class="pd-section">
+    <h2 class="pd-section-title"><span class="pd-section-icon">&#128197;</span> Implementation Phases</h2>
+    <p class="pd-section-lead">Every Conditional Access policy was first deployed in Report-Only mode, monitored via Sign-in Logs, validated for impact, and only then switched to Enabled (Enforced). This pattern is mandatory for enterprise deployments to prevent accidental lockouts.</p>
+
+    <!-- Phase 1.1 -->
+    <div class="pd-phase">
+      <div class="pd-phase-header"><div class="pd-phase-badge">Phase 1.1</div><h3>Baseline MFA for All Users</h3></div>
+      <p>Replace Security Defaults with a granular Conditional Access policy requiring MFA for all users across all cloud applications. Security Defaults are disabled first as both cannot be active simultaneously.</p>
+      <div class="pd-phase-steps">
+        <div class="pd-phase-step"><span>1</span> Disable Security Defaults in Entra ID Properties</div>
+        <div class="pd-phase-step"><span>2</span> Configure Authentication Methods Policy (Push + SMS + FIDO2)</div>
+        <div class="pd-phase-step"><span>3</span> Create CA Policy in Report-Only mode: All users &rarr; All cloud apps &rarr; Require MFA</div>
+        <div class="pd-phase-step"><span>4</span> Validate MFA registration coverage (&gt;95% required before enforcement)</div>
+        <div class="pd-phase-step"><span>5</span> Switch policy from Report-Only to Enabled</div>
+      </div>
+      <div class="pd-screenshot-gallery">
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/01-baseline-mfa/A4-Security-Defaults-Disabled.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/01-baseline-mfa/A4-Security-Defaults-Disabled.png" alt="Security Defaults Disabled" loading="lazy" /></a><p>Security Defaults Disabled</p></div>
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/01-baseline-mfa/A5-Conditional-Access-Report-Only.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/01-baseline-mfa/A5-Conditional-Access-Report-Only.png" alt="CA Policy Report Only Mode" loading="lazy" /></a><p>CA Policy &mdash; Report-Only Mode</p></div>
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/01-baseline-mfa/A8-Baseline-CA-Policy-Applied.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/01-baseline-mfa/A8-Baseline-CA-Policy-Applied.png" alt="Baseline CA Policy Applied" loading="lazy" /></a><p>Baseline CA Policy Applied</p></div>
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/01-baseline-mfa/A9-Baseline-CA-Policy-Enforced.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/01-baseline-mfa/A9-Baseline-CA-Policy-Enforced.png" alt="Baseline CA Policy Enforced" loading="lazy" /></a><p>Baseline CA Policy Enforced</p></div>
+      </div>
+    </div>
+
+    <!-- Phase 1.2 -->
+    <div class="pd-phase">
+      <div class="pd-phase-header"><div class="pd-phase-badge">Phase 1.2</div><h3>Risk-Based Access Policies</h3></div>
+      <p>Integrate Microsoft Entra ID Protection risk signals into Conditional Access. Two policies: User Risk (High &rarr; Password change + MFA) and Sign-in Risk (Medium+ &rarr; MFA).</p>
+      <div class="pd-screenshot-gallery">
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/02-risk-based-access/A1-User-Risk-Report-Only.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/02-risk-based-access/A1-User-Risk-Report-Only.png" alt="User Risk Policy Report Only" loading="lazy" /></a><p>User Risk &mdash; Report-Only</p></div>
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/02-risk-based-access/A2-User-Risk-Enforced.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/02-risk-based-access/A2-User-Risk-Enforced.png" alt="User Risk Policy Enforced" loading="lazy" /></a><p>User Risk &mdash; Enforced</p></div>
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/02-risk-based-access/A3-Sign-In-Risk-Report-Only.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/02-risk-based-access/A3-Sign-In-Risk-Report-Only.png" alt="Sign-in Risk Report Only" loading="lazy" /></a><p>Sign-in Risk &mdash; Report-Only</p></div>
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/02-risk-based-access/A4-Sign-In-Risk-Enforced.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/02-risk-based-access/A4-Sign-In-Risk-Enforced.png" alt="Sign-in Risk Enforced" loading="lazy" /></a><p>Sign-in Risk &mdash; Enforced</p></div>
+      </div>
+    </div>
+
+    <!-- Phase 1.3 -->
+    <div class="pd-phase">
+      <div class="pd-phase-header"><div class="pd-phase-badge">Phase 1.3</div><h3>Block Legacy Authentication</h3></div>
+      <p>Block all authentication requests using legacy protocols (Basic Auth, SMTP AUTH, POP3, IMAP, Exchange ActiveSync v14) that cannot support modern MFA controls. Run Report-Only for 14 days and migrate all affected users before enforcement.</p>
+      <div class="pd-screenshot-gallery">
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/03-block-legacy-auth/A1-Block-Legacy-Auth-Policy.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/03-block-legacy-auth/A1-Block-Legacy-Auth-Policy.png" alt="Block Legacy Auth Policy" loading="lazy" /></a><p>Policy Configuration</p></div>
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/03-block-legacy-auth/A2-Block-Legacy-Auth-Report-Only.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/03-block-legacy-auth/A2-Block-Legacy-Auth-Report-Only.png" alt="Block Legacy Auth Report Only" loading="lazy" /></a><p>Report-Only Mode</p></div>
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/03-block-legacy-auth/A4-Block-Legacy-Auth-Testing.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/03-block-legacy-auth/A4-Block-Legacy-Auth-Testing.png" alt="Block Legacy Auth Testing" loading="lazy" /></a><p>Enforcement Testing (Error 53003)</p></div>
+      </div>
+    </div>
+
+    <!-- Phase 1.4 -->
+    <div class="pd-phase">
+      <div class="pd-phase-header"><div class="pd-phase-badge">Phase 1.4</div><h3>Trusted Network / Named Locations</h3></div>
+      <p>Define trusted network locations (corporate IP ranges and country allowlists). The &ldquo;Trusted&rdquo; flag affects risk scoring &mdash; sign-ins from trusted IPs are not penalised by Entra ID Protection.</p>
+      <div class="pd-screenshot-gallery">
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/04-trusted-network/A1-Named-Locations-Configuration.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/04-trusted-network/A1-Named-Locations-Configuration.png" alt="Named Locations Overview" loading="lazy" /></a><p>Named Locations Overview</p></div>
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/04-trusted-network/A6-Trusted-IP.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/04-trusted-network/A6-Trusted-IP.png" alt="Trusted IP Range" loading="lazy" /></a><p>Trusted IP Range</p></div>
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/04-trusted-network/A7-Trusted-Country.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/04-trusted-network/A7-Trusted-Country.png" alt="Trusted Country Config" loading="lazy" /></a><p>Country Allowlist</p></div>
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/04-trusted-network/A9-Named-Locations-Enforced.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/04-trusted-network/A9-Named-Locations-Enforced.png" alt="Named Locations CA Policy Enforced" loading="lazy" /></a><p>CA Policy Enforced</p></div>
+      </div>
+    </div>
+
+    <!-- Phase 1.5 -->
+    <div class="pd-phase">
+      <div class="pd-phase-header"><div class="pd-phase-badge">Phase 1.5</div><h3>Authentication Methods Configuration</h3></div>
+      <p>Configure the centralised Authentication Methods policy. Number matching enabled to prevent MFA fatigue attacks. FIDO2 enabled for phishing-resistant MFA. Replaces fragmented legacy per-user MFA settings.</p>
+      <div class="pd-screenshot-gallery">
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/05-auth-methods/A1-MFA-Push-Configuration.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/05-auth-methods/A1-MFA-Push-Configuration.png" alt="MFA Push Configuration" loading="lazy" /></a><p>Authenticator Push + Number Matching</p></div>
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/05-auth-methods/A3-FIDO2-Configuration.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/05-auth-methods/A3-FIDO2-Configuration.png" alt="FIDO2 Configuration" loading="lazy" /></a><p>FIDO2 Security Keys</p></div>
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/05-auth-methods/A3-Auth-Methods-Overview.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/05-auth-methods/A3-Auth-Methods-Overview.png" alt="Auth Methods Overview" loading="lazy" /></a><p>Auth Methods Overview</p></div>
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/05-auth-methods/A4-Auth-Methods-Final.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/05-auth-methods/A4-Auth-Methods-Final.png" alt="Final Auth Methods" loading="lazy" /></a><p>Final Configuration</p></div>
+      </div>
+    </div>
+
+    <!-- Phase 1.7 PIM -->
+    <div class="pd-phase">
+      <div class="pd-phase-header"><div class="pd-phase-badge">Phase 1.7</div><h3>Privileged Identity Management (PIM)</h3></div>
+      <p>Eliminate standing privileged access. Administrators must request activation with justification, MFA verification, and optional approval &mdash; creating a full audit trail and a narrow time window.</p>
+      <div class="pd-callout pd-callout-info"><strong>Zero Trust Principle:</strong> Administrators activate privileged roles only when required, for a defined time period (max 8 hours).</div>
+      <div class="pd-screenshot-gallery">
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/06-pim/A1-PIM-Add-User.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/06-pim/A1-PIM-Add-User.png" alt="PIM Add User as Eligible" loading="lazy" /></a><p>Add User as Eligible (not Active)</p></div>
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/06-pim/A2-PIM-Assign.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/06-pim/A2-PIM-Assign.png" alt="PIM Role Assignment" loading="lazy" /></a><p>PIM Role Assignment Config</p></div>
+      </div>
+    </div>
+
+    <!-- Phase 1.8 Identity Protection -->
+    <div class="pd-phase">
+      <div class="pd-phase-header"><div class="pd-phase-badge">Phase 1.8</div><h3>Entra ID Identity Protection</h3></div>
+      <p>Validate that Microsoft Entra ID Protection is active and feeding risk signals into the Conditional Access engine. Identity Protection processes over 30 trillion signals daily to detect anomalous access patterns.</p>
+      <div class="pd-screenshot-gallery">
+        <div class="pd-screenshot-item"><a href="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/07-identity-protection/A1-Identity-Protection-Enabled.png" target="_blank"><img src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/07-identity-protection/A1-Identity-Protection-Enabled.png" alt="Identity Protection Dashboard" loading="lazy" /></a><p>Identity Protection Active</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POWERSHELL SECTION -->
+  <section class="pd-section">
+    <h2 class="pd-section-title"><span class="pd-section-icon">&#128187;</span> PowerShell Scripts</h2>
+    <p class="pd-section-lead">All scripts use the Microsoft Graph PowerShell SDK (v2.x). Legacy AzureAD and MSOnline modules are deprecated and not used in this project.</p>
+    <div class="pd-ps-table-wrap">
+      <table class="pd-tech-table">
+        <tr><th>Script</th><th>Purpose</th></tr>
+        <tr><td>Get-MFAStatus.ps1</td><td>Export MFA registration status for all users</td></tr>
+        <tr><td>Export-ConditionalAccessPolicies.ps1</td><td>Export all CA policies to JSON for backup/documentation</td></tr>
+        <tr><td>New-NamedLocations.ps1</td><td>Bulk-create Named Locations from a CSV</td></tr>
+        <tr><td>Get-PIMAssignments.ps1</td><td>Report all PIM eligible and active role assignments</td></tr>
+      </table>
+    </div>
+    <div class="pd-code-block">
+      <div class="pd-code-header"><span>PowerShell &mdash; Prerequisites</span><span class="pd-code-lang">PowerShell</span></div>
+      <pre><code># Install Microsoft Graph PowerShell SDK
+Install-Module Microsoft.Graph -Scope CurrentUser -Force
+
+# Verify installation
+Get-Module Microsoft.Graph -ListAvailable | Select-Object Name, Version</code></pre>
+    </div>
+    <div class="pd-code-block">
+      <div class="pd-code-header"><span>PowerShell &mdash; Query Legacy Auth Blocks (Post-Enforcement)</span><span class="pd-code-lang">PowerShell</span></div>
+      <pre><code># Query Sign-in Logs for legacy auth attempts (post-enforcement)
+Connect-MgGraph -Scopes "AuditLog.Read.All"
+Get-MgAuditLogSignIn -Filter "clientAppUsed ne 'Browser' and clientAppUsed ne 'Mobile Apps and Desktop Clients'" |
+Select-Object UserDisplayName, ClientAppUsed, Status, CreatedDateTime |
+Where-Object { $_.Status.ErrorCode -eq 53003 }
+# Error 53003 = "Access blocked by Conditional Access policies"</code></pre>
+    </div>
+  </section>
+
+  <!-- SKILLS DEMONSTRATED -->
+  <section class="pd-section">
+    <h2 class="pd-section-title"><span class="pd-section-icon">&#127941;</span> Skills Demonstrated</h2>
+    <div class="pd-skills-grid">
+      <div class="pd-skill-item"><span class="pd-skill-icon">&#9733;</span><span>Zero Trust architecture design &amp; implementation</span></div>
+      <div class="pd-skill-item"><span class="pd-skill-icon">&#9733;</span><span>Conditional Access policy lifecycle management</span></div>
+      <div class="pd-skill-item"><span class="pd-skill-icon">&#9733;</span><span>Risk-based adaptive access controls</span></div>
+      <div class="pd-skill-item"><span class="pd-skill-icon">&#9733;</span><span>Just-In-Time privileged access via PIM</span></div>
+      <div class="pd-skill-item"><span class="pd-skill-icon">&#9733;</span><span>Phishing-resistant MFA (FIDO2 &amp; Authenticator)</span></div>
+      <div class="pd-skill-item"><span class="pd-skill-icon">&#9733;</span><span>PowerShell automation via Microsoft Graph SDK</span></div>
+      <div class="pd-skill-item"><span class="pd-skill-icon">&#9733;</span><span>Legacy authentication identification &amp; remediation</span></div>
+      <div class="pd-skill-item"><span class="pd-skill-icon">&#9733;</span><span>Identity Protection risk signal integration</span></div>
+      <div class="pd-skill-item"><span class="pd-skill-icon">&#9733;</span><span>Tenant security hardening &amp; compliance alignment</span></div>
+      <div class="pd-skill-item"><span class="pd-skill-icon">&#9733;</span><span>Security evidence documentation &amp; audit readiness</span></div>
+    </div>
+  </section>
+
+  <!-- LESSONS LEARNED -->
+  <section class="pd-section">
+    <h2 class="pd-section-title"><span class="pd-section-icon">&#128218;</span> Lessons Learned</h2>
+    <div class="pd-lessons-grid">
+      <div class="pd-lesson-card"><div class="pd-lesson-num">1</div><h4>Always use Report-Only before enforcement</h4><p>This is non-negotiable in production. Even with thorough planning, unexpected legacy clients and service accounts will appear in logs during the observation period.</p></div>
+      <div class="pd-lesson-card"><div class="pd-lesson-num">2</div><h4>MFA registration must precede enforcement</h4><p>Enforcing MFA before users have registered causes immediate lockouts. Communicate, run registration campaigns, and validate coverage before switching to Enabled.</p></div>
+      <div class="pd-lesson-card"><div class="pd-lesson-num">3</div><h4>Named Locations must be maintained</h4><p>Trusted IP configurations become stale when offices relocate or ISPs change. Build a quarterly review process for Named Location IP ranges.</p></div>
+      <div class="pd-lesson-card"><div class="pd-lesson-num">4</div><h4>Number matching is a must</h4><p>MFA fatigue attacks (push spam) are a real attack pattern post-credential compromise. Enabling number matching on Authenticator eliminates this vector with zero user friction.</p></div>
+      <div class="pd-lesson-card"><div class="pd-lesson-num">5</div><h4>PIM activation alerts are high value</h4><p>Configure alerts on PIM role activation events. Any unexpected Global Admin activation outside business hours warrants immediate investigation.</p></div>
+      <div class="pd-lesson-card"><div class="pd-lesson-num">6</div><h4>Identity Protection improves over time</h4><p>The risk engine learns your tenant's baseline. Initial false positives are normal &mdash; mark confirmed-safe sign-ins to train the model for your environment.</p></div>
+    </div>
+  </section>
+
+  <!-- BUSINESS VALUE -->
+  <section class="pd-section">
+    <h2 class="pd-section-title"><span class="pd-section-icon">&#128200;</span> Business Value</h2>
+    <div class="pd-value-table-wrap">
+      <table class="pd-tech-table pd-value-table">
+        <tr><th>Outcome</th><th>Impact</th></tr>
+        <tr><td>&#128272; 99%+ reduction in account compromise risk</td><td>MFA blocks the vast majority of credential-based attacks</td></tr>
+        <tr><td>&#128081; Eliminated standing privileged access</td><td>PIM reduces blast radius to a time-bounded window</td></tr>
+        <tr><td>&#128683; Legacy authentication blocked</td><td>Closes the primary vector for password spray attacks</td></tr>
+        <tr><td>&#129302; Risk-adaptive access</td><td>Compromised accounts auto-challenged or blocked without human intervention</td></tr>
+        <tr><td>&#128203; Compliance alignment</td><td>Supports NIST SP 800-207, ISO 27001 A.9, CIS Controls v8</td></tr>
+        <tr><td>&#128247; Audit-ready evidence</td><td>Full screenshot evidence at each phase satisfies internal &amp; external audit</td></tr>
+        <tr><td>&#9989; Zero service disruption</td><td>Report-Only &rarr; Enforced pattern ensured no user lockouts during rollout</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- REFERENCES -->
+  <section class="pd-section">
+    <h2 class="pd-section-title"><span class="pd-section-icon">&#128279;</span> References</h2>
+    <div class="pd-references-grid">
+      <a href="https://learn.microsoft.com/security/zero-trust" target="_blank" rel="noopener noreferrer" class="pd-reference-link">Microsoft Zero Trust Guidance</a>
+      <a href="https://learn.microsoft.com/entra/identity/conditional-access" target="_blank" rel="noopener noreferrer" class="pd-reference-link">Conditional Access Overview</a>
+      <a href="https://learn.microsoft.com/entra/id-protection" target="_blank" rel="noopener noreferrer" class="pd-reference-link">Entra ID Protection</a>
+      <a href="https://learn.microsoft.com/entra/id-governance/privileged-identity-management" target="_blank" rel="noopener noreferrer" class="pd-reference-link">Privileged Identity Management</a>
+      <a href="https://learn.microsoft.com/powershell/microsoftgraph" target="_blank" rel="noopener noreferrer" class="pd-reference-link">Microsoft Graph PowerShell SDK</a>
+      <a href="https://csrc.nist.gov/publications/detail/sp/800/207/final" target="_blank" rel="noopener noreferrer" class="pd-reference-link">NIST SP 800-207 Zero Trust</a>
+    </div>
+  </section>
+
+  <!-- BACK TO PROJECTS -->
+  <div class="pd-back-row">
+    <a href="m365-admin.html" class="btn-back-projects">&#8592; Back to Microsoft 365 Projects</a>
+    <a href="https://github.com/lokeshm-it/m365-zero-trust-identity" target="_blank" rel="noopener noreferrer" class="btn-view-github">&#128279; View on GitHub</a>
+  </div>
+
+</article>
+</main>
+
+<!-- RIGHT NAVIGATION -->
+<nav class="side-nav">
+  <a href="index.html">Home</a>
+  <a href="About.html">About</a>
+  <a href="Skills.html">Skills</a>
+  <a href="Experience.html">Experience</a>
+  <a href="Projects.html">Projects</a>
+  <a href="Resume.html">Resume</a>
+</nav>
+
+</body>
+</html>
