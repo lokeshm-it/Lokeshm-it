@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zero Trust Identity Perimeter | Lokesh M</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- LEFT PROFILE PANEL -->
+<aside class="profile-card">
+  <h2>LOKESH M</h2>
+  <p class="title">Senior Infrastructure Engineer</p>
+  <p class="tags">Microsoft 365 &bull; Security &bull; Azure</p>
+  <div class="availability">
+    <span class="dot"></span>
+    Open to learning &bull; Freelance
+  </div>
+  <div class="social-row">
+    <a href="https://www.linkedin.com/in/lokesh-itinfra/" target="_blank">in</a>
+    <a href="https://github.com/lokeshm-it" target="_blank">GH</a>
+    <a href="https://techcertguide.blog/" target="_blank">Blog</a>
+  </div>
+  <a class="big-btn outline" href="mailto:lokeshmurali45@gmail.com">&#9993; Email</a>
+  <a href="Resume.html" class="big-btn solid">&#11015; Resume</a>
+  <div class="views">&#128065; 9 Views</div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="content">
+<article class="project-detail-page">
+
+  <!-- HERO BANNER -->
+  <div class="project-detail-hero">
+    <div class="project-detail-hero-meta">
+      <span class="badge badge-difficulty badge-advanced">Advanced</span>
+      <span class="badge badge-status badge-completed">&#10003; Completed</span>
+      <span class="badge badge-category">Microsoft 365 Administrator</span>
+    </div>
+    <h1>Zero Trust Identity Perimeter</h1>
+    <p class="project-detail-hero-sub">Enterprise-grade Zero Trust Identity implementation using Microsoft Entra ID Conditional Access, Privileged Identity Management, Identity Protection, MFA, and FIDO2 &mdash; deployed across 7 implementation phases with full Report-Only &rarr; Enforced evidence.</p>
+    <div class="project-detail-hero-stats">
+      <div class="hero-stat"><strong>7</strong><span>Implementation Phases</span></div>
+      <div class="hero-stat"><strong>5</strong><span>CA Policies</span></div>
+      <div class="hero-stat"><strong>30</strong><span>Evidence Screenshots</span></div>
+      <div class="hero-stat"><strong>4</strong><span>Auth Methods</span></div>
+    </div>
+    <div class="project-detail-hero-actions">
+      <a href="https://github.com/lokeshm-it/m365-zero-trust-identity" target="_blank" rel="noopener noreferrer" class="btn-view-github">&#128279; View on GitHub</a>
+      <a href="m365-admin.html" class="btn-back-projects">&#8592; Back to M365 Projects</a>
+    </div>
+  </div>
+
+  <!-- PROJECT OVERVIEW -->
+  <section class="pd-section">
+    <h2 class="pd-section-title"><span class="pd-section-icon">&#128196;</span> Project Overview</h2>
+    <div class="pd-overview-grid">
+      <div class="pd-overview-card">
+        <h4>Objective</h4>
+        <p>Implement the Identity pillar of Microsoft Zero Trust by replacing Security Defaults with a layered Conditional Access policy framework integrating Entra ID Protection risk signals.</p>
+      </div>
+      <div class="pd-overview-card">
+        <h4>Deployment Pattern</h4>
+        <p>Every policy was first deployed in <strong>Report-Only</strong> mode, monitored via Sign-in Logs, validated for impact, then switched to <strong>Enabled (Enforced)</strong> &mdash; zero-disruption rollout.</p>
+      </div>
+      <div class="pd-overview-card">
+        <h4>Environment</h4>
+        <p>Live Microsoft 365 tenant using Business Premium / E3 licensing. Entra ID P2 features (Identity Protection + PIM) required. All configurations validated with portal screenshots.</p>
+      </div>
+      <div class="pd-overview-card">
+        <h4>Core Principle</h4>
+        <p><em>&ldquo;Verify explicitly, use least privilege access, assume breach.&rdquo;</em> Applied across all identity-driven access decisions in the Microsoft 365 environment.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSINESS PROBLEM -->
+  <section class="pd-section">
+    <h2 class="pd-section-title"><span class="pd-section-icon">&#9888;&#65039;</span> Business Problem</h2>
+    <p class="pd-section-lead">Modern enterprises face an identity-centric threat landscape. Without a structured Conditional Access framework, organisations rely entirely on password strength &mdash; a fundamentally insufficient control against modern credential-based attacks.</p>
+    <div class="pd-problem-list">
+      <div class="pd-problem-item">
+        <div class="pd-problem-icon">&#128272;</div>
+        <div>
+          <strong>Over 99% of account compromise attacks</strong> can be prevented by enabling MFA &mdash; yet many organisations still rely on Security Defaults alone.
+        </div>
+      </div>
+      <div class="pd-problem-item">
+        <div class="pd-problem-icon">&#128683;</div>
+        <div>
+          <strong>Legacy authentication protocols</strong> (SMTP AUTH, POP3, IMAP, Basic Auth) bypass modern authentication controls and cannot enforce MFA.
+        </div>
+      </div>
+      <div class="pd-problem-item">
+        <div class="pd-problem-icon">&#128081;</div>
+        <div>
+          <strong>Privileged accounts with standing access</strong> represent a critical blast radius &mdash; if compromised, attackers have unlimited, time-unrestricted access.
+        </div>
+      </div>
+      <div class="pd-problem-item">
+        <div class="pd-problem-icon">&#127760;</div>
+        <div>
+          <strong>Risky sign-ins</strong> from anonymous IPs, unfamiliar locations, and atypical travel go unchallenged without intelligent risk-based policies.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION OVERVIEW -->
+  <section class="pd-section">
+    <h2 class="pd-section-title"><span class="pd-section-icon">&#128161;</span> Solution Overview</h2>
+    <p class="pd-section-lead">This implementation replaces Microsoft Security Defaults with a layered Conditional Access policy framework, integrating Entra ID Protection signals to create an adaptive, risk-aware access control plane.</p>
+    <div class="pd-solution-stack">
+      <div class="pd-solution-layer pd-solution-top">
+        <strong>ACCESS REQUEST</strong>
+        <span>User + Device + Location + Application</span>
+      </div>
+      <div class="pd-solution-arrow">&#9660;</div>
+      <div class="pd-solution-layer pd-solution-engine">
+        <strong>CONDITIONAL ACCESS POLICY ENGINE</strong>
+        <div class="pd-solution-policies">
+          <span>Baseline MFA Policy</span>
+          <span>Risk-Based Policies</span>
+          <span>Named Locations</span>
+          <span>Block Legacy Auth</span>
+          <span>Authentication Methods</span>
+        </div>
+      </div>
+      <div class="pd-solution-arrow">&#9660;</div>
+      <div class="pd-solution-outcomes">
+        <div class="pd-outcome pd-outcome-grant">&#9989; Grant Access</div>
+        <div class="pd-outcome pd-outcome-block">&#128274; Block Access</div>
+        <div class="pd-outcome pd-outcome-require">&#9888;&#65039; Require MFA / Password Reset</div>
+      </div>
+    </div>
+    <div class="pd-key-decisions">
+      <h4>Key Design Decisions</h4>
+      <ul>
+        <li>Security Defaults <strong>disabled</strong> in favour of granular Conditional Access policies</li>
+        <li>All policies staged in <strong>Report-Only mode</strong> before enforcement (zero-disruption rollout)</li>
+        <li>Microsoft Authenticator push notifications as the <strong>primary MFA method</strong> with number matching enabled</li>
+        <li>FIDO2 security keys enabled for <strong>privileged accounts</strong> (phishing-resistant)</li>
+        <li>PIM configured for <strong>Just-In-Time privileged access</strong> (zero standing access)</li>
+        <li>Identity Protection integrated to feed <strong>real-time risk signals</strong> into Conditional Access</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE -->
+  <section class="pd-section">
+    <h2 class="pd-section-title"><span class="pd-section-icon">&#127963;&#65039;</span> Architecture</h2>
+    <div class="pd-arch-grid">
+      <div class="pd-arch-card">
+        <h4>&#128100; Identity Layer</h4>
+        <p>Microsoft Entra ID as the identity provider with Entra ID P2 features. Centralised authentication method management replacing legacy per-user MFA settings.</p>
+      </div>
+      <div class="pd-arch-card">
+        <h4>&#128275; Access Control Layer</h4>
+        <p>5 Conditional Access policies covering baseline MFA, risk-based access, legacy auth blocking, named location policies, and authentication method requirements.</p>
+      </div>
+      <div class="pd-arch-card">
+        <h4>&#129332; Intelligence Layer</h4>
+        <p>Entra ID Protection processing 30+ trillion signals daily, feeding User Risk and Sign-in Risk scores directly into the Conditional Access policy engine.</p>
+      </div>
+      <div class="pd-arch-card">
+        <h4>&#128081; Privileged Access Layer</h4>
+        <p>Privileged Identity Management converting all permanent Global Admin assignments to Eligible (JIT) assignments with MFA, justification, and optional approval workflow.</p>
+      </div>
+    </div>
+    <div class="pd-tech-table-wrap">
+      <h4>Lab Environment</h4>
+      <table class="pd-tech-table">
+        <tr><th>Component</th><th>Details</th></tr>
+        <tr><td>Tenant Type</td><td>Microsoft 365 Business Premium / E3</td></tr>
+        <tr><td>Identity Provider</td><td>Microsoft Entra ID (Azure AD P2 features)</td></tr>
+        <tr><td>Licensing Required</td><td>Entra ID P2 (Identity Protection + PIM)</td></tr>
+        <tr><td>Admin Portal</td><td>entra.microsoft.com</td></tr>
+        <tr><td>PowerShell Module</td><td>Microsoft.Graph (v2.x)</td></tr>
+        <tr><td>Deployment Method</td><td>Azure Portal GUI + PowerShell validation</td></tr>
+        <tr><td>Evidence Format</td><td>Portal screenshots at each configuration stage</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGIES USED -->
+  <section class="pd-section">
+    <h2 class="pd-section-title"><span class="pd-section-icon">&#128736;&#65039;</span> Technologies Used</h2>
+    <div class="pd-tech-tags-grid">
+      <div class="pd-tech-item"><span class="pd-tech-icon">&#9729;&#65039;</span><strong>Microsoft Entra ID</strong><small>Identity &amp; Access Management platform</small></div>
+      <div class="pd-tech-item"><span class="pd-tech-icon">&#128275;</span><strong>Conditional Access</strong><small>Policy-based access control engine</small></div>
+      <div class="pd-tech-item"><span class="pd-tech-icon">&#129302;</span><strong>Entra ID Protection</strong><small>ML-driven risk detection</small></div>
+      <div class="pd-tech-item"><span class="pd-tech-icon">&#128081;</span><strong>Privileged Identity Management</strong><small>Just-In-Time role activation</small></div>
+      <div class="pd-tech-item"><span class="pd-tech-icon">&#128241;</span><strong>Microsoft Authenticator</strong><small>Primary MFA method with push notifications</small></div>
+      <div class="pd-tech-item"><span class="pd-tech-icon">&#128273;</span><strong>FIDO2 Security Keys</strong><small>Phishing-resistant MFA for privileged accounts</small></div>
+      <div class="pd-tech-item"><span class="pd-tech-icon">&#127759;</span><strong>Named Locations</strong><small>Trusted IP ranges &amp; country allowlists</small></div>
+      <div class="pd-tech-item"><span class="pd-tech-icon">&#128202;</span><strong>Microsoft Graph API</strong><small>PowerShell automation &amp; reporting</small></div>
+    </div>
+  </section>
