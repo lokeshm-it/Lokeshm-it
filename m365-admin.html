@@ -1,165 +1,720 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Microsoft 365 Administrator | Lokesh M</title>
-  <link rel="stylesheet" href="style.css"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Microsoft 365 Administrator | Lokesh M</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* =============================================
+   M365-ADMIN PAGE — PROJECT LANDING STYLES
+   ============================================= */
+
+/* --- Hero Banner --- */
+.zt-hero {
+  background: linear-gradient(135deg, #0d1117 0%, #0c2340 55%, #0078d4 100%);
+  border-radius: 20px;
+  padding: 52px 48px 44px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.zt-hero::before {
+  content: "";
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(0,120,212,0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+.zt-hero-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.zt-badge {
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+.zt-badge-completed { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+.zt-badge-advanced  { background: #fff3e0; color: #e65100; border: 1px solid #ffcc80; }
+.zt-badge-identity  { background: #e3f2fd; color: #1565c0; border: 1px solid #90caf9; }
+.zt-hero h1 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 14px;
+  line-height: 1.2;
+  text-align: left;
+}
+.zt-hero-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.80);
+  line-height: 1.7;
+  max-width: 720px;
+  margin: 0;
+}
+
+/* --- Section Title --- */
+.zt-section {
+  margin-bottom: 44px;
+}
+.zt-section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0d1117;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.zt-section-icon { font-size: 20px; }
+
+/* --- Project Overview --- */
+.zt-overview-body p {
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.zt-overview-body p:last-child { margin-bottom: 0; }
+
+/* --- Key Features Grid --- */
+.zt-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+.zt-feature-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 22px 18px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.zt-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,120,212,0.14);
+  border-color: #0078d4;
+}
+.zt-feature-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+  display: block;
+}
+.zt-feature-card h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0d1117;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* --- Statistics --- */
+.zt-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.zt-stat-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border-top: 3px solid #0078d4;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.zt-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,120,212,0.12);
+}
+.zt-stat-num {
+  font-size: 36px;
+  font-weight: 800;
+  color: #0078d4;
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+}
+.zt-stat-label {
+  font-size: 13px;
+  color: #57606a;
+  font-weight: 500;
+}
+
+/* --- Technologies --- */
+.zt-tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.zt-tech-badge {
+  background: #f0f4ff;
+  color: #0078d4;
+  border: 1px solid #bfdbfe;
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.zt-tech-badge:hover {
+  background: #0078d4;
+  color: #ffffff;
+}
+
+/* --- Implementation Phases --- */
+.zt-phases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+.zt-phase-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.zt-phase-card::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #0078d4, #06b6d4);
+  border-radius: 4px 0 0 4px;
+}
+.zt-phase-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,120,212,0.13);
+  border-color: #0078d4;
+}
+.zt-phase-num {
+  display: inline-block;
+  background: linear-gradient(135deg, #0078d4, #06b6d4);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+.zt-phase-card h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0d1117;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* --- Outcomes Checklist --- */
+.zt-outcomes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+.zt-outcome-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0d1117;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.zt-outcome-item:hover {
+  transform: translateX(3px);
+  box-shadow: 0 4px 12px rgba(0,120,212,0.10);
+}
+.zt-outcome-check {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #0078d4, #06b6d4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* --- GitHub CTA --- */
+.zt-cta {
+  background: linear-gradient(135deg, #0d1117 0%, #0c2340 60%, #0078d4 100%);
+  border-radius: 20px;
+  padding: 52px 48px;
+  text-align: center;
+  margin-bottom: 44px;
+  position: relative;
+  overflow: hidden;
+}
+.zt-cta::before {
+  content: "";
+  position: absolute;
+  bottom: -80px; left: -80px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(6,182,212,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+.zt-cta h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.zt-cta p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.78);
+  margin-bottom: 32px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.zt-cta-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.zt-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #0078d4;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+.zt-cta-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+}
+.zt-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.10);
+  color: #ffffff;
+  border: 2px solid rgba(255,255,255,0.45);
+  padding: 12px 26px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+.zt-cta-secondary:hover {
+  background: rgba(255,255,255,0.20);
+  border-color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* --- Improved Coming Soon Cards --- */
+.zt-coming-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+.zt-coming-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 26px 22px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.zt-coming-card::after {
+  content: "Coming Soon";
+  position: absolute;
+  top: 14px; right: -22px;
+  background: #f59e0b;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 28px;
+  transform: rotate(35deg);
+  letter-spacing: 0.5px;
+}
+.zt-coming-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+  border-color: #0078d4;
+}
+.zt-coming-icon {
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, #e3f2fd, #f0f4ff);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #0078d4;
+  border: 1px solid #bfdbfe;
+}
+.zt-coming-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0d1117;
+  margin-bottom: 6px;
+}
+.zt-coming-card p {
+  font-size: 13px;
+  color: #57606a;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.zt-coming-num {
+  display: inline-block;
+  background: #f6f8fa;
+  border: 1px solid #e5e7eb;
+  color: #57606a;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1100px) {
+  .zt-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 780px) {
+  .zt-hero { padding: 32px 24px; }
+  .zt-hero h1 { font-size: 26px; }
+  .zt-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .zt-features-grid { grid-template-columns: repeat(2, 1fr); }
+  .zt-cta { padding: 36px 24px; }
+  .zt-cta h2 { font-size: 22px; }
+}
+@media (max-width: 500px) {
+  .zt-stats-grid { grid-template-columns: 1fr 1fr; }
+  .zt-features-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
 </head>
 <body>
 
 <!-- LEFT PROFILE PANEL -->
 <aside class="profile-card">
-  <h2>LOKESH M</h2>
-  <p class="title">Senior Infrastructure Engineer</p>
-  <p class="tags">Microsoft 365 &bull; Security &bull; Azure</p>
-  <div class="availability">
-    <span class="dot"></span>
-    Open to learning &bull; Freelance
-  </div>
-  <div class="social-row">
-    <a href="https://www.linkedin.com/in/lokesh-itinfra/" target="_blank">in</a>
-    <a href="https://github.com/lokeshm-it" target="_blank">GH</a>
-    <a href="https://techcertguide.blog/" target="_blank">Blog</a>
-  </div>
-  <a class="big-btn outline" href="mailto:lokeshmurali45@gmail.com">&#9993; Email</a>
-  <a href="Resume.html" class="big-btn solid">&#11015; Resume</a>
-  <div class="views">&#128065; 9 Views</div>
+<h2>LOKESH M</h2>
+<p class="title">Senior Infrastructure Engineer</p>
+<p class="tags">Microsoft 365 &bull; Security &bull; Azure</p>
+<div class="availability">
+<span class="dot"></span>
+Open to learning &bull; Freelance
+</div>
+<div class="social-row">
+<a href="https://www.linkedin.com/in/lokesh-itinfra/" target="_blank">in</a>
+<a href="https://github.com/lokeshm-it" target="_blank">GH</a>
+<a href="https://techcertguide.blog/" target="_blank">Blog</a>
+</div>
+<a class="big-btn outline" href="mailto:lokeshmurali45@gmail.com">&#9993; Email</a>
+<a href="Resume.html" class="big-btn solid">&#11015; Resume</a>
+<div class="views">&#128065; 9 Views</div>
 </aside>
 
 <!-- MAIN CONTENT -->
 <main class="content">
 <div class="dash-page">
 
-  <!-- DASHBOARD HEADER -->
-  <div class="dash-header">
-    <a href="Projects.html" class="dash-breadcrumb">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Projects
-    </a>
-    <div class="dash-header-body">
-      <div class="dash-header-icon-wrap">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h13" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
-      </div>
-      <div>
-        <h1 class="dash-title">Microsoft 365 Administrator</h1>
-        <p class="dash-subtitle">Enterprise labs covering Exchange Online, Teams, SharePoint, Identity Management, and Hybrid Administration.</p>
-      </div>
-    </div>
-    <div class="dash-stats-row">
-      <div class="dash-stat"><strong>1</strong><span>Project Active</span></div>
-      <div class="dash-stat"><strong>3</strong><span>Coming Soon</span></div>
-      <div class="dash-stat"><strong>7</strong><span>Phases Documented</span></div>
-      <div class="dash-stat"><strong>30</strong><span>Evidence Screenshots</span></div>
-    </div>
-  </div>
+<!-- DASHBOARD HEADER -->
+<div class="dash-header">
+<a href="Projects.html" class="dash-breadcrumb">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+Projects
+</a>
+<div class="dash-header-body">
+<div class="dash-header-icon-wrap">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h13" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+</div>
+<div>
+<h1 class="dash-title">Microsoft 365 Administrator</h1>
+<p class="dash-subtitle">Enterprise labs covering Exchange Online, Teams, SharePoint, Identity Management, and Hybrid Administration.</p>
+</div>
+</div>
+<div class="dash-stats-row">
+<div class="dash-stat"><strong>1</strong><span>Project Active</span></div>
+<div class="dash-stat"><strong>3</strong><span>Coming Soon</span></div>
+<div class="dash-stat"><strong>7</strong><span>Phases Documented</span></div>
+<div class="dash-stat"><strong>30</strong><span>Evidence Screenshots</span></div>
+</div>
+</div>
 
-  <!-- SECTION LABEL -->
-  <div class="dash-section-label">
-    <span class="dash-section-line"></span>
-    <span class="dash-section-text">Active Projects</span>
-    <span class="dash-section-line"></span>
-  </div>
+<!-- SECTION LABEL — Active Project -->
+<div class="dash-section-label">
+<span class="dash-section-line"></span>
+<span class="dash-section-text">Active Projects</span>
+<span class="dash-section-line"></span>
+</div>
 
-  <!-- PROJECT 1 — Zero Trust Identity Perimeter -->
-  <div class="dash-project-card">
-    <div class="dash-project-banner">
-      <img
-        src="https://raw.githubusercontent.com/lokeshm-it/m365-zero-trust-identity/main/images/01-baseline-mfa/A5-Conditional-Access-Report-Only.png"
-        alt="Conditional Access policy in Report-Only mode — Zero Trust Identity Perimeter"
-        loading="lazy"
-        onerror="this.style.display='none'"
-      />
-      <div class="dash-project-banner-overlay">
-        <span class="dash-project-num">Project 01</span>
-      </div>
-    </div>
-    <div class="dash-project-body">
-      <div class="dash-project-meta-row">
-        <span class="dash-badge dash-badge-completed">Completed</span>
-        <span class="dash-badge dash-badge-advanced">Advanced</span>
-        <span class="dash-badge dash-badge-identity">Identity &amp; Access</span>
-      </div>
-      <h2 class="dash-project-title">Zero Trust Identity Perimeter</h2>
-      <p class="dash-project-desc">Enterprise-grade implementation of the Identity pillar of the Microsoft Zero Trust model using Entra ID Conditional Access, Privileged Identity Management, Identity Protection, risk-based policies, FIDO2, and MFA &mdash; with complete Report-Only to Enforced deployment evidence across 7 phases.</p>
-      <div class="dash-project-tech">
-        <span class="dash-tech">Microsoft Entra ID</span>
-        <span class="dash-tech">Conditional Access</span>
-        <span class="dash-tech">Identity Protection</span>
-        <span class="dash-tech">PIM</span>
-        <span class="dash-tech">MFA / FIDO2</span>
-        <span class="dash-tech">Microsoft Graph</span>
-        <span class="dash-tech">PowerShell</span>
-      </div>
-      <div class="dash-project-actions">
-        <a href="zero-trust-identity-perimeter.html" class="dash-btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          View Details
-        </a>
-        <a href="https://github.com/lokeshm-it/m365-zero-trust-identity" target="_blank" rel="noopener noreferrer" class="dash-btn-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          View GitHub Repository
-        </a>
-      </div>
-    </div>
-  </div>
+<!-- HERO BANNER -->
+<div class="zt-hero">
+<div class="zt-hero-badges">
+<span class="zt-badge zt-badge-completed">&#10003; Completed</span>
+<span class="zt-badge zt-badge-advanced">&#9650; Advanced</span>
+<span class="zt-badge zt-badge-identity">&#128274; Identity &amp; Access</span>
+</div>
+<h1>Zero Trust Identity Perimeter</h1>
+<p class="zt-hero-sub">Implementing Microsoft&rsquo;s Identity pillar of the Zero Trust architecture using Microsoft Entra ID &mdash; enforcing Conditional Access, Identity Protection, Privileged Identity Management, MFA, and FIDO2 passwordless authentication across a fully documented 7-phase enterprise lab.</p>
+</div>
 
-  <!-- SECTION LABEL — Coming Soon -->
-  <div class="dash-section-label" style="margin-top:48px">
-    <span class="dash-section-line"></span>
-    <span class="dash-section-text">Coming Soon</span>
-    <span class="dash-section-line"></span>
-  </div>
+<!-- PROJECT OVERVIEW -->
+<div class="zt-section">
+<h2 class="zt-section-title"><span class="zt-section-icon">&#128196;</span> Project Overview</h2>
+<div class="zt-overview-body">
+<p>Modern enterprises face an evolving threat landscape where traditional perimeter-based security is no longer sufficient. Identity has become the new security perimeter, and organisations that fail to adopt a rigorous identity-first strategy remain highly vulnerable to credential theft, lateral movement, and privilege escalation attacks. This project addresses that critical business problem by implementing the full Identity pillar of Microsoft&rsquo;s Zero Trust framework within a production-grade Microsoft 365 tenant.</p>
+<p>The Zero Trust principle of &ldquo;never trust, always verify&rdquo; guided every design decision throughout this project. Rather than assuming that internal network access implies trustworthiness, every identity access request &mdash; regardless of origin &mdash; is evaluated against risk signals, device compliance, location context, and user behaviour before access is granted. Microsoft Entra ID serves as the policy decision point, enforcing granular Conditional Access policies across all cloud resources.</p>
+<p>The project leverages a comprehensive stack of Microsoft security technologies: Microsoft Entra ID for centralised identity governance, Conditional Access for policy-based access control, Identity Protection for real-time risk detection, Privileged Identity Management (PIM) for just-in-time administrator access, FIDO2 security keys for passwordless authentication, Microsoft Graph API for automated reporting and governance, and PowerShell for scripted policy deployment and evidence collection.</p>
+<p>Across seven structured implementation phases, this project moves from baseline MFA assessment through full production enforcement of 15+ Conditional Access policies, achieving 100% hands-on lab coverage with 30+ evidence screenshots. The expected outcome is a fully hardened identity perimeter that satisfies Zero Trust readiness criteria, eliminates standing administrator privileges, enforces risk-based access decisions, and establishes passwordless authentication as the default user experience.</p>
+</div>
+</div>
 
-  <!-- COMING SOON GRID -->
-  <div class="dash-coming-grid">
+<!-- KEY FEATURES -->
+<div class="zt-section">
+<h2 class="zt-section-title"><span class="zt-section-icon">&#128161;</span> Key Features</h2>
+<div class="zt-features-grid">
+<div class="zt-feature-card">
+<span class="zt-feature-icon">&#128274;</span>
+<h4>Conditional Access</h4>
+</div>
+<div class="zt-feature-card">
+<span class="zt-feature-icon">&#128737;</span>
+<h4>Identity Protection</h4>
+</div>
+<div class="zt-feature-card">
+<span class="zt-feature-icon">&#128081;</span>
+<h4>Privileged Identity Management</h4>
+</div>
+<div class="zt-feature-card">
+<span class="zt-feature-icon">&#128241;</span>
+<h4>Multi-Factor Authentication</h4>
+</div>
+<div class="zt-feature-card">
+<span class="zt-feature-icon">&#128273;</span>
+<h4>FIDO2 Passwordless</h4>
+</div>
+<div class="zt-feature-card">
+<span class="zt-feature-icon">&#128200;</span>
+<h4>Microsoft Graph</h4>
+</div>
+<div class="zt-feature-card">
+<span class="zt-feature-icon">&#9881;</span>
+<h4>PowerShell Automation</h4>
+</div>
+<div class="zt-feature-card">
+<span class="zt-feature-icon">&#128202;</span>
+<h4>Security Monitoring</h4>
+</div>
+</div>
+</div>
 
-    <div class="dash-coming-card">
-      <div class="dash-coming-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 4v16M2 9h6M2 15h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      </div>
-      <div>
-        <h4 class="dash-coming-title">Exchange Online Administration</h4>
-        <p class="dash-coming-desc">Mail flow rules, transport policies, connectors, anti-spam configuration, hybrid mail routing.</p>
-        <span class="dash-coming-badge">Project 02</span>
-      </div>
-    </div>
+<!-- PROJECT STATISTICS -->
+<div class="zt-section">
+<h2 class="zt-section-title"><span class="zt-section-icon">&#128209;</span> Project Statistics</h2>
+<div class="zt-stats-grid">
+<div class="zt-stat-card">
+<span class="zt-stat-num">7</span>
+<span class="zt-stat-label">Implementation Phases</span>
+</div>
+<div class="zt-stat-card">
+<span class="zt-stat-num">30+</span>
+<span class="zt-stat-label">Evidence Screenshots</span>
+</div>
+<div class="zt-stat-card">
+<span class="zt-stat-num">15+</span>
+<span class="zt-stat-label">Conditional Access Policies</span>
+</div>
+<div class="zt-stat-card">
+<span class="zt-stat-num">100%</span>
+<span class="zt-stat-label">Hands-on Lab</span>
+</div>
+</div>
+</div>
 
-    <div class="dash-coming-card">
-      <div class="dash-coming-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="13" y="3" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="3" y="13" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="13" y="13" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="2"/></svg>
-      </div>
-      <div>
-        <h4 class="dash-coming-title">SharePoint Governance</h4>
-        <p class="dash-coming-desc">Site collections, external sharing controls, permission management, content governance policies.</p>
-        <span class="dash-coming-badge">Project 03</span>
-      </div>
-    </div>
+<!-- TECHNOLOGIES USED -->
+<div class="zt-section">
+<h2 class="zt-section-title"><span class="zt-section-icon">&#128736;</span> Technologies Used</h2>
+<div class="zt-tech-row">
+<span class="zt-tech-badge">Microsoft Entra ID</span>
+<span class="zt-tech-badge">Conditional Access</span>
+<span class="zt-tech-badge">Identity Protection</span>
+<span class="zt-tech-badge">PIM</span>
+<span class="zt-tech-badge">MFA</span>
+<span class="zt-tech-badge">FIDO2</span>
+<span class="zt-tech-badge">Microsoft Graph</span>
+<span class="zt-tech-badge">PowerShell</span>
+<span class="zt-tech-badge">Exchange Online</span>
+</div>
+</div>
 
-    <div class="dash-coming-card">
-      <div class="dash-coming-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      </div>
-      <div>
-        <h4 class="dash-coming-title">Microsoft Teams Administration</h4>
-        <p class="dash-coming-desc">Teams policies, meeting configurations, calling plans, compliance recording, lifecycle management.</p>
-        <span class="dash-coming-badge">Project 04</span>
-      </div>
-    </div>
+<!-- IMPLEMENTATION PHASES -->
+<div class="zt-section">
+<h2 class="zt-section-title"><span class="zt-section-icon">&#128336;</span> Implementation Phases</h2>
+<div class="zt-phases-grid">
+<div class="zt-phase-card">
+<span class="zt-phase-num">Phase 1</span>
+<h4>Baseline Assessment</h4>
+</div>
+<div class="zt-phase-card">
+<span class="zt-phase-num">Phase 2</span>
+<h4>Conditional Access</h4>
+</div>
+<div class="zt-phase-card">
+<span class="zt-phase-num">Phase 3</span>
+<h4>Identity Protection</h4>
+</div>
+<div class="zt-phase-card">
+<span class="zt-phase-num">Phase 4</span>
+<h4>Privileged Identity Management</h4>
+</div>
+<div class="zt-phase-card">
+<span class="zt-phase-num">Phase 5</span>
+<h4>FIDO2 Passwordless</h4>
+</div>
+<div class="zt-phase-card">
+<span class="zt-phase-num">Phase 6</span>
+<h4>Validation &amp; Testing</h4>
+</div>
+<div class="zt-phase-card">
+<span class="zt-phase-num">Phase 7</span>
+<h4>Production Deployment</h4>
+</div>
+</div>
+</div>
 
-  </div>
+<!-- PROJECT OUTCOMES -->
+<div class="zt-section">
+<h2 class="zt-section-title"><span class="zt-section-icon">&#9989;</span> Project Outcomes</h2>
+<div class="zt-outcomes-list">
+<div class="zt-outcome-item">
+<span class="zt-outcome-check">&#10003;</span>
+Identity-first security architecture
+</div>
+<div class="zt-outcome-item">
+<span class="zt-outcome-check">&#10003;</span>
+Least privilege access enforcement
+</div>
+<div class="zt-outcome-item">
+<span class="zt-outcome-check">&#10003;</span>
+Risk-based adaptive access policies
+</div>
+<div class="zt-outcome-item">
+<span class="zt-outcome-check">&#10003;</span>
+Passwordless authentication enabled
+</div>
+<div class="zt-outcome-item">
+<span class="zt-outcome-check">&#10003;</span>
+Administrator privilege protection (PIM)
+</div>
+<div class="zt-outcome-item">
+<span class="zt-outcome-check">&#10003;</span>
+Zero Trust readiness achieved
+</div>
+</div>
+</div>
 
-</div><!-- /dash-page -->
+<!-- GITHUB CTA -->
+<div class="zt-cta">
+<h2>Explore the Full Documentation</h2>
+<p>Complete implementation guide with step-by-step configuration, PowerShell scripts, policy screenshots, and deployment evidence across all 7 phases.</p>
+<div class="zt-cta-buttons">
+<a href="https://github.com/lokeshm-it/m365-zero-trust-identity/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="zt-cta-primary">
+&#128214; Read Full Documentation
+</a>
+<a href="https://github.com/lokeshm-it/m365-zero-trust-identity" target="_blank" rel="noopener noreferrer" class="zt-cta-secondary">
+&#128187; GitHub Repository
+</a>
+</div>
+</div>
+
+<!-- COMING SOON SECTION -->
+<div class="dash-section-label" style="margin-top:8px;margin-bottom:28px;">
+<span class="dash-section-line"></span>
+<span class="dash-section-text">Coming Soon</span>
+<span class="dash-section-line"></span>
+</div>
+
+<div class="zt-coming-grid">
+
+<div class="zt-coming-card">
+<div class="zt-coming-icon">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 4v16M2 9h6M2 15h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+</div>
+<div>
+<h4>Exchange Online Administration</h4>
+<p>Mail flow rules, transport policies, connectors, anti-spam configuration, hybrid mail routing.</p>
+<span class="zt-coming-num">Project 02</span>
+</div>
+</div>
+
+<div class="zt-coming-card">
+<div class="zt-coming-icon">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="13" y="3" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="3" y="13" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="13" y="13" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="2"/></svg>
+</div>
+<div>
+<h4>SharePoint Governance</h4>
+<p>Site collections, external sharing controls, permission management, content governance policies.</p>
+<span class="zt-coming-num">Project 03</span>
+</div>
+</div>
+
+<div class="zt-coming-card">
+<div class="zt-coming-icon">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+</div>
+<div>
+<h4>Microsoft Teams Administration</h4>
+<p>Teams policies, meeting configurations, calling plans, compliance recording, lifecycle management.</p>
+<span class="zt-coming-num">Project 04</span>
+</div>
+</div>
+
+</div>
+
+</div>
 </main>
 
 <!-- RIGHT NAVIGATION -->
 <nav class="side-nav">
-  <a href="index.html">Home</a>
-  <a href="About.html">About</a>
-  <a href="Skills.html">Skills</a>
-  <a href="Experience.html">Experience</a>
-  <a href="Projects.html">Projects</a>
-  <a href="Resume.html">Resume</a>
+<a href="index.html">Home</a>
+<a href="About.html">About</a>
+<a href="Skills.html">Skills</a>
+<a href="Experience.html">Experience</a>
+<a href="Projects.html">Projects</a>
+<a href="Resume.html">Resume</a>
 </nav>
 
 </body>
