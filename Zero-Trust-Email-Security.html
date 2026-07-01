@@ -1,1 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Zero Trust Email Security | Lokesh M</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- LEFT PROFILE PANEL -->
+<aside class="profile-card">
+
+    <!-- Copy from your index.html -->
+
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="content">
+
+
+<!-- ========================= -->
+<!-- HERO SECTION -->
+<!-- ========================= -->
+
+<section class="project-hero">
+
+    <span class="project-badge">
+        Microsoft 365 Security Project
+    </span>
+
+    <h1>Zero Trust Email Security</h1>
+
+    <p class="project-subtitle">
+        Designing and implementing a Zero Trust email protection strategy using
+        Microsoft Defender for Office 365, Exchange Online Protection (EOP),
+        Anti-Phishing, Safe Links, Safe Attachments, and Microsoft Secure Score
+        recommendations.
+    </p>
+
+</section>
+
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>Project Summary</h2>
+
+<table class="summary-table">
+
+<tr>
+<th>Project</th>
+<td>Zero Trust Email Security</td>
+</tr>
+
+<tr>
+<th>Category</th>
+<td>Microsoft 365 Security</td>
+</tr>
+
+<tr>
+<th>Environment</th>
+<td>Microsoft 365 E5 Developer Tenant</td>
+</tr>
+
+<tr>
+<th>Technologies</th>
+<td>Exchange Online, Microsoft Defender for Office 365, Exchange Online Protection, Microsoft Entra ID</td>
+</tr>
+
+<tr>
+<th>Project Duration</th>
+<td>2 Days</td>
+</tr>
+
+<tr>
+<th>Implementation Type</th>
+<td>Hands-on Enterprise Lab</td>
+</tr>
+
+<tr>
+<th>Status</th>
+<td><span class="success">✔ Completed</span></td>
+</tr>
+
+</table>
+
+</section>
+
+<hr class="section-divider">
+
+
+<!-- ========================= -->
+<!-- PROJECT OVERVIEW -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Project Overview</h2>
+
+<p>
+
+Email remains one of the most common attack vectors used by cybercriminals to
+deliver phishing campaigns, malware, business email compromise (BEC), and
+credential theft attacks. Traditional perimeter-based email security is no
+longer sufficient to protect modern cloud-first organizations.
+
+</p>
+
+<p>
+
+This project demonstrates how a Zero Trust security model can be applied to
+Microsoft 365 email services by assuming that every email could be malicious
+until it has been verified through multiple security controls.
+
+</p>
+
+<p>
+
+Using Microsoft Defender for Office 365 and Exchange Online Protection,
+multiple layers of protection were implemented to inspect email messages,
+URLs, attachments, sender reputation, impersonation attempts, and user-reported
+phishing incidents before they reached end users.
+
+</p>
+
+<p>
+
+The implementation follows Microsoft's Zero Trust principles:
+
+</p>
+
+<ul>
+
+<li>✔ Verify every email before delivery.</li>
+
+<li>✔ Assume every message could be malicious.</li>
+
+<li>✔ Apply least privilege and secure defaults.</li>
+
+<li>✔ Continuously inspect URLs, attachments, and sender identity.</li>
+
+<li>✔ Improve organizational security posture using Microsoft Secure Score.</li>
+
+</ul>
+
+<p>
+
+The result is a multi-layered email protection architecture that significantly
+reduces phishing, malware, and business email compromise risks while providing
+continuous monitoring and measurable security improvements.
+
+</p>
+
+</section>
+
+<hr class="section-divider">
+
+
+<!-- ========================= -->
+<!-- PROJECT OBJECTIVES -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Project Objectives</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Safe Attachments</h3>
+<p>
+Protect users by detonating email attachments inside Microsoft's sandbox before delivery.
+</p>
+</div>
+
+<div class="card">
+<h3>Safe Links</h3>
+<p>
+Rewrite and inspect URLs in real time to prevent users from opening malicious websites.
+</p>
+</div>
+
+<div class="card">
+<h3>Anti-Phishing</h3>
+<p>
+Detect spoofing, impersonation attacks, domain abuse, and executive phishing attempts.
+</p>
+</div>
+
+<div class="card">
+<h3>Security Score</h3>
+<p>
+Measure security posture improvements and implement Microsoft's recommended controls.
+</p>
+</div>
+
+</section>
+
+<section class="project-section">
+
+<h2>Business Problem</h2>
+
+<p>
+
+Email is the primary communication channel for most organizations and remains the
+most exploited attack vector by cybercriminals. Threats such as phishing,
+malicious attachments, business email compromise (BEC), spoofing, and credential
+harvesting can bypass traditional security controls and lead to significant
+financial and operational impact.
+
+</p>
+
+<p>
+
+The objective of this project was to implement a Zero Trust email security
+architecture that continuously verifies every email, attachment, and hyperlink
+before allowing user interaction.
+
+</p>
+
+</section>
+
+<section class="project-section">
+
+<h2>Technologies Used</h2>
+
+<div class="tech-grid">
+
+<div class="tech-card">Microsoft 365</div>
+
+<div class="tech-card">Exchange Online</div>
+
+<div class="tech-card">Microsoft Defender for Office 365</div>
+
+<div class="tech-card">Exchange Online Protection (EOP)</div>
+
+<div class="tech-card">Microsoft Secure Score</div>
+
+<div class="tech-card">Microsoft Entra ID</div>
+
+<div class="tech-card">Microsoft Purview</div>
+
+<div class="tech-card">PowerShell</div>
+
+<div class="tech-card">Microsoft Graph</div>
+
+<div class="tech-card">Microsoft Learn</div>
+
+</div>
+
+</section>
+
+<section class="project-section">
+
+<h2>Solution Architecture</h2>
+
+<p>
+
+The solution implements multiple security layers across Microsoft 365 email
+services. Every inbound email passes through Exchange Online Protection,
+Microsoft Defender for Office 365, Safe Attachments, Safe Links, Anti-Phishing,
+and Anti-Spam policies before delivery to users.
+
+</p>
+
+<ul>
+
+<li>Exchange Online Protection (EOP)</li>
+
+<li>Anti-Spam Policies</li>
+
+<li>Safe Attachments</li>
+
+<li>Safe Links</li>
+
+<li>Anti-Phishing Policies</li>
+
+<li>Microsoft Secure Score</li>
+
+<li>User Report Message Add-in</li>
+
+</ul>
+
+</section>
+
+<section class="project-section">
+
+<section class="project-section">
+
+<h2>Implementation Steps</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>Phase 1 — Exchange Online Protection</h3>
+<p>
+Configured inbound spam filtering, malware filtering, and connection filtering policies to protect the tenant from known malicious senders.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>Phase 2 — Safe Attachments</h3>
+<p>
+Created Safe Attachments policies to detonate suspicious email attachments inside Microsoft's sandbox before delivery.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>Phase 3 — Safe Links</h3>
+<p>
+Enabled Safe Links to rewrite URLs and perform real-time reputation checks whenever users clicked hyperlinks.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>Phase 4 — Anti-Phishing</h3>
+<p>
+Configured impersonation protection for executives, trusted domains, and internal users to reduce Business Email Compromise (BEC) attacks.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>Phase 5 — User Reporting</h3>
+<p>
+Enabled Microsoft Report Message Add-in allowing users to report phishing emails directly from Outlook.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>Phase 6 — Secure Score</h3>
+<p>
+Reviewed Microsoft Secure Score recommendations and implemented additional security controls to improve organizational posture.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="project-section">
+
+<h2>Security Controls Implemented</h2>
+
+<table>
+
+<tr>
+<th>Control</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Safe Attachments</td>
+<td>Implemented</td>
+</tr>
+
+<tr>
+<td>Safe Links</td>
+<td>Implemented</td>
+</tr>
+
+<tr>
+<td>Anti-Spam</td>
+<td>Configured</td>
+</tr>
+
+<tr>
+<td>Anti-Phishing</td>
+<td>Configured</td>
+</tr>
+
+<tr>
+<td>Spoof Intelligence</td>
+<td>Enabled</td>
+</tr>
+
+<tr>
+<td>Report Message Add-in</td>
+<td>Configured</td>
+</tr>
+
+<tr>
+<td>Secure Score Monitoring</td>
+<td>Enabled</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="project-section">
+
+<h2>Validation & Testing</h2>
+
+<ul>
+
+<li>Verified Safe Attachments blocked malicious files.</li>
+
+<li>Validated Safe Links URL rewriting.</li>
+
+<li>Tested impersonation protection.</li>
+
+<li>Confirmed phishing reporting workflow.</li>
+
+<li>Reviewed Secure Score improvements.</li>
+
+<li>Verified policy application through Exchange message traces.</li>
+
+</ul>
+
+</section>
+
+<section class="project-section">
+
+<h2>Key Outcomes</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Reduced Phishing Risk</h3>
+
+<p>Implemented layered protection against phishing attacks.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Improved Email Protection</h3>
+
+<p>Protected users from malicious attachments and URLs.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Higher Secure Score</h3>
+
+<p>Implemented Microsoft recommended security controls.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Zero Trust Email Architecture</h3>
+
+<p>Verified every email before user access.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="project-section">
+
+<h2>Lessons Learned</h2>
+
+<ul>
+
+<li>Email protection is most effective when multiple security layers work together.</li>
+
+<li>Safe Attachments and Safe Links significantly reduce malware exposure.</li>
+
+<li>Executive impersonation protection should always be prioritized.</li>
+
+<li>User awareness combined with technical controls provides the strongest defense.</li>
+
+<li>Microsoft Secure Score is an excellent benchmark for continuous security improvement.</li>
+
+</ul>
+
+</section>
+
+<section class="project-section">
+
+<h2>Project Repository</h2>
+
+<p>
+
+View the complete documentation, screenshots, implementation guide,
+PowerShell scripts, and project artifacts on GitHub.
+
+</p>
+
+<a class="btn primary"
+href="https://github.com/lokeshm-it/Zero-Trust-Email-Security"
+target="_blank">
+
+View Project on GitHub →
+
+</a>
+
+</section>
+
+<section class="project-section">
+
+<h2>Business Impact</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Reduced Phishing Risk</h3>
+<p>
+Multiple Microsoft Defender policies significantly reduced phishing exposure across Exchange Online.
+</p>
+</div>
+
+<div class="card">
+<h3>Email Protection</h3>
+<p>
+Safe Attachments and Safe Links provided real-time protection against malicious files and URLs.
+</p>
+</div>
+
+<div class="card">
+<h3>Improved Security Posture</h3>
+<p>
+Microsoft Secure Score increased after implementing Microsoft's recommended security controls.
+</p>
+</div>
+
+<div class="card">
+<h3>Zero Trust Alignment</h3>
+<p>
+Implemented a layered email security architecture aligned with Microsoft's Zero Trust principles.
+</p>
+</div>
+
+</div>
+
+</section>
+
+  <section class="project-section">
+
+<h2>Skills Demonstrated</h2>
+
+<div class="tech-grid">
+
+<div class="tech-card">Microsoft Defender for Office 365</div>
+
+<div class="tech-card">Exchange Online Protection</div>
+
+<div class="tech-card">Exchange Online Administration</div>
+
+<div class="tech-card">Microsoft Entra ID</div>
+
+<div class="tech-card">Safe Attachments</div>
+
+<div class="tech-card">Safe Links</div>
+
+<div class="tech-card">Anti-Phishing Policies</div>
+
+<div class="tech-card">Secure Score Optimization</div>
+
+<div class="tech-card">Zero Trust Security</div>
+
+<div class="tech-card">Microsoft 365 Security</div>
+
+</div>
+
+</section>
+
+  <section class="project-section">
+
+<h2>Future Enhancements</h2>
+
+<ul>
+
+<li>Integrate Microsoft Sentinel for email threat monitoring.</li>
+
+<li>Automate reporting using Microsoft Graph PowerShell.</li>
+
+<li>Configure Attack Simulation Training.</li>
+
+<li>Implement Automated Investigation and Response (AIR).</li>
+
+<li>Deploy Microsoft Defender XDR advanced hunting queries.</li>
+
+</ul>
+
+</section>
+
+  
+</main>
+
+<!-- RIGHT NAVIGATION -->
+<nav class="side-nav">
+    <a href="index.html">Home</a>
+    <a href="About.html">About</a>
+    <a href="Skills.html">Skills</a>
+    <a href="Experience.html">Experience</a>
+    <a href="Projects.html">Projects</a>
+    <a href="Resume.html">Resume</a>
+</nav>
+
+</body>
+
+</html>
 
