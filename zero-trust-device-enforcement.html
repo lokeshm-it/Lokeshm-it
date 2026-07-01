@@ -498,48 +498,44 @@
         /* ==========================================================
            SCREENSHOT GALLERY
         ========================================================== */
-        .project-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 24px;
-        }
-
-        .gallery-item {
-            background-color: var(--ms-grey-10);
-            border: 1px solid var(--ms-border);
-            border-radius: var(--ms-radius-lg);
-            overflow: hidden;
-            transition: box-shadow 0.2s ease, transform 0.2s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .gallery-item:hover {
-            box-shadow: var(--ms-shadow-lg);
-            transform: translateY(-3px);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            object-position: top;
-            display: block;
-            background-color: var(--ms-grey-10);
-            border-bottom: 1px solid var(--ms-border);
-        }
-
-        .gallery-caption {
-            padding: 10px 14px;
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--ms-grey-70);
-            text-align: center;
-            background-color: var(--ms-white);
-            margin: 0;
-        }
-
+        <div class="project-gallery">
+    <div class="gallery-item">
+        <img src="images/01-device-enrolled.png"
+             alt="Device Enrollment — Intune portal showing enrolled Windows 11 device"
+             width="400" height="250" loading="lazy">
+        <p class="gallery-caption">Device Enrollment</p>
+    </div>
+    <div class="gallery-item">
+        <img src="images/02-auto-enrollment.png"
+             alt="MDM Auto Enrollment — Scope set to All users"
+             width="400" height="250" loading="lazy">
+        <p class="gallery-caption">MDM Auto Enrollment</p>
+    </div>
+    <div class="gallery-item">
+        <img src="images/03-compliance-status.png"
+             alt="Compliance Policy — Device compliance status evaluation"
+             width="400" height="250" loading="lazy">
+        <p class="gallery-caption">Compliance Policy</p>
+    </div>
+    <div class="gallery-item">
+        <img src="images/04-ca-report-only.png"
+             alt="Conditional Access — CA-DEV-01 policy in Report-only state"
+             width="400" height="250" loading="lazy">
+        <p class="gallery-caption">Conditional Access — Report Only</p>
+    </div>
+    <div class="gallery-item">
+        <img src="images/05-defender-connection.png"
+             alt="Endpoint Security — Microsoft Defender for Endpoint connector active"
+             width="400" height="250" loading="lazy">
+        <p class="gallery-caption">Endpoint Security</p>
+    </div>
+    <div class="gallery-item">
+        <img src="images/06-ca-enforced.png"
+             alt="Conditional Access — CA-DEV-01 policy enforced and On"
+             width="400" height="250" loading="lazy">
+        <p class="gallery-caption">Conditional Access — Enforced</p>
+    </div>
+</div>
         /* ==========================================================
            CODE BLOCK (PowerShell)
         ========================================================== */
