@@ -1,1 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Microsoft Entra ID Identity Protection | Lokesh M</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- LEFT PROFILE PANEL -->
+
+<aside class="profile-card">
+
+<h2>LOKESH M</h2>
+
+<p class="title">
+Senior Infrastructure Engineer
+</p>
+
+<p class="tags">
+Microsoft 365 • Security • Azure
+</p>
+
+<div class="availability">
+<span class="dot"></span>
+Open to learning • Freelance
+</div>
+
+<div class="social-row">
+
+<a href="https://www.linkedin.com/in/lokesh-itinfra/" target="_blank">in</a>
+
+<a href="https://github.com/lokeshm-it" target="_blank">GH</a>
+
+<a href="https://techcertguide.blog/" target="_blank">Blog</a>
+
+</div>
+
+<a class="big-btn outline"
+href="mailto:lokeshmurali45@gmail.com">
+
+✉ Email
+
+</a>
+
+<a href="Resume.html"
+class="big-btn solid">
+
+⬇ Resume
+
+</a>
+
+</aside>
+
+<main class="content">
+
+<section class="project-hero">
+
+<span class="project-badge">
+
+Identity Administrator Project
+
+</span>
+
+<h1>
+
+Microsoft Entra ID Identity Protection
+
+</h1>
+
+<p class="project-subtitle">
+
+Implemented Microsoft Entra ID Identity Protection to detect risky users and risky sign-ins, configure User Risk and Sign-in Risk policies, integrate Microsoft Defender, and enforce Zero Trust identity security using adaptive risk-based Conditional Access controls.
+
+</p>
+
+</section>
+
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>
+
+Project Overview
+
+</h2>
+
+<p>
+
+Microsoft Entra ID Identity Protection continuously evaluates user identities using Microsoft's machine learning and threat intelligence platform to detect compromised credentials, suspicious sign-in activity, leaked passwords, anonymous IP addresses, impossible travel events, malware-linked authentication attempts, and other identity-based attacks.
+
+</p>
+
+<p>
+
+Unlike traditional identity management, Identity Protection applies a Zero Trust model by continuously assessing identity risk and automatically enforcing Conditional Access policies based on real-time risk levels.
+
+</p>
+
+<p>
+
+This project demonstrates how Microsoft Entra ID Identity Protection was configured to secure enterprise identities through adaptive authentication, User Risk policies, Sign-in Risk policies, Risky Users monitoring, Risky Sign-ins investigation, and Microsoft Defender integration.
+
+</p>
+
+</section>
+
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>
+
+Business Problem
+
+</h2>
+
+<p>
+
+User identities have become the primary attack target for cybercriminals. Password spraying, phishing, token theft, impossible travel attacks, anonymous proxy usage, and leaked credentials frequently bypass traditional perimeter security controls.
+
+</p>
+
+<p>
+
+Organizations require a modern identity security solution capable of continuously evaluating identity risk and automatically responding before compromised accounts gain access to corporate resources.
+
+</p>
+
+</section>
+
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>
+
+Project Objectives
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+
+Risk-based User Policy
+
+</h3>
+
+<p>
+
+Automatically require password changes when users become high-risk.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+Risk-based Sign-in Policy
+
+</h3>
+
+<p>
+
+Require MFA whenever risky authentication activity is detected.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+Identity Monitoring
+
+</h3>
+
+<p>
+
+Monitor Risky Users and Risky Sign-ins from the Microsoft Entra portal.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+Microsoft Defender Integration
+
+</h3>
+
+<p>
+
+Share identity risk signals with Microsoft Defender XDR.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>
+
+Environment
+
+</h2>
+
+<table>
+
+<tr>
+
+<th>Component</th>
+
+<th>Value</th>
+
+</tr>
+
+<tr>
+
+<td>Tenant</td>
+
+<td>Patchthecloud.onmicrosoft.com</td>
+
+</tr>
+
+<tr>
+
+<td>Platform</td>
+
+<td>Microsoft Entra ID Identity Protection</td>
+
+</tr>
+
+<tr>
+
+<td>Microsoft Defender</td>
+
+<td>Integrated</td>
+
+</tr>
+
+<tr>
+
+<td>Conditional Access</td>
+
+<td>Risk-based Policies</td>
+
+</tr>
+
+<tr>
+
+<td>Implementation</td>
+
+<td>January 2026</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>
+
+Technologies Used
+
+</h2>
+
+<div class="tech-grid">
+
+<div class="tech-card">Microsoft Entra ID</div>
+
+<div class="tech-card">Identity Protection</div>
+
+<div class="tech-card">Conditional Access</div>
+
+<div class="tech-card">Microsoft Defender XDR</div>
+
+<div class="tech-card">Microsoft Graph</div>
+
+<div class="tech-card">PowerShell</div>
+
+<div class="tech-card">Microsoft Learn</div>
+
+<div class="tech-card">Zero Trust</div>
+
+</div>
+
+</section>
+
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>
+
+Solution Architecture
+
+</h2>
+
+<p>
+
+Microsoft Entra ID Identity Protection continuously evaluates every user sign-in
+using Microsoft's global threat intelligence platform. Risk detections are
+generated based on leaked credentials, anonymous IP addresses, impossible
+travel, malware-linked sign-ins, unfamiliar sign-in properties, and suspicious
+user behavior.
+
+</p>
+
+<p>
+
+When a predefined risk threshold is reached, Conditional Access policies
+automatically require password reset, Multi-Factor Authentication (MFA), or
+block access until the identity risk has been remediated.
+
+</p>
+
+<ul>
+
+<li>Identity Protection Risk Engine</li>
+
+<li>Risky Users Monitoring</li>
+
+<li>Risky Sign-ins Monitoring</li>
+
+<li>User Risk Policies</li>
+
+<li>Sign-in Risk Policies</li>
+
+<li>Conditional Access Integration</li>
+
+<li>Microsoft Defender XDR Integration</li>
+
+<li>Zero Trust Identity Enforcement</li>
+
+</ul>
+
+</section>
+
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>
+
+Implementation Phases
+
+</h2>
+
+<div class="timeline">
+
+<!-- Phase 1 -->
+
+<div class="timeline-item">
+
+<h3>Phase 1 — User Risk Policy (Report-only)</h3>
+
+<p>
+
+Configured a User Risk Policy in Report-only mode to evaluate the impact before
+enforcing automatic remediation.
+
+</p>
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Entra-ID-Protection/main/images/Appendix%20A-1_%20User%20Risk%20based%20Report%20Only.png"
+alt="User Risk Report Only"
+class="project-image">
+
+</div>
+
+<!-- Phase 2 -->
+
+<div class="timeline-item">
+
+<h3>Phase 2 — User Risk Policy (Enforced)</h3>
+
+<p>
+
+Enabled the User Risk Policy to require secure password reset whenever a user
+is classified as High Risk.
+
+</p>
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Entra-ID-Protection/main/images/Appendix%20A-2_%20User%20Risk%20based%20Enforced.png"
+alt="User Risk Enforced"
+class="project-image">
+
+</div>
+
+<!-- Phase 3 -->
+
+<div class="timeline-item">
+
+<h3>Phase 3 — Sign-in Risk Policy (Report-only)</h3>
+
+<p>
+
+Configured Sign-in Risk Policy in Report-only mode to validate policy behavior
+before enforcement.
+
+</p>
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Entra-ID-Protection/main/images/Appendix%20A-3_%20Sign%20in%20Risk%20based%20Report%20Only.png"
+alt="Sign-in Risk Report Only"
+class="project-image">
+
+</div>
+
+<!-- Phase 4 -->
+
+<div class="timeline-item">
+
+<h3>Phase 4 — Sign-in Risk Policy (Enforced)</h3>
+
+<p>
+
+Enabled automatic MFA challenges for Medium and High-risk authentication
+attempts.
+
+</p>
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Entra-ID-Protection/main/images/Appendix%20A-4_%20Sign%20in%20Risk%20based%20Enforced.png"
+alt="Sign-in Risk Enforced"
+class="project-image">
+
+</div>
+
+<!-- Phase 5 -->
+
+<div class="timeline-item">
+
+<h3>Phase 5 — Identity Protection Overview</h3>
+
+<p>
+
+Verified Microsoft Entra ID Identity Protection configuration and confirmed
+Identity Protection services were enabled for the tenant.
+
+</p>
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Entra-ID-Protection/main/images/Appendix%20A-5_%20Entra%20ID%20Protection%20Enaled%20by%20default.png"
+alt="Identity Protection Overview"
+class="project-image">
+
+</div>
+
+<!-- Phase 6 -->
+
+<div class="timeline-item">
+
+<h3>Phase 6 — Risky Sign-ins</h3>
+
+<p>
+
+Validated the Risky Sign-ins dashboard used to investigate suspicious
+authentication attempts.
+
+</p>
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Entra-ID-Protection/main/images/Appendix%20A-6_%20Risky%20Sign-in%20Enabled.png"
+alt="Risky Sign-ins"
+class="project-image">
+
+</div>
+
+<!-- Phase 7 -->
+
+<div class="timeline-item">
+
+<h3>Phase 7 — Risky Users</h3>
+
+<p>
+
+Reviewed the Risky Users dashboard for compromised identity monitoring and
+remediation.
+
+</p>
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Entra-ID-Protection/main/images/Appendix%20A-7_%20Risky%20Users%20Enabled.png"
+alt="Risky Users"
+class="project-image">
+
+</div>
+
+<!-- Phase 8 -->
+
+<div class="timeline-item">
+
+<h3>Phase 8 — Microsoft Defender Integration</h3>
+
+<p>
+
+Integrated Microsoft Defender XDR with Microsoft Entra ID Identity Protection
+to share identity risk signals across Microsoft security workloads.
+
+</p>
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Entra-ID-Protection/main/images/Appendix%20A-8_%20Identity%20Enabled%20in%20Defender.png"
+alt="Defender Integration"
+class="project-image">
+
+</div>
+
+</div>
+
+</section>
+
+  
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>
+
+Security Controls Implemented
+
+</h2>
+
+<table>
+
+<tr>
+
+<th>Security Control</th>
+
+<th>Status</th>
+
+<th>Zero Trust Principle</th>
+
+</tr>
+
+<tr>
+
+<td>User Risk Policy</td>
+
+<td>Implemented</td>
+
+<td>Verify Explicitly</td>
+
+</tr>
+
+<tr>
+
+<td>Sign-in Risk Policy</td>
+
+<td>Implemented</td>
+
+<td>Verify Explicitly</td>
+
+</tr>
+
+<tr>
+
+<td>Risky Users Monitoring</td>
+
+<td>Enabled</td>
+
+<td>Assume Breach</td>
+
+</tr>
+
+<tr>
+
+<td>Risky Sign-ins Monitoring</td>
+
+<td>Enabled</td>
+
+<td>Assume Breach</td>
+
+</tr>
+
+<tr>
+
+<td>Microsoft Defender Integration</td>
+
+<td>Enabled</td>
+
+<td>Unified Threat Protection</td>
+
+</tr>
+
+<tr>
+
+<td>Identity Protection Dashboard</td>
+
+<td>Configured</td>
+
+<td>Continuous Monitoring</td>
+
+</tr>
+
+<tr>
+
+<td>Conditional Access Integration</td>
+
+<td>Validated</td>
+
+<td>Least Privilege</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>
+
+Validation & Testing
+
+</h2>
+
+<ul>
+
+<li>Verified User Risk Policy in Report-only mode before enforcement.</li>
+
+<li>Confirmed User Risk Policy successfully transitioned to Enabled mode.</li>
+
+<li>Validated Sign-in Risk Policy using Report-only and Enabled configurations.</li>
+
+<li>Verified Risky Users dashboard availability.</li>
+
+<li>Verified Risky Sign-ins dashboard availability.</li>
+
+<li>Confirmed Microsoft Defender received Identity Protection signals.</li>
+
+<li>Validated Conditional Access integration with Identity Protection.</li>
+
+<li>Reviewed Identity Protection configuration within Microsoft Entra Admin Center.</li>
+
+</ul>
+
+</section>
+
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>
+
+Project Outcomes
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+
+Risk-based Authentication
+
+</h3>
+
+<p>
+
+Adaptive authentication policies automatically respond to suspicious user activity based on calculated identity risk.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+Improved Identity Visibility
+
+</h3>
+
+<p>
+
+Security administrators gain centralized visibility into compromised identities and suspicious authentication events.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+Zero Trust Identity
+
+</h3>
+
+<p>
+
+Identity becomes the primary security perimeter with continuous verification before granting access.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+Integrated Security Signals
+
+</h3>
+
+<p>
+
+Identity Protection shares risk intelligence with Microsoft Defender XDR for unified threat detection.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>
+
+PowerShell Automation
+
+</h2>
+
+<table>
+
+<tr>
+
+<th>Script</th>
+
+<th>Purpose</th>
+
+</tr>
+
+<tr>
+
+<td>Get-RiskyUsers.ps1</td>
+
+<td>Retrieve Microsoft Entra ID Risky Users using Microsoft Graph API.</td>
+
+</tr>
+
+<tr>
+
+<td>Get-RiskySignIns.ps1</td>
+
+<td>Export Risky Sign-ins for investigation and reporting.</td>
+
+</tr>
+
+<tr>
+
+<td>Get-IdentityProtectionStatus.ps1</td>
+
+<td>Retrieve Identity Protection configuration settings.</td>
+
+</tr>
+
+<tr>
+
+<td>Export-IdentityProtectionReport.ps1</td>
+
+<td>Generate Identity Protection compliance reports.</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>
+
+Lessons Learned
+
+</h2>
+
+<ul>
+
+<li>Identity is the new security perimeter in modern cloud environments.</li>
+
+<li>Report-only mode should always be used before enforcing Conditional Access policies.</li>
+
+<li>Risk-based policies significantly reduce account compromise by enforcing adaptive authentication.</li>
+
+<li>Microsoft Entra ID Identity Protection complements Microsoft Defender XDR by sharing identity risk signals.</li>
+
+<li>Continuous monitoring of Risky Users and Risky Sign-ins enables faster incident response.</li>
+
+<li>Zero Trust requires continuous verification rather than one-time authentication.</li>
+
+</ul>
+
+</section>
+
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>
+
+Future Improvements
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+
+Conditional Access
+
+</h3>
+
+<p>
+
+Expand adaptive access policies using authentication strength and device compliance.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+Privileged Identity Management
+
+</h3>
+
+<p>
+
+Implement Just-in-Time administrative access using Microsoft Entra PIM.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+Identity Governance
+
+</h3>
+
+<p>
+
+Deploy Access Reviews and Lifecycle Workflows for identity lifecycle management.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+Passwordless Authentication
+
+</h3>
+
+<p>
+
+Implement FIDO2 Security Keys, Windows Hello for Business, and Temporary Access Pass.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>
+
+Project Repository
+
+</h2>
+
+<p>
+
+View the complete project documentation, implementation guides, screenshots, PowerShell scripts, and architecture diagrams on GitHub.
+
+</p>
+
+<a class="btn primary"
+
+href="https://github.com/lokeshm-it/Entra-ID-Protection"
+
+target="_blank">
+
+View Project on GitHub →
+
+</a>
+
+</section>
+
+</main>
+
+<!-- RIGHT NAVIGATION -->
+
+<nav class="side-nav">
+
+<a href="index.html">Home</a>
+
+<a href="About.html">About</a>
+
+<a href="Skills.html">Skills</a>
+
+<a href="Experience.html">Experience</a>
+
+<a href="Projects.html">Projects</a>
+
+<a href="identity-admin.html">Identity</a>
+
+<a href="Resume.html">Resume</a>
+
+</nav>
+
+</body>
+
+</html>
