@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Microsoft Defender XDR Integration with Microsoft Sentinel | Lokesh M
+</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- LEFT PROFILE PANEL -->
+
+<aside class="profile-card">
+
+<h2>LOKESH M</h2>
+
+<p class="title">
+Senior Infrastructure Engineer
+</p>
+
+<p class="tags">
+Microsoft 365 • Security • Azure
+</p>
+
+<div class="availability">
+<span class="dot"></span>
+Open to learning • Freelance
+</div>
+
+<div class="social-row">
+
+<a href="https://www.linkedin.com/in/lokesh-itinfra/" target="_blank">in</a>
+
+<a href="https://github.com/lokeshm-it" target="_blank">GH</a>
+
+<a href="https://techcertguide.blog/" target="_blank">Blog</a>
+
+</div>
+
+<a class="big-btn outline"
+href="mailto:lokeshmurali45@gmail.com">
+
+✉ Email
+
+</a>
+
+<a href="Resume.html"
+class="big-btn solid">
+
+⬇ Resume
+
+</a>
+
+</aside>
+
+<!-- MAIN -->
+
+<main class="content">
+
+<section class="project-hero">
+
+<span class="project-badge">
+
+Project 3 • Security Operations
+
+</span>
+
+<h1>
+
+Microsoft Defender XDR + Microsoft Sentinel
+
+</h1>
+
+<p class="project-subtitle">
+
+Implemented a centralized security operations platform using
+Microsoft Defender XDR and Microsoft Sentinel to collect,
+correlate, investigate and monitor Microsoft 365 security alerts
+within a single SIEM dashboard.
+
+</p>
+
+</section>
+
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>Project Overview</h2>
+
+<p>
+
+Organizations often deploy Microsoft Defender for Endpoint,
+Defender for Office 365, Defender for Identity and Microsoft Entra
+ID independently. While each service detects threats, security teams
+must switch between multiple portals to investigate incidents.
+
+</p>
+
+<p>
+
+This project demonstrates how Microsoft Sentinel integrates with
+Microsoft Defender XDR to centralize security monitoring, incident
+management and alert investigation through a single cloud-native
+SIEM platform.
+
+</p>
+
+<p>
+
+The implementation focused on enabling native Microsoft security
+integration rather than building custom analytics, providing a
+foundation for future SOC automation and threat hunting.
+
+</p>
+
+</section>
+
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>Business Problem</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Siloed Security Data</h3>
+
+<p>
+
+Security alerts were spread across multiple Microsoft Defender
+products making investigations slower.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>No Central Visibility</h3>
+
+<p>
+
+Security teams lacked one dashboard to monitor alerts,
+incidents and investigation history.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Limited Incident Correlation</h3>
+
+<p>
+
+Attack chains across Email, Identity and Endpoint security
+were difficult to correlate.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Manual Investigation</h3>
+
+<p>
+
+Analysts needed to manually review alerts from different
+Microsoft security portals.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>Microsoft Technologies Used</h2>
+
+<div class="tech-grid">
+
+<div class="tech-card">Microsoft Sentinel</div>
+
+<div class="tech-card">Microsoft Defender XDR</div>
+
+<div class="tech-card">Log Analytics Workspace</div>
+
+<div class="tech-card">Microsoft Defender for Office 365</div>
+
+<div class="tech-card">Microsoft Defender for Endpoint</div>
+
+<div class="tech-card">Microsoft Defender for Identity</div>
+
+<div class="tech-card">Microsoft Entra ID</div>
+
+<div class="tech-card">Azure Portal</div>
+
+</div>
+
+</section>
+
+<hr class="section-divider">
+
+<section class="project-section">
+
+<h2>Implementation Steps</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<h3>
+
+Phase 1 — Microsoft Sentinel Workspace
+
+</h3>
+
+<p>
+
+Created a Log Analytics Workspace and enabled Microsoft Sentinel
+to establish the SIEM platform for centralized log collection.
+
+</p>
+
+<img
+class="project-image"
+
+src="https://raw.githubusercontent.com/lokeshm-it/Defender-XDR-Microsoft-Sentinel/main/images/Appendix_A.1_Sentinel%20Overview.png"
+
+alt="Microsoft Sentinel Overview">
+
+</div>
+
+<div class="timeline-item">
+
+<h3>
+
+Phase 2 — Defender XDR Connector
+
+</h3>
+
+<p>
+
+Installed the Microsoft Defender XDR solution from the
+Content Hub and connected Microsoft Defender security
+signals into Microsoft Sentinel.
+
+</p>
+
+<img
+class="project-image"
+
+src="https://raw.githubusercontent.com/lokeshm-it/Defender-XDR-Microsoft-Sentinel/main/images/Appendix_A.2_Sentinel%20Data%20Connectors%20-%20Defender%20for%20XDR.png"
+
+alt="Defender XDR Connector">
+
+</div>
+
+<div class="timeline-item">
+
+<h3>
+
+Phase 3 — Defender XDR Installation
+
+</h3>
+
+<p>
+
+Verified Microsoft Defender XDR connector installation
+and confirmed successful data ingestion into Sentinel.
+
+</p>
+
+<img
+class="project-image"
+
+src="https://raw.githubusercontent.com/lokeshm-it/Defender-XDR-Microsoft-Sentinel/main/images/Appendix_A.3_Install-%20Defender%20for%20XDR.png"
+
+alt="Install Defender XDR">
+
+</div>
+
+  </div>
+
+</section>
+
+<hr class="section-divider">
+
+<!-- ========================================= -->
+<!-- INCIDENT VALIDATION -->
+<!-- ========================================= -->
+
+<section class="project-section">
+
+<h2>Incident Validation & Investigation</h2>
+
+<p>
+
+After enabling Microsoft Defender XDR integration, Microsoft Sentinel
+automatically received security incidents from Microsoft Defender.
+The incident was investigated automatically by Microsoft Defender XDR
+without requiring manual analyst intervention.
+
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Incident Status</h3>
+
+<p>
+
+✔ Automatically Investigated
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Incident Severity</h3>
+
+<p>
+
+Low
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>MTTA</h3>
+
+<p>
+
+0 Minutes
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>MTTC</h3>
+
+<p>
+
+14 Minutes
+
+</p>
+
+</div>
+
+</div>
+
+<br>
+
+<img
+class="project-image"
+
+src="https://raw.githubusercontent.com/lokeshm-it/Defender-XDR-Microsoft-Sentinel/main/images/Appendix_A.4_Incident%20got%20closed%20automatically%20in%20Sentinal.png"
+
+alt="Incident Closed Automatically">
+
+</section>
+
+<hr class="section-divider">
+
+<!-- ========================================= -->
+<!-- INCIDENT PAGE -->
+<!-- ========================================= -->
+
+<section class="project-section">
+
+<h2>Incident Investigation</h2>
+
+<p>
+
+The generated incident contained all related alerts, investigation
+timeline, evidence, affected resources and automated investigation
+results.
+
+Microsoft Sentinel provided a centralized interface to review
+incident details without navigating multiple Defender portals.
+
+</p>
+
+<img
+class="project-image"
+
+src="https://raw.githubusercontent.com/lokeshm-it/Defender-XDR-Microsoft-Sentinel/main/images/Appendix_A.5_Incident%20page.png"
+
+alt="Sentinel Incident Page">
+
+</section>
+
+<hr class="section-divider">
+
+<!-- ========================================= -->
+<!-- ALERT VALIDATION -->
+<!-- ========================================= -->
+
+<section class="project-section">
+
+<h2>Alert Validation</h2>
+
+<p>
+
+The alert originated from Microsoft Defender for Office 365 after a
+user reported a phishing email. Microsoft Defender XDR automatically
+investigated the alert and determined that no malicious activity was
+present.
+
+The alert flowed into Microsoft Sentinel where it became part of the
+incident timeline for centralized SOC monitoring.
+
+</p>
+
+<img
+class="project-image"
+
+src="https://raw.githubusercontent.com/lokeshm-it/Defender-XDR-Microsoft-Sentinel/main/images/Appendix_A.6_Alert%20page.png"
+
+alt="Alert Page">
+
+</section>
+
+<hr class="section-divider">
+
+<!-- ========================================= -->
+<!-- IMPLEMENTATION SUMMARY -->
+<!-- ========================================= -->
+
+<section class="project-section">
+
+<h2>Implementation Summary</h2>
+
+<table>
+
+<tr>
+
+<th>Activity</th>
+
+<th>Status</th>
+
+</tr>
+
+<tr>
+
+<td>Created Log Analytics Workspace</td>
+
+<td>✔ Completed</td>
+
+</tr>
+
+<tr>
+
+<td>Enabled Microsoft Sentinel</td>
+
+<td>✔ Completed</td>
+
+</tr>
+
+<tr>
+
+<td>Installed Defender XDR Connector</td>
+
+<td>✔ Completed</td>
+
+</tr>
+
+<tr>
+
+<td>Connected Microsoft Defender Signals</td>
+
+<td>✔ Completed</td>
+
+</tr>
+
+<tr>
+
+<td>Validated Incident Ingestion</td>
+
+<td>✔ Completed</td>
+
+</tr>
+
+<tr>
+
+<td>Reviewed Incident Investigation</td>
+
+<td>✔ Completed</td>
+
+</tr>
+
+<tr>
+
+<td>Verified Alert Correlation</td>
+
+<td>✔ Completed</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<hr class="section-divider">
+
+<!-- ========================================= -->
+<!-- KEY SKILLS -->
+<!-- ========================================= -->
+
+<section class="project-section">
+
+<h2>Skills Demonstrated</h2>
+
+<div class="tech-grid">
+
+<div class="tech-card">Microsoft Sentinel</div>
+
+<div class="tech-card">Microsoft Defender XDR</div>
+
+<div class="tech-card">Log Analytics Workspace</div>
+
+<div class="tech-card">Content Hub</div>
+
+<div class="tech-card">Data Connectors</div>
+
+<div class="tech-card">Incident Management</div>
+
+<div class="tech-card">Alert Investigation</div>
+
+<div class="tech-card">Security Operations</div>
+
+<div class="tech-card">Microsoft Defender for Office 365</div>
+
+<div class="tech-card">Microsoft Defender for Endpoint</div>
+
+</div>
+
+</section>
+
+<hr class="section-divider">
+
+<!-- ========================================= -->
+<!-- LESSONS LEARNED -->
+<!-- ========================================= -->
+
+<section class="project-section">
+
+<h2>Lessons Learned</h2>
+
+<ul>
+
+<li>
+Microsoft Sentinel provides a centralized SIEM platform for Microsoft security services.
+</li>
+
+<li>
+Native Defender XDR integration requires minimal configuration through Content Hub.
+</li>
+
+<li>
+Automated investigation significantly reduces manual SOC effort.
+</li>
+
+<li>
+Microsoft Defender XDR automatically correlates alerts across multiple Microsoft security products.
+</li>
+
+<li>
+Even in a small lab environment, Microsoft Sentinel demonstrates enterprise-grade incident visibility.
+</li>
+
+<li>
+Automation-first security operations help reduce Mean Time to Acknowledge (MTTA) and Mean Time to Close (MTTC).
+</li>
+
+</ul>
+
+</section>
+
+<hr class="section-divider">
+
+<!-- ========================================= -->
+<!-- GITHUB -->
+<!-- ========================================= -->
+
+<section class="project-section">
+
+<h2>Project Repository</h2>
+
+<p>
+
+This repository contains implementation documentation,
+architecture diagrams, screenshots, PowerShell automation scripts
+and validation evidence for Microsoft Defender XDR and Microsoft Sentinel.
+
+</p>
+
+<a
+
+class="btn primary"
+
+href="https://github.com/lokeshm-it/Defender-XDR-Microsoft-Sentinel"
+
+target="_blank">
+
+View Project on GitHub →
+
+</a>
+
+</section>
+
+</main>
+
+<!-- RIGHT NAVIGATION -->
+
+<nav class="side-nav">
+
+<a href="index.html">Home</a>
+
+<a href="About.html">About</a>
+
+<a href="Skills.html">Skills</a>
+
+<a href="Experience.html">Experience</a>
+
+<a href="Projects.html">Projects</a>
+
+<a href="Resume.html">Resume</a>
+
+</nav>
+
+</body>
+
+</html>
