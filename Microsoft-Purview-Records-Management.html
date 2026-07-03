@@ -1,1 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Microsoft Purview Records Management | Microsoft 365 Compliance Portfolio</title>
+
+<meta name="description" content="Enterprise Microsoft Purview Records Management implementation demonstrating Record Labels, File Plan, Regulatory Records, Event-Based Retention, and Disposition Review across Microsoft 365 workloads.">
+
+<meta name="keywords" content="Microsoft Purview, Records Management, Record Labels, Regulatory Records, File Plan, Event Based Retention, Microsoft 365, Compliance, MS-102">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#f4f7fb;
+color:#1f2937;
+line-height:1.7;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+img{
+max-width:100%;
+display:block;
+border-radius:12px;
+}
+
+.container{
+width:92%;
+max-width:1400px;
+margin:auto;
+}
+
+section{
+padding:80px 0;
+}
+
+h1,h2,h3{
+font-weight:700;
+}
+
+h2{
+font-size:2rem;
+margin-bottom:20px;
+color:#0f172a;
+}
+
+h3{
+margin-top:25px;
+margin-bottom:10px;
+}
+
+p{
+margin-bottom:18px;
+}
+
+ul{
+padding-left:22px;
+}
+
+li{
+margin-bottom:8px;
+}
+
+/*=========================
+Navigation
+=========================*/
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:#0f172a;
+z-index:1000;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.nav-container{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 0;
+}
+
+.logo{
+font-size:1.3rem;
+font-weight:700;
+color:white;
+}
+
+.logo span{
+color:#38bdf8;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+padding:0;
+}
+
+nav ul li a{
+color:white;
+font-weight:500;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#38bdf8;
+}
+
+/*=========================
+Hero
+=========================*/
+
+.hero{
+
+background:linear-gradient(135deg,#0f172a,#1e3a8a);
+
+color:white;
+
+padding-top:150px;
+
+padding-bottom:90px;
+
+}
+
+.hero-grid{
+
+display:grid;
+
+grid-template-columns:1.2fr .8fr;
+
+gap:60px;
+
+align-items:center;
+
+}
+
+.hero h1{
+
+font-size:3rem;
+
+line-height:1.2;
+
+margin-bottom:25px;
+
+}
+
+.hero p{
+
+font-size:1.1rem;
+
+opacity:.92;
+
+}
+
+.badges{
+
+display:flex;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+margin:30px 0;
+
+}
+
+.badge{
+
+background:rgba(255,255,255,.15);
+
+padding:10px 18px;
+
+border-radius:30px;
+
+font-size:.9rem;
+
+font-weight:600;
+
+}
+
+.hero-buttons{
+
+margin-top:35px;
+
+display:flex;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+.btn{
+
+display:inline-block;
+
+padding:14px 28px;
+
+border-radius:8px;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.btn-primary{
+
+background:#38bdf8;
+
+color:#0f172a;
+
+}
+
+.btn-primary:hover{
+
+background:white;
+
+}
+
+.btn-outline{
+
+border:2px solid white;
+
+color:white;
+
+}
+
+.btn-outline:hover{
+
+background:white;
+
+color:#0f172a;
+
+}
+
+/*=========================
+Cards
+=========================*/
+
+.card{
+
+background:white;
+
+padding:35px;
+
+border-radius:15px;
+
+box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+margin-bottom:30px;
+
+}
+
+.grid-2{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:30px;
+
+}
+
+.grid-3{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:25px;
+
+}
+
+.stat{
+
+background:white;
+
+padding:30px;
+
+border-left:6px solid #2563eb;
+
+border-radius:12px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.stat h3{
+
+color:#2563eb;
+
+margin-bottom:12px;
+
+}
+
+/*=========================
+Tables
+=========================*/
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+margin-top:20px;
+
+}
+
+table th{
+
+background:#1e3a8a;
+
+color:white;
+
+padding:15px;
+
+text-align:left;
+
+}
+
+table td{
+
+padding:14px;
+
+border-bottom:1px solid #e5e7eb;
+
+}
+
+table tr:nth-child(even){
+
+background:#f8fafc;
+
+}
+
+/*=========================
+Timeline
+=========================*/
+
+.timeline{
+
+border-left:5px solid #2563eb;
+
+margin-left:15px;
+
+padding-left:35px;
+
+}
+
+.timeline-item{
+
+margin-bottom:35px;
+
+position:relative;
+
+}
+
+.timeline-item::before{
+
+content:"";
+
+position:absolute;
+
+left:-44px;
+
+top:5px;
+
+width:18px;
+
+height:18px;
+
+background:#2563eb;
+
+border-radius:50%;
+
+}
+
+  
+/*=========================
+Gallery
+=========================*/
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+
+gap:30px;
+
+margin-top:40px;
+
+}
+
+.gallery img{
+
+border-radius:10px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+transition:.35s;
+
+}
+
+.gallery img:hover{
+
+transform:scale(1.03);
+
+}
+
+.caption{
+
+text-align:center;
+
+margin-top:12px;
+
+font-weight:600;
+
+font-size:.95rem;
+
+}
+
+/*=========================
+Footer
+=========================*/
+
+footer{
+
+background:#0f172a;
+
+color:white;
+
+padding:60px 0;
+
+text-align:center;
+
+margin-top:80px;
+
+}
+
+footer p{
+
+opacity:.9;
+
+}
+
+/*=========================
+Responsive
+=========================*/
+
+@media(max-width:992px){
+
+.hero-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.grid-2,
+
+.grid-3{
+
+grid-template-columns:1fr;
+
+}
+
+nav ul{
+
+display:none;
+
+}
+
+.hero h1{
+
+font-size:2.3rem;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ======================
+Navigation
+======================= -->
+
+<nav>
+
+<div class="container nav-container">
+
+<div class="logo">
+
+Microsoft <span>Purview</span>
+
+</div>
+
+<ul>
+
+<li><a href="#overview">Overview</a></li>
+
+<li><a href="#problem">Business Problem</a></li>
+
+<li><a href="#solution">Solution</a></li>
+
+<li><a href="#architecture">Architecture</a></li>
+
+<li><a href="#implementation">Implementation</a></li>
+
+<li><a href="#validation">Validation</a></li>
+
+<li><a href="#github">GitHub</a></li>
+
+</ul>
+
+</div>
+
+</nav>
+
+<!-- ======================
+Hero
+======================= -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div>
+
+<h1>Microsoft Purview Records Management</h1>
+
+<p>
+
+Enterprise implementation demonstrating Microsoft Purview Records
+Management across Microsoft 365 workloads using Record Labels,
+File Plan, Disposition Review, Regulatory Records and
+Event-Based Retention.
+
+</p>
+
+<div class="badges">
+
+<div class="badge">Microsoft 365</div>
+
+<div class="badge">Microsoft Purview</div>
+
+<div class="badge">MS-102</div>
+
+<div class="badge">Microsoft 365 E5</div>
+
+<div class="badge">Enterprise Lab</div>
+
+</div>
+
+<div class="hero-buttons">
+
+<a class="btn btn-primary"
+href="https://github.com/lokeshm-it/Microsoft-Purview-Records-Management"
+target="_blank">
+
+View GitHub Repository
+
+</a>
+
+<a class="btn btn-outline"
+href="https://techcertguide.blog/records-management-in-microsoft-purview/"
+target="_blank">
+
+Read Blog
+
+</a>
+
+</div>
+
+</div>
+
+<div>
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Records-Management/main/images/03-file-plan/03-file-plan_01-file-plan-overview.png"
+alt="Microsoft Purview Records Management">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+Enterprise Overview
+======================= -->
+
+<section id="overview">
+
+<div class="container">
+
+<h2>Enterprise Overview</h2>
+
+<div class="card">
+
+<p>
+
+This project documents a production-style Microsoft Purview
+Records Management implementation deployed within a Microsoft
+365 E5 tenant to demonstrate enterprise governance,
+regulatory compliance, immutable record protection,
+retention enforcement, and lifecycle management.
+
+</p>
+
+<p>
+
+Unlike standard retention policies, Records Management
+adds record declaration, disposition workflows,
+File Plan visibility, and Regulatory Record protection
+required by highly regulated industries such as finance,
+healthcare, legal services, and government.
+
+</p>
+
+</div>
+
+<div class="grid-3">
+
+<div class="stat">
+
+<h3>Platform</h3>
+
+<p>Microsoft Purview Compliance Portal</p>
+
+</div>
+
+<div class="stat">
+
+<h3>Tenant</h3>
+
+<p>Patchthecloud.onmicrosoft.com</p>
+
+</div>
+
+<div class="stat">
+
+<h3>License</h3>
+
+<p>Microsoft 365 E5</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+Business Problem
+======================= -->
+
+<section id="problem">
+
+<div class="container">
+
+<h2>Business Problem</h2>
+
+<table>
+
+<tr>
+
+<th>Challenge</th>
+
+<th>Business Impact</th>
+
+</tr>
+
+<tr>
+
+<td>Financial records modified before retention expires</td>
+
+<td>Audit failure and regulatory non-compliance</td>
+
+</tr>
+
+<tr>
+
+<td>No centralized File Plan</td>
+
+<td>Inconsistent governance across Microsoft 365</td>
+
+</tr>
+
+<tr>
+
+<td>Records deleted without approval</td>
+
+<td>Legal and compliance exposure</td>
+
+</tr>
+
+<tr>
+
+<td>No immutable record controls</td>
+
+<td>Evidence tampering risk</td>
+
+</tr>
+
+<tr>
+
+<td>No distinction between retained and declared records</td>
+
+<td>Weak lifecycle governance</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- ======================
+Business Requirements
+======================= -->
+
+<section>
+
+<div class="container">
+
+<h2>Business Requirements</h2>
+
+<div class="grid-2">
+
+<div class="card">
+
+<ul>
+
+<li>Declare financial documents as immutable Records</li>
+
+<li>Prevent modification during retention period</li>
+
+<li>Provide centralized File Plan visibility</li>
+
+<li>Support Disposition Review workflows</li>
+
+<li>Implement Event-Based Retention</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<ul>
+
+<li>Support Regulatory Records</li>
+
+<li>Automate reporting using PowerShell</li>
+
+<li>Protect legal and HR documents</li>
+
+<li>Improve audit readiness</li>
+
+<li>Strengthen Microsoft 365 governance</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+Microsoft Solution
+======================= -->
+
+<section id="solution">
+
+<div class="container">
+
+<h2>Microsoft Solution</h2>
+
+<table>
+
+<tr>
+
+<th>Business Requirement</th>
+
+<th>Microsoft Purview Component</th>
+
+</tr>
+
+<tr>
+
+<td>Declare immutable records</td>
+
+<td>Record Labels (Mark items as a Record)</td>
+
+</tr>
+
+<tr>
+
+<td>Highest compliance protection</td>
+
+<td>Regulatory Records</td>
+
+</tr>
+
+<tr>
+
+<td>Centralized records visibility</td>
+
+<td>File Plan</td>
+
+</tr>
+
+<tr>
+
+<td>Human approval before deletion</td>
+
+<td>Disposition Review</td>
+
+</tr>
+
+<tr>
+
+<td>Retention triggered by business events</td>
+
+<td>Event-Based Retention</td>
+
+</tr>
+
+<tr>
+
+<td>Configuration reporting</td>
+
+<td>PowerShell + Microsoft Graph</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- ======================
+Environment
+======================= -->
+
+<section>
+
+<div class="container">
+
+<h2>Lab Environment</h2>
+
+<div class="card">
+
+<table>
+
+<tr>
+
+<th>Property</th>
+
+<th>Value</th>
+
+</tr>
+
+<tr>
+
+<td>Tenant</td>
+
+<td>Patchthecloud.onmicrosoft.com</td>
+
+</tr>
+
+<tr>
+
+<td>Portal</td>
+
+<td>Microsoft Purview Compliance Portal</td>
+
+</tr>
+
+<tr>
+
+<td>Platform</td>
+
+<td>Microsoft 365 E5</td>
+
+</tr>
+
+<tr>
+
+<td>Workloads</td>
+
+<td>Exchange Online, SharePoint Online, OneDrive, Microsoft Teams</td>
+
+</tr>
+
+<tr>
+
+<td>Scope</td>
+
+<td>Enterprise Records Governance</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+Architecture
+======================= -->
+
+<section id="architecture">
+
+<div class="container">
+
+<h2>Solution Architecture</h2>
+
+<div class="card">
+
+<pre>
+
+Microsoft Purview Compliance Portal
+
+│
+
+├── Record Labels
+
+│      ├── Mark as Record
+
+│      ├── Regulatory Record
+
+│      └── Retention Settings
+
+│
+
+├── File Plan
+
+│      ├── Central Visibility
+
+│      ├── Label Metadata
+
+│      └── Retention Schedule
+
+│
+
+├── Disposition Review
+
+│      ├── Reviewer Approval
+
+│      ├── Delete Decision
+
+│      └── Audit Trail
+
+│
+
+└── Microsoft 365 Workloads
+
+       ├── Exchange Online
+
+       ├── SharePoint Online
+
+       ├── OneDrive
+
+       └── Microsoft Teams
+
+</pre>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+Implementation Timeline
+======================= -->
+
+<section id="implementation">
+
+<div class="container">
+
+<h2>Implementation Timeline</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<h3>Phase 1 — Enable Records Management</h3>
+
+<p>
+
+Verified Microsoft Purview Records Management solution within the
+Compliance Portal and confirmed tenant readiness.
+
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>Phase 2 — Configure Record Labels</h3>
+
+<p>
+
+Created enterprise Record Labels, enabled
+<b>Mark items as a Record</b>,
+configured retention duration,
+and published labels through Label Policies.
+
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>Phase 3 — Review File Plan</h3>
+
+<p>
+
+Validated all Record Labels through the centralized
+File Plan interface,
+confirming retention duration,
+record status,
+and disposition settings.
+
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>Phase 4 — Event-Based Retention</h3>
+
+<p>
+
+Reviewed Event-Based Retention capabilities
+for contract lifecycle
+and business-event-driven retention scenarios.
+
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>Phase 5 — Disposition Review</h3>
+
+<p>
+
+Configured reviewer approval workflow
+before permanent deletion
+of regulated records.
+
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>Phase 6 — Validation</h3>
+
+<p>
+
+Verified File Plan,
+Record Labels,
+Retention Policies,
+and audit configuration
+across Microsoft 365 workloads.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+Implementation Screenshots
+======================= -->
+
+<section>
+
+<div class="container">
+
+<h2>Implementation Screenshots</h2>
+
+<div class="gallery">
+
+<div>
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Records-Management/main/images/02-record-labels/02-record-labels_01-mark-as-record-setting.png">
+
+<div class="caption">
+
+Record Label — Mark Items as Record
+
+</div>
+
+</div>
+
+<div>
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Records-Management/main/images/02-record-labels/02-record-labels_02-label-policies-published.png">
+
+<div class="caption">
+
+Published Record Label Policy
+
+</div>
+
+</div>
+
+<div>
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Records-Management/main/images/03-file-plan/03-file-plan_01-file-plan-overview.png">
+
+<div class="caption">
+
+Enterprise File Plan
+
+</div>
+
+</div>
+
+<div>
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Records-Management/main/images/04-event-based-retention/04-investigation_01-audit-results.png">
+
+<div class="caption">
+
+Event-Based Retention
+
+</div>
+
+</div>
+
+<div>
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Records-Management/main/images/05-disposition-review/05-export-results_01-export-in-progress.png">
+
+<div class="caption">
+
+Disposition Review Workflow
+
+</div>
+
+</div>
+
+<div>
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Records-Management/main/images/06-regulatory-records/06-validation_01-audit-export-excel.png">
+
+<div class="caption">
+
+Validation Results
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+ <!-- ======================
+Validation
+======================= -->
+
+<section id="validation">
+
+<div class="container">
+
+<h2>Validation Results</h2>
+
+<table>
+
+<tr>
+<th>Test Case</th>
+<th>Expected Result</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Record Label created</td>
+<td>Visible in Microsoft Purview File Plan</td>
+<td>✅ Pass</td>
+</tr>
+
+<tr>
+<td>Record declaration enabled</td>
+<td>Items marked as immutable records</td>
+<td>✅ Pass</td>
+</tr>
+
+<tr>
+<td>Label policy published</td>
+<td>Available across Microsoft 365 workloads</td>
+<td>✅ Pass</td>
+</tr>
+
+<tr>
+<td>File Plan visibility</td>
+<td>Retention period and disposition shown</td>
+<td>✅ Pass</td>
+</tr>
+
+<tr>
+<td>Disposition Review</td>
+<td>Reviewer workflow configured</td>
+<td>✅ Pass</td>
+</tr>
+
+<tr>
+<td>Configuration validation</td>
+<td>PowerShell reporting successful</td>
+<td>✅ Pass</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- ======================
+PowerShell Automation
+======================= -->
+
+<section>
+
+<div class="container">
+
+<h2>PowerShell Automation</h2>
+
+<div class="grid-3">
+
+<div class="card">
+
+<h3>Get-RecordLabels.ps1</h3>
+
+<p>
+
+Exports every Record Label together with retention
+configuration, disposition settings and Record status.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Export-FilePlan.ps1</h3>
+
+<p>
+
+Exports the enterprise File Plan into CSV and JSON
+for compliance reporting and governance reviews.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Get-RecordsManagementConfiguration.ps1</h3>
+
+<p>
+
+Audits the complete Microsoft Purview Records
+Management configuration.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<pre>
+
+Connect-IPPSSession
+
+.\scripts\Get-RecordLabels.ps1
+
+.\scripts\Export-FilePlan.ps1
+
+.\scripts\Get-RecordsManagementConfiguration.ps1
+
+</pre>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+Comparison
+======================= -->
+
+<section>
+
+<div class="container">
+
+<h2>Retention Labels vs Record Labels</h2>
+
+<table>
+
+<tr>
+
+<th>Capability</th>
+
+<th>Retention Label</th>
+
+<th>Record Label</th>
+
+<th>Regulatory Record</th>
+
+</tr>
+
+<tr>
+
+<td>Retention Period</td>
+
+<td>✅</td>
+
+<td>✅</td>
+
+<td>✅</td>
+
+</tr>
+
+<tr>
+
+<td>Declare as Record</td>
+
+<td>❌</td>
+
+<td>✅</td>
+
+<td>✅</td>
+
+</tr>
+
+<tr>
+
+<td>Prevent Modification</td>
+
+<td>❌</td>
+
+<td>✅</td>
+
+<td>✅</td>
+
+</tr>
+
+<tr>
+
+<td>Admin can Remove Label</td>
+
+<td>✅</td>
+
+<td>✅</td>
+
+<td>❌</td>
+
+</tr>
+
+<tr>
+
+<td>Disposition Review</td>
+
+<td>Optional</td>
+
+<td>Supported</td>
+
+<td>Required</td>
+
+</tr>
+
+<tr>
+
+<td>Compliance Level</td>
+
+<td>Standard</td>
+
+<td>High</td>
+
+<td>Highest</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- ======================
+Lessons Learned
+======================= -->
+
+<section>
+
+<div class="container">
+
+<h2>Lessons Learned</h2>
+
+<div class="card">
+
+<ul>
+
+<li>Publishing a Record Label makes it available to users but does not automatically apply it to existing content.</li>
+
+<li>File Plan provides centralized visibility but is not used for creating or editing Record Labels.</li>
+
+<li>Regulatory Records should only be enabled after careful planning because they cannot be removed by administrators.</li>
+
+<li>Disposition Review provides additional governance before records are permanently deleted.</li>
+
+<li>Event-Based Retention is ideal for contracts and legal documents where retention begins after a business event.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+Future Improvements
+======================= -->
+
+<section>
+
+<div class="container">
+
+<h2>Future Improvements</h2>
+
+<div class="grid-2">
+
+<div class="card">
+
+<ul>
+
+<li>Implement Adaptive Scopes</li>
+
+<li>Expand Event-Based Retention</li>
+
+<li>Automate File Plan reporting</li>
+
+<li>Create Power BI governance dashboard</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<ul>
+
+<li>Integrate Microsoft Purview eDiscovery</li>
+
+<li>Integrate Microsoft Purview Audit</li>
+
+<li>Enable Regulatory Records for critical departments</li>
+
+<li>Automate compliance reporting using Microsoft Graph</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+GitHub Repository
+======================= -->
+
+<section id="github">
+
+<div class="container">
+
+<div class="card" style="text-align:center;">
+
+<h2>GitHub Repository</h2>
+
+<p>
+
+This repository documents an enterprise Microsoft Purview
+Records Management implementation performed in a real
+Microsoft 365 E5 lab tenant.
+
+</p>
+
+<br>
+
+<a class="btn btn-primary"
+
+href="https://github.com/lokeshm-it/Microsoft-Purview-Records-Management"
+
+target="_blank">
+
+View Repository on GitHub
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+Footer
+======================= -->
+
+<footer>
+
+<div class="container">
+
+<h3>Microsoft Purview Records Management</h3>
+
+<p>
+
+Enterprise Microsoft 365 Compliance Portfolio
+
+</p>
+
+<p>
+
+Author: <strong>Lokesh Karnam</strong><br>
+
+Senior Infrastructure Engineer | Microsoft 365 Administrator |
+Microsoft Security | Microsoft Purview
+
+</p>
+
+<br>
+
+<p>
+
+© 2026 Lokesh Karnam. All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
+
+</body>
+
+</html> 
