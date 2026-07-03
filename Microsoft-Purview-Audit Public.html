@@ -164,1467 +164,338 @@
 
 <body>
 
-<header>
+<nav>
+<div class="container nav-container">
+<div class="logo">Microsoft <span>Purview</span></div>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#problem">Business Problem</a></li>
+<li><a href="#solution">Solution</a></li>
+<li><a href="#architecture">Architecture</a></li>
+<li><a href="#implementation">Implementation</a></li>
+<li><a href="#validation">Validation</a></li>
+<li><a href="#github">GitHub</a></li>
+</ul>
+</div>
+</nav>
 
-    <div class="container">
+<section class="hero">
+<div class="container hero-grid">
+<div>
+<h1>Microsoft Purview Audit</h1>
+<p>Enterprise implementation of Microsoft Purview Audit demonstrating centralized audit logging, Unified Audit Log searches, security investigations, export of audit evidence, and compliance validation across Microsoft 365 workloads.</p>
+<div class="badges">
+<div class="badge">Microsoft 365</div>
+<div class="badge">Microsoft Purview</div>
+<div class="badge">MS-102</div>
+<div class="badge">Microsoft 365 E5</div>
+<div class="badge">Enterprise Lab</div>
+</div>
+<div class="hero-buttons">
+<a class="btn btn-primary" href="https://github.com/lokeshm-it/Microsoft-Purview-Audit" target="_blank">View GitHub Repository</a>
+<a class="btn btn-outline" href="https://techcertguide.blog/microsoft-purview-audit/" target="_blank">Read Blog</a>
+</div>
+</div>
+<div>
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Audit/main/images/03-audit-search/03-audit-results_01-search-results.png.png" alt="Microsoft Purview Audit">
+</div>
+</div>
+</section>
 
-        <h1>
-            <i class="fa-solid fa-shield-halved"></i>
-            Microsoft Purview Audit
-        </h1>
+<section id="overview">
+<div class="container">
+<h2>Enterprise Overview</h2>
+<div class="card">
+<p>Microsoft Purview Audit provides a centralised, searchable record of user, administrator, application, and service activities across Microsoft 365 workloads. When a security incident occurs, the Unified Audit Log (UAL) is the primary data source for forensic investigation.</p>
+<p>This project documents an enterprise implementation of Microsoft Purview Audit, covering audit configuration verification, targeted audit searches, structured investigation workflow, log export for evidence preservation, and integration with compliance reporting processes.</p>
+</div>
+<div class="grid-3">
+<div class="stat"><h3>Tenant</h3><p>securem365lsb.onmicrosoft.com</p></div>
+<div class="stat"><h3>Audit Tier</h3><p>Audit Standard</p></div>
+<div class="stat"><h3>Investigation Scenario</h3><p>Insider Threat — File Access Pattern Analysis</p></div>
+</div>
+</div>
+</section>
 
-        <p>
-            Enterprise implementation of Microsoft Purview Audit covering Unified Audit Log,
-            audit search, investigation workflows, evidence export, compliance reporting,
-            and forensic validation across Microsoft 365 workloads.
-        </p>
+<section id="problem">
+<div class="container">
+<h2>Business Problem</h2>
+<table>
+<tr><th>Challenge</th><th>Business Impact</th></tr>
+<tr><td>No visibility into who accessed sensitive SharePoint documents</td><td>Unable to investigate potential data exfiltration</td></tr>
+<tr><td>File deletions occur with no accountability record</td><td>Security team cannot determine scope of data loss</td></tr>
+<tr><td>Privileged account actions not reviewed systematically</td><td>Compliance gap for administrator accountability</td></tr>
+<tr><td>Security incidents investigated reactively, without data</td><td>Mean time to investigate (MTTI) is days, not hours</td></tr>
+<tr><td>Regulatory auditors require evidence of monitoring controls</td><td>Failed audits, potential fines, remediation costs</td></tr>
+</table>
+</div>
+</section>
 
-        <div class="status">
+<section>
+<div class="container">
+<h2>Business Requirements</h2>
+<div class="grid-2">
+<div class="card">
+<ul>
+<li>Audit Trail — every user and administrator action across M365 workloads must generate a searchable audit record</li>
+<li>Targeted Search — security team must be able to search by user, date range, workload, and activity type</li>
+<li>Investigation Workflow — structured process for investigating file access, deletion, sharing, and admin changes</li>
+</ul>
+</div>
+<div class="card">
+<ul>
+<li>Evidence Export — audit results must be exportable to CSV for legal hold and forensic reporting</li>
+<li>Compliance Reporting — audit data must support regulatory requirements (ISO 27001, GDPR Article 5)</li>
+<li>Retention — audit records retained for a minimum of 90 days (Audit Standard)</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
 
-            <span class="badge">Enterprise Project</span>
-            <span class="badge">Microsoft 365 E5</span>
-            <span class="badge">MS-102</span>
-            <span class="badge">Audit Standard</span>
+<section id="solution">
+<div class="container">
+<h2>Microsoft Solution</h2>
+<table>
+<tr><th>Business Requirement</th><th>Microsoft Purview Component</th></tr>
+<tr><td>Centralised activity logging</td><td>Unified Audit Log</td></tr>
+<tr><td>Targeted investigation search</td><td>Audit Search (date, user, activity, workload filters)</td></tr>
+<tr><td>Granular filtering</td><td>Activity Filters (file, mailbox, Teams, admin events)</td></tr>
+<tr><td>Evidence preservation</td><td>Export to CSV with AuditData JSON</td></tr>
+<tr><td>Standard retention &amp; search</td><td>Audit Standard (90-day retention, E3/E5)</td></tr>
+<tr><td>Extended retention &amp; high-value events</td><td>Audit Premium (1–10 year retention, E5)</td></tr>
+</table>
+</div>
+</section>
 
-        </div>
+<section>
+<div class="container">
+<h2>Lab Environment</h2>
+<div class="card">
+<table>
+<tr><th>Property</th><th>Value</th></tr>
+<tr><td>Tenant</td><td>Microsoft 365 E5 Trial (securem365lsb.onmicrosoft.com)</td></tr>
+<tr><td>Portal</td><td>compliance.microsoft.com</td></tr>
+<tr><td>Test Account</td><td>testuser1@securem365lsb.onmicrosoft.com</td></tr>
+<tr><td>Investigation Period</td><td>2026-07-01 to 2026-07-03</td></tr>
+<tr><td>Activity Investigated</td><td>FileAccessed (SharePoint Online)</td></tr>
+<tr><td>Total Events Found</td><td>12 audit records</td></tr>
+</table>
+</div>
+</div>
+</section>
 
-        <a class="btn"
-           href="https://github.com/lokeshm-it/Microsoft-Purview-Audit"
-           target="_blank">
-            <i class="fab fa-github"></i>
-            View GitHub Repository
-        </a>
+<section id="architecture">
+<div class="container">
+<h2>Solution Architecture</h2>
+<div class="card">
+<pre>
+Microsoft 365 Activity Sources
+│
+├── Exchange Online
+├── SharePoint Online
+├── OneDrive
+├── Microsoft Teams
+└── Entra ID
+        │
+        ▼
+Unified Audit Log (compliance.microsoft.com)
+├── 90-day retention (Audit Standard)
+├── 1–10 year retention (Audit Premium)
+└── Record Types: SharePoint, Exchange, AzureAD, Teams, OneDrive
+        │
+        ▼
+Investigation Tools
+├── Audit Search (date / user / activity filters)
+├── Results Review (activity, user, IP, workload)
+├── CSV Export (evidence preservation)
+└── PowerShell Automation
+</pre>
+</div>
+</div>
+</section>
+
+<section id="implementation">
+<div class="container">
+<h2>Implementation Phases</h2>
+<div class="timeline">
+<div class="timeline-item"><h3>Phase 1 — Enable Microsoft Purview Audit</h3><p>Verified audit is enabled for the tenant at compliance.microsoft.com → Solutions → Audit, and confirmed all workloads appear in the audit solution.</p></div>
+<div class="timeline-item"><h3>Phase 2 — Configure Audit Search</h3><p>Configured search parameters including date range, activity type (<b>FileAccessed</b>
+
+    <div class="timeline-item"><h3>Phase 2 — Configure Audit Search</h3><p>Configured search parameters including date range, activity type (<b>FileAccessed</b>), user (testuser1), and record type (SharePointFileOperation).</p></div>
+
+        <div class="timeline-item"><h3>Phase 3 — Execute Audit Search</h3><p>Submitted the search and monitored asynchronous progress as the Unified Audit Log was queried across all storage partitions, returning 12 audit records.</p></div>
+
+        <div class="timeline-item"><h3>Phase 4 — Investigate User Activities</h3><p>Reviewed returned audit events including date, user, activity, record type, IP address, and affected files, identifying a pattern consistent with data reconnaissance.</p></div>
+
+        <div class="timeline-item"><h3>Phase 5 — Export Audit Results</h3><p>Exported the full CSV of matching audit events, preserving complete AuditData JSON for forensic context and compliance evidence.</p></div>
+
+        <div class="timeline-item"><h3>Phase 6 — Validation</h3><p>Opened the exported CSV in Excel to verify completeness and accuracy, confirming all 12 events with full audit context.</p></div>
 
     </div>
-
-</header>
-
-<section>
-
-<div class="container">
-
-<div class="banner">
-
-<h2>Enterprise Overview</h2>
-
-<p>
-
-Microsoft Purview Audit provides a centralized repository for recording user,
-administrator, application, and service activities across Microsoft 365 services.
-The Unified Audit Log enables security teams to investigate suspicious activities,
-support digital forensics, satisfy regulatory compliance requirements,
-and maintain accountability across enterprise workloads.
-
-</p>
-
-<p>
-
-This implementation demonstrates an enterprise deployment of Microsoft Purview Audit
-covering audit configuration verification, targeted audit searches,
-security investigations, evidence preservation,
-CSV export validation, and operational reporting using
-Microsoft Purview Compliance Portal.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="container">
-
-<h2>Repository Information</h2>
-
-<table>
-
-<tr>
-
-<th>Property</th>
-<th>Value</th>
-
-</tr>
-
-<tr>
-
-<td>Repository</td>
-
-<td>
-
-<a href="https://github.com/lokeshm-it/Microsoft-Purview-Audit" target="_blank">
-
-Microsoft-Purview-Audit
-
-</a>
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>GitHub Images</td>
-
-<td>
-
-<a href="https://github.com/lokeshm-it/Microsoft-Purview-Audit/tree/main/images" target="_blank">
-
-images/
-
-</a>
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>Tenant</td>
-
-<td>securem365lsb.onmicrosoft.com</td>
-
-</tr>
-
-<tr>
-
-<td>Platform</td>
-
-<td>Microsoft Purview Compliance Portal</td>
-
-</tr>
-
-<tr>
-
-<td>Licensing</td>
-
-<td>Microsoft 365 E5 Trial</td>
-
-</tr>
-
-<tr>
-
-<td>Workloads</td>
-
-<td>
-
-Exchange Online<br>
-SharePoint Online<br>
-OneDrive<br>
-Microsoft Teams<br>
-Microsoft Entra ID
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>Investigation Scenario</td>
-
-<td>
-
-SharePoint FileAccessed investigation for user
-<strong>testuser1@securem365lsb.onmicrosoft.com</strong>
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>Audit Tier</td>
-
-<td>Audit Standard</td>
-
-</tr>
-
-<tr>
-
-<td>Evidence</td>
-
-<td>12 FileAccessed audit events exported to CSV</td>
-
-</tr>
-
-</table>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="container">
-
-<h2>Business Problem</h2>
-
-<table>
-
-<tr>
-
-<th>Challenge</th>
-<th>Business Impact</th>
-
-</tr>
-
-<tr>
-
-<td>No centralized visibility into user file access activities</td>
-
-<td>
-
-Unable to investigate potential insider threats or
-data exfiltration attempts.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>Administrative actions not continuously monitored</td>
-
-<td>
-
-Reduced accountability and increased compliance risk.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>Security investigations performed without audit evidence</td>
-
-<td>
-
-Longer incident response times and incomplete forensic analysis.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>Regulatory auditors require proof of monitoring controls</td>
-
-<td>
-
-Potential audit findings, remediation costs,
-and compliance penalties.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>Audit logs not preserved after investigations</td>
-
-<td>
-
-Loss of evidence required for legal hold,
-incident response, and chain-of-custody.
-
-</td>
-
-</tr>
-
-</table>
-
-</div>
-
-</section>
-
-  <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microsoft Purview Audit | Enterprise Implementation</title>
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-
-    <style>
-
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            scroll-behavior:smooth;
-        }
-
-        body{
-            font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-            background:#f5f7fb;
-            color:#333;
-            line-height:1.7;
-        }
-
-        .container{
-            width:90%;
-            max-width:1300px;
-            margin:auto;
-        }
-
-        header{
-            background:#0F6CBD;
-            color:#fff;
-            padding:70px 0;
-            text-align:center;
-        }
-
-        header h1{
-            font-size:42px;
-            margin-bottom:15px;
-        }
-
-        header p{
-            font-size:20px;
-            opacity:.95;
-            max-width:900px;
-            margin:auto;
-        }
-
-        .btn{
-            display:inline-block;
-            margin-top:30px;
-            padding:14px 30px;
-            background:#fff;
-            color:#0F6CBD;
-            text-decoration:none;
-            border-radius:8px;
-            font-weight:600;
-            transition:.3s;
-        }
-
-        .btn:hover{
-            background:#eaf3ff;
-        }
-
-        section{
-            padding:70px 0;
-        }
-
-        h2{
-            color:#0F6CBD;
-            margin-bottom:25px;
-            font-size:34px;
-        }
-
-        h3{
-            margin:25px 0 15px;
-            color:#0F6CBD;
-        }
-
-        p{
-            margin-bottom:20px;
-        }
-
-        table{
-            width:100%;
-            border-collapse:collapse;
-            margin-top:20px;
-            margin-bottom:40px;
-        }
-
-        table th{
-            background:#0F6CBD;
-            color:#fff;
-            padding:14px;
-            text-align:left;
-        }
-
-        table td{
-            padding:14px;
-            border:1px solid #ddd;
-        }
-
-        table tr:nth-child(even){
-            background:#fafafa;
-        }
-
-        .card-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-            gap:25px;
-            margin-top:30px;
-        }
-
-        .card{
-            background:#fff;
-            padding:25px;
-            border-radius:10px;
-            box-shadow:0 3px 12px rgba(0,0,0,.08);
-        }
-
-        .card i{
-            color:#0F6CBD;
-            font-size:34px;
-            margin-bottom:15px;
-        }
-
-        .banner{
-            background:#fff;
-            padding:35px;
-            border-radius:10px;
-            box-shadow:0 3px 10px rgba(0,0,0,.08);
-        }
-
-        .status{
-            display:flex;
-            gap:15px;
-            flex-wrap:wrap;
-            margin-top:25px;
-        }
-
-        .badge{
-            background:#0F6CBD;
-            color:#fff;
-            padding:10px 18px;
-            border-radius:30px;
-            font-size:14px;
-            font-weight:600;
-        }
-
-        footer{
-            background:#0F6CBD;
-            color:#fff;
-            text-align:center;
-            padding:30px;
-            margin-top:50px;
-        }
-
-    </style>
-
-</head>
-
-<body>
-
-<header>
-
-    <div class="container">
-
-        <h1>
-            <i class="fa-solid fa-shield-halved"></i>
-            Microsoft Purview Audit
-        </h1>
-
-        <p>
-            Enterprise implementation of Microsoft Purview Audit covering Unified Audit Log,
-            audit search, investigation workflows, evidence export, compliance reporting,
-            and forensic validation across Microsoft 365 workloads.
-        </p>
-
-        <div class="status">
-
-            <span class="badge">Enterprise Project</span>
-            <span class="badge">Microsoft 365 E5</span>
-            <span class="badge">MS-102</span>
-            <span class="badge">Audit Standard</span>
-
-        </div>
-
-        <a class="btn"
-           href="https://github.com/lokeshm-it/Microsoft-Purview-Audit"
-           target="_blank">
-            <i class="fab fa-github"></i>
-            View GitHub Repository
-        </a>
-
     </div>
-
-</header>
-
-<section>
-
-<div class="container">
-
-<div class="banner">
-
-<h2>Enterprise Overview</h2>
-
-<p>
-
-Microsoft Purview Audit provides a centralized repository for recording user,
-administrator, application, and service activities across Microsoft 365 services.
-The Unified Audit Log enables security teams to investigate suspicious activities,
-support digital forensics, satisfy regulatory compliance requirements,
-and maintain accountability across enterprise workloads.
-
-</p>
-
-<p>
-
-This implementation demonstrates an enterprise deployment of Microsoft Purview Audit
-covering audit configuration verification, targeted audit searches,
-security investigations, evidence preservation,
-CSV export validation, and operational reporting using
-Microsoft Purview Compliance Portal.
-
-</p>
-
-</div>
-
-</div>
-
 </section>
 
 <section>
-
 <div class="container">
+<h2>Implementation Screenshots</h2>
+<div class="gallery">
 
-<h2>Repository Information</h2>
-
-<table>
-
-<tr>
-
-<th>Property</th>
-<th>Value</th>
-
-</tr>
-
-<tr>
-
-<td>Repository</td>
-
-<td>
-
-<a href="https://github.com/lokeshm-it/Microsoft-Purview-Audit" target="_blank">
-
-Microsoft-Purview-Audit
-
-</a>
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>GitHub Images</td>
-
-<td>
-
-<a href="https://github.com/lokeshm-it/Microsoft-Purview-Audit/tree/main/images" target="_blank">
-
-images/
-
-</a>
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>Tenant</td>
-
-<td>securem365lsb.onmicrosoft.com</td>
-
-</tr>
-
-<tr>
-
-<td>Platform</td>
-
-<td>Microsoft Purview Compliance Portal</td>
-
-</tr>
-
-<tr>
-
-<td>Licensing</td>
-
-<td>Microsoft 365 E5 Trial</td>
-
-</tr>
-
-<tr>
-
-<td>Workloads</td>
-
-<td>
-
-Exchange Online<br>
-SharePoint Online<br>
-OneDrive<br>
-Microsoft Teams<br>
-Microsoft Entra ID
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>Investigation Scenario</td>
-
-<td>
-
-SharePoint FileAccessed investigation for user
-<strong>testuser1@securem365lsb.onmicrosoft.com</strong>
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>Audit Tier</td>
-
-<td>Audit Standard</td>
-
-</tr>
-
-<tr>
-
-<td>Evidence</td>
-
-<td>12 FileAccessed audit events exported to CSV</td>
-
-</tr>
-
-</table>
-
+<div>
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Audit/main/images/03-audit-search/02-audit-search_01-search-configuration.png.png">
+<div class="caption">Audit Search Configuration</div>
 </div>
 
-</section>
-
-<section>
-
-<div class="container">
-
-<h2>Business Problem</h2>
-
-<table>
-
-<tr>
-
-<th>Challenge</th>
-<th>Business Impact</th>
-
-</tr>
-
-<tr>
-
-<td>No centralized visibility into user file access activities</td>
-
-<td>
-
-Unable to investigate potential insider threats or
-data exfiltration attempts.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>Administrative actions not continuously monitored</td>
-
-<td>
-
-Reduced accountability and increased compliance risk.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>Security investigations performed without audit evidence</td>
-
-<td>
-
-Longer incident response times and incomplete forensic analysis.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>Regulatory auditors require proof of monitoring controls</td>
-
-<td>
-
-Potential audit findings, remediation costs,
-and compliance penalties.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>Audit logs not preserved after investigations</td>
-
-<td>
-
-Loss of evidence required for legal hold,
-incident response, and chain-of-custody.
-
-</td>
-
-</tr>
-
-</table>
-
+<div>
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Audit/main/images/03-audit-search/02-audit-search_02-search-completed.png.png">
+<div class="caption">Audit Search Completed</div>
 </div>
 
-</section>
-
-  <section>
-
-<div class="container">
-
-<h2>Phase 4 — Investigate User Activities</h2>
-
-<p>
-
-After the audit search completed successfully, Microsoft Purview returned
-twelve SharePoint Online <strong>FileAccessed</strong> events for the selected
-user during the investigation period.
-
-Each audit event includes:
-
-</p>
-
-<ul>
-
-<li>Date and Time (UTC)</li>
-
-<li>User Account</li>
-
-<li>Source IP Address</li>
-
-<li>Record Type</li>
-
-<li>Activity Performed</li>
-
-<li>Affected File</li>
-
-<li>Additional Audit Details</li>
-
-</ul>
-
-<p>
-
-Security analysts can use these results to determine
-who accessed sensitive files,
-when the activity occurred,
-the originating IP address,
-and the workload responsible for generating the event.
-
-</p>
-
-<img
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Audit/main/images/03-audit-search/03-audit-results_01-search-results.png"
-style="width:100%;border-radius:10px;margin-top:25px;">
-
+<div>
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Audit/main/images/03-audit-search/03-audit-results_01-search-results.png.png">
+<div class="caption">Audit Search Results</div>
 </div>
 
-</section>
-
-
-
-<section>
-
-<div class="container">
-
-<h2>Phase 5 — Export Audit Results</h2>
-
-<p>
-
-After reviewing the audit results,
-the search results were exported as a CSV file for
-long-term retention,
-incident response,
-and compliance reporting.
-
-Microsoft Purview first prepares the export package before allowing
-the administrator to download the completed report.
-
-</p>
-
-<h3>Export Processing</h3>
-
-<img
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Audit/main/images/05-export-results/04-export-results_01-export-in-progress.png"
-style="width:100%;border-radius:10px;margin-top:20px;">
-
-<h3 style="margin-top:50px;">
-
-Export Completed
-
-</h3>
-
-<img
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Audit/main/images/05-export-results/04-export-results_02-export-completed.png"
-style="width:100%;border-radius:10px;margin-top:20px;">
-
+<div>
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Audit/main/images/05-export-results/04-export-results_01-export-in-progress.png.png">
+<div class="caption">Audit Export In Progress</div>
 </div>
 
-</section>
-
-
-
-<section>
-
-<div class="container">
-
-<h2>Phase 6 — Validation</h2>
-
-<p>
-
-The exported CSV was opened in Microsoft Excel to verify that
-all audit events were successfully exported and preserved.
-
-The report contains:
-
-</p>
-
-<ul>
-
-<li>Record ID</li>
-
-<li>Creation Date</li>
-
-<li>Record Type</li>
-
-<li>Operation</li>
-
-<li>User ID</li>
-
-<li>AuditData JSON</li>
-
-</ul>
-
-<img
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Audit/main/images/06-validation/05-validation_01-exported-audit-log-csv.png"
-style="width:100%;border-radius:10px;margin-top:25px;">
-
+<div>
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Audit/main/images/05-export-results/04-export-results_02-export-completed.png.png">
+<div class="caption">Audit Export Completed</div>
 </div>
 
+<div>
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Audit/main/images/06-validation/05-validation_01-exported-audit-log-csv.png.png">
+<div class="caption">Validation — Exported Audit Log CSV</div>
+</div>
+
+</div>
+</div>
 </section>
 
-
-
-<section>
-
+<section id="validation">
 <div class="container">
-
 <h2>Validation Results</h2>
-
 <table>
-
-<tr>
-
-<th>Test Case</th>
-
-<th>Expected Result</th>
-
-<th>Actual Result</th>
-
-<th>Status</th>
-
-</tr>
-
-<tr>
-
-<td>AUD-001</td>
-
-<td>Audit Search Completed</td>
-
-<td>12 Audit Events Returned</td>
-
-<td>✅ Pass</td>
-
-</tr>
-
-<tr>
-
-<td>AUD-002</td>
-
-<td>User Activity Recorded</td>
-
-<td>FileAccessed Events Logged</td>
-
-<td>✅ Pass</td>
-
-</tr>
-
-<tr>
-
-<td>AUD-003</td>
-
-<td>Search Filters Applied</td>
-
-<td>User, Date and Activity Filters Successful</td>
-
-<td>✅ Pass</td>
-
-</tr>
-
-<tr>
-
-<td>AUD-004</td>
-
-<td>Audit Results Exported</td>
-
-<td>CSV Successfully Generated</td>
-
-<td>✅ Pass</td>
-
-</tr>
-
-<tr>
-
-<td>AUD-005</td>
-
-<td>AuditData Preserved</td>
-
-<td>JSON Data Available</td>
-
-<td>✅ Pass</td>
-
-</tr>
-
-<tr>
-
-<td>AUD-006</td>
-
-<td>Evidence Suitable for Investigation</td>
-
-<td>Export Ready for Incident Response</td>
-
-<td>✅ Pass</td>
-
-</tr>
-
+<tr><th>Test Case</th><th>Description</th><th>Result</th></tr>
+<tr><td>TC-AUD-01</td><td>Audit solution accessible at compliance.microsoft.com → Solutions → Audit</td><td>✅ Pass</td></tr>
+<tr><td>TC-AUD-02</td><td>Audit search executes with date, user, and activity filters</td><td>✅ Pass</td></tr>
+<tr><td>TC-AUD-03</td><td>Search completes with 12 results for testuser1 FileAccessed</td><td>✅ Pass</td></tr>
+<tr><td>TC-AUD-04</td><td>Audit results display Activity, User, IP, Date, RecordType fields</td><td>✅ Pass</td></tr>
+<tr><td>TC-AUD-05</td><td>Export completes and CSV downloads successfully</td><td>✅ Pass</td></tr>
+<tr><td>TC-AUD-06</td><td>CSV validates in Excel with all 12 records and AuditData JSON intact</td><td>✅ Pass</td></tr>
 </table>
-
 </div>
-
 </section>
 
-
-
 <section>
-
 <div class="container">
-
 <h2>PowerShell Automation</h2>
-
-<table>
-
-<tr>
-
-<th>Script</th>
-
-<th>Purpose</th>
-
-</tr>
-
-<tr>
-
-<td>Search-UnifiedAuditLog.ps1</td>
-
-<td>Run Unified Audit Log searches automatically</td>
-
-</tr>
-
-<tr>
-
-<td>Export-AuditLogs.ps1</td>
-
-<td>Export audit results to CSV</td>
-
-</tr>
-
-<tr>
-
-<td>Get-AuditConfiguration.ps1</td>
-
-<td>Validate Microsoft Purview Audit configuration</td>
-
-</tr>
-
-</table>
-
-<pre><code>
-
-# Connect to Exchange Online
-
-Connect-ExchangeOnline
-
-# Search Unified Audit Log
-
-Search-UnifiedAuditLog `
--StartDate "07/01/2026" `
--EndDate "07/03/2026" `
--UserIds "testuser1@securem365lsb.onmicrosoft.com" `
--Operations FileAccessed
-
-</code></pre>
-
+<div class="grid-3">
+<div class="card"><h3>Search-UnifiedAuditLog.ps1</h3><p>Targeted audit log search with activity, user, and date filters.</p></div>
+<div class="card"><h3>Export-AuditLogs.ps1</h3><p>Bulk audit export to CSV and JSON with retention-aware batching.</p></div>
+<div class="card"><h3>Get-AuditConfiguration.ps1</h3><p>Audits configuration — enabled status, mailboxes, admin roles.</p></div>
 </div>
+<div class="card">
+<pre>
+Connect-IPPSSession
 
+.\scripts\Search-UnifiedAuditLog.ps1 `
+  -StartDate "2026-07-01" `
+  -EndDate "2026-07-03" `
+  -UserIds "testuser1@securem365lsb.onmicrosoft.com" `
+  -Operations "FileAccessed" `
+  -OutputPath "C:\AuditExports"
+</pre>
+</div>
+</div>
 </section>
 
-
-
 <section>
-
 <div class="container">
-
-<h2>Microsoft Purview Audit Standard vs Audit Premium</h2>
-
+<h2>Audit Standard vs Audit Premium</h2>
 <table>
-
-<tr>
-
-<th>Feature</th>
-
-<th>Audit Standard</th>
-
-<th>Audit Premium</th>
-
-</tr>
-
-<tr>
-
-<td>Unified Audit Log</td>
-
-<td>✅</td>
-
-<td>✅</td>
-
-</tr>
-
-<tr>
-
-<td>Audit Search</td>
-
-<td>✅</td>
-
-<td>✅</td>
-
-</tr>
-
-<tr>
-
-<td>CSV Export</td>
-
-<td>✅</td>
-
-<td>✅</td>
-
-</tr>
-
-<tr>
-
-<td>Long-Term Retention</td>
-
-<td>❌</td>
-
-<td>✅</td>
-
-</tr>
-
-<tr>
-
-<td>High-bandwidth API</td>
-
-<td>❌</td>
-
-<td>✅</td>
-
-</tr>
-
-<tr>
-
-<td>Advanced Investigation</td>
-
-<td>❌</td>
-
-<td>✅</td>
-
-</tr>
-
+<tr><th>Feature</th><th>Audit Standard</th><th>Audit Premium</th></tr>
+<tr><td>Audit Search</td><td>✅</td><td>✅</td></tr>
+<tr><td>Export to CSV</td><td>✅</td><td>✅</td></tr>
+<tr><td>Retention</td><td>90 days</td><td>1–10 years</td></tr>
+<tr><td>High-Value Events</td><td>Limited</td><td>Enhanced (MailItemsAccessed, Send)</td></tr>
+<tr><td>Advanced Investigation</td><td>❌</td><td>✅</td></tr>
+<tr><td>Licensing</td><td>E3 / E5</td><td>E5 / Compliance Add-On</td></tr>
 </table>
-
 </div>
-
 </section>
 
-
-
 <section>
-
 <div class="container">
-
 <h2>Lessons Learned</h2>
-
-<div class="card-grid">
-
 <div class="card">
-
-<h3>Search Planning</h3>
-
-<p>
-
-Using specific users, activities, and date ranges significantly reduces
-search time and improves investigation accuracy.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Export Early</h3>
-
-<p>
-
-Always export audit evidence before retention periods expire to preserve
-investigation data.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Use Activity Filters</h3>
-
-<p>
-
-Filtering by workload and operation names minimizes noise during
-security investigations.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Automate Searches</h3>
-
-<p>
-
-PowerShell automation simplifies recurring investigations and
-scheduled compliance reporting.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
- <section>
-
-<div class="container">
-
-<h2>Troubleshooting</h2>
-
-<table>
-
-<tr>
-<th>Issue</th>
-<th>Possible Cause</th>
-<th>Resolution</th>
-</tr>
-
-<tr>
-<td>No audit results returned</td>
-<td>Auditing not enabled or activity not yet processed</td>
-<td>Verify Microsoft Purview Audit is enabled and allow up to 24 hours for ingestion.</td>
-</tr>
-
-<tr>
-<td>Search remains In Progress</td>
-<td>Large search scope or backend processing delay</td>
-<td>Reduce the date range, narrow search filters, and refresh the page.</td>
-</tr>
-
-<tr>
-<td>Export option unavailable</td>
-<td>Search has not completed</td>
-<td>Wait until the search status changes to <strong>Completed</strong>.</td>
-</tr>
-
-<tr>
-<td>Expected user activity missing</td>
-<td>Incorrect filters or unsupported workload</td>
-<td>Review date range, user account, activity type, and selected workloads.</td>
-</tr>
-
-<tr>
-<td>CSV export missing events</td>
-<td>Search scope too narrow</td>
-<td>Re-run the search using broader filters before exporting.</td>
-</tr>
-
-<tr>
-<td>Permission denied</td>
-<td>Insufficient Microsoft Purview permissions</td>
-<td>Assign Audit Reader, Compliance Administrator, or Organization Management roles.</td>
-</tr>
-
-</table>
-
-</div>
-
-</section>
-
-
-
-<section>
-
-<div class="container">
-
-<h2>Future Improvements</h2>
-
-<div class="card-grid">
-
-<div class="card">
-
-<h3>Long-Term Audit Retention</h3>
-
-<p>
-
-Implement Microsoft Purview Audit Premium to extend audit log retention
-for regulatory investigations.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Microsoft Sentinel Integration</h3>
-
-<p>
-
-Stream Unified Audit Log events into Microsoft Sentinel for advanced
-correlation, analytics, and automated incident response.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Automated Investigation</h3>
-
-<p>
-
-Develop scheduled PowerShell scripts to perform recurring searches and
-generate compliance reports automatically.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Power BI Dashboard</h3>
-
-<p>
-
-Create interactive dashboards to visualize user activities,
-administrative changes,
-mailbox actions,
-and SharePoint audit trends.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section>
-
-<div class="container">
-
-<h2>Repository Structure</h2>
-
-<pre><code>
-
-Microsoft-Purview-Audit/
-
-├── README.md
-
-├── LICENSE
-
-├── .gitignore
-
-├── GITHUB-METADATA.md
-
-├── WEBSITE-PORTFOLIO-CARD.md
-
-├── Microsoft-Purview-Audit.html
-
-├── architecture/
-
-│   └── purview-audit-architecture.md
-
-├── docs/
-
-│   ├── 01-overview.md
-
-│   ├── 02-enable-audit.md
-
-│   ├── 03-audit-search.md
-
-│   ├── 04-investigation.md
-
-│   ├── 05-export-results.md
-
-│   ├── 06-validation.md
-
-│   ├── troubleshooting.md
-
-│   └── screenshots-placement-guide.md
-
-├── scripts/
-
-│   ├── Search-UnifiedAuditLog.ps1
-
-│   ├── Export-AuditLogs.ps1
-
-│   └── Get-AuditConfiguration.ps1
-
-└── images/
-
-    ├── 02-enable-audit/
-
-    ├── 03-audit-search/
-
-    ├── 04-investigation/
-
-    ├── 05-export-results/
-
-    └── 06-validation/
-
-</code></pre>
-
-</div>
-
-</section>
-
-
-
-<section>
-
-<div class="container">
-
-<h2>References</h2>
-
 <ul>
-
-<li>Microsoft Learn — Microsoft Purview Audit</li>
-
-<li>Microsoft Learn — Unified Audit Log</li>
-
-<li>Microsoft Learn — Search the Audit Log</li>
-
-<li>Microsoft Learn — Export Audit Search Results</li>
-
-<li>Microsoft Learn — Microsoft 365 Compliance Documentation</li>
-
-<li>MS-102 Microsoft 365 Administrator Exam Skills Outline</li>
-
-<li>TechCertGuide — Microsoft Purview Audit Implementation</li>
-
+<li>Audit is enabled by default, but verify before an incident occurs since many organizations assume it is active without checking.</li>
+<li>Search scope determines performance — targeted searches return results faster than broad date ranges across all users.</li>
+<li>AuditData JSON is the forensic record; CSV columns are metadata while the JSON field holds the full activity context.</li>
+<li>Export early — Audit Standard retains logs for only 90 days, so evidence should be preserved immediately.</li>
+<li>Audit Premium is required for mailbox reads, since MailItemsAccessed is a Premium-only event.</li>
 </ul>
-
 </div>
-
+</div>
 </section>
-
-
 
 <section>
-
-<div class="container" style="text-align:center;">
-
-<h2>GitHub Repository</h2>
-
-<p>
-
-Complete enterprise implementation documentation,
-PowerShell automation,
-architecture diagrams,
-validation procedures,
-and screenshots are available in the GitHub repository.
-
-</p>
-
-<a class="btn"
-href="https://github.com/lokeshm-it/Microsoft-Purview-Audit"
-target="_blank">
-
-View GitHub Repository
-
-</a>
-
-<a class="btn secondary"
-href="https://lokeshm-it.github.io/"
-target="_blank"
-style="margin-left:15px;">
-
-Back to Portfolio
-
-</a>
-
+<div class="container">
+<h2>Troubleshooting</h2>
+<table>
+<tr><th>Issue</th><th>Likely Cause</th><th>Resolution</th></tr>
+<tr><td>Audit solution not visible</td><td>Missing role</td><td>Assign Audit Logs or View-Only Audit Logs role</td></tr>
+<tr><td>Search returns no results</td><td>Audit not enabled</td><td>Run Get-AdminAuditLogConfig to verify</td></tr>
+<tr><td>Events missing for a user</td><td>User excluded from audit</td><td>Check per-user audit settings in Exchange</td></tr>
+<tr><td>Export fails silently</td><td>Permissions issue</td><td>Verify Compliance Administrator or eDiscovery roles</td></tr>
+<tr><td>Search times out</td><td>Overly broad scope</td><td>Narrow date range or add user/activity filters</td></tr>
+</table>
 </div>
-
 </section>
 
+<section>
+<div class="container">
+<h2>Future Improvements</h2>
+<div class="grid-2">
+<div class="card">
+<ul>
+<li>Configure Audit Premium for extended retention and MailItemsAccessed events</li>
+<li>Create scheduled PowerShell jobs for weekly audit log export</li>
+<li>Build Power BI dashboard connected to exported audit CSV</li>
+</ul>
+</div>
+<div class="card">
+<ul>
+<li>Integrate audit alerts with Microsoft Sentinel for real-time incident creation</li>
+<li>Configure audit retention policies for specific record types</li>
+<li>Implement audit log archival to Azure Blob Storage for long-term compliance</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
 
+<section id="github">
+<div class="container">
+<h2>GitHub Repository</h2>
+<div class="card">
+<p>This repository documents an enterprise Microsoft Purview Audit implementation performed in a Microsoft 365 E5 lab tenant.</p>
+<a class="btn btn-primary" href="https://github.com/lokeshm-it/Microsoft-Purview-Audit" target="_blank">View Repository on GitHub</a>
+</div>
+</div>
+</section>
 
 <footer>
-
-<p>
-
-© 2026 Lokesh M |
-Microsoft 365 Administrator |
-Microsoft Purview |
-Security |
-Compliance |
-GitHub Portfolio
-
-</p>
-
-<p>
-
-This project documents an implementation performed within the
-<strong>securem365lsb.onmicrosoft.com</strong>
-Microsoft 365 lab environment.
-
-All screenshots, validation results, PowerShell examples, and implementation
-steps reflect actual testing performed during this enterprise deployment.
-
-</p>
-
+<div class="container">
+<h3>Microsoft Purview Audit</h3>
+<p>Enterprise Microsoft 365 Compliance Portfolio</p>
+<p><strong>Author:</strong> Lokesh Karnam<br>Senior Infrastructure Engineer | Microsoft 365 Administrator | Microsoft Security | Microsoft Purview</p>
+<p>© 2026 Lokesh Karnam. All Rights Reserved.</p>
+</div>
 </footer>
 
 </body>
