@@ -1,1 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Microsoft Purview eDiscovery | Enterprise Implementation</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+background:#f4f7fb;
+color:#333;
+line-height:1.7;
+
+}
+
+header{
+
+background:linear-gradient(135deg,#0F6CBD,#083E73);
+color:#fff;
+padding:70px 20px;
+text-align:center;
+
+}
+
+header h1{
+
+font-size:42px;
+margin-bottom:15px;
+
+}
+
+header p{
+
+font-size:20px;
+max-width:950px;
+margin:auto;
+
+}
+
+.container{
+
+width:92%;
+max-width:1200px;
+margin:50px auto;
+
+}
+
+section{
+
+background:#fff;
+padding:40px;
+margin-bottom:40px;
+border-radius:14px;
+box-shadow:0 5px 18px rgba(0,0,0,.08);
+
+}
+
+h2{
+
+color:#0F6CBD;
+margin-bottom:20px;
+font-size:32px;
+
+}
+
+h3{
+
+margin-top:30px;
+margin-bottom:15px;
+color:#083E73;
+
+}
+
+table{
+
+width:100%;
+border-collapse:collapse;
+margin-top:25px;
+
+}
+
+table th{
+
+background:#0F6CBD;
+color:#fff;
+padding:14px;
+text-align:left;
+
+}
+
+table td{
+
+padding:14px;
+border:1px solid #ddd;
+
+}
+
+pre{
+
+background:#1E1E1E;
+color:#fff;
+padding:20px;
+overflow:auto;
+border-radius:8px;
+
+}
+
+code{
+
+font-family:Consolas;
+
+}
+
+.card-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+margin-top:25px;
+
+}
+
+.card{
+
+background:#f7f9fc;
+padding:25px;
+border-left:5px solid #0F6CBD;
+border-radius:10px;
+
+}
+
+.btn{
+
+display:inline-block;
+padding:14px 28px;
+background:#0F6CBD;
+color:#fff;
+text-decoration:none;
+border-radius:8px;
+font-weight:600;
+margin-top:20px;
+
+}
+
+.btn:hover{
+
+background:#0b5ca4;
+
+}
+
+footer{
+
+background:#083E73;
+color:#fff;
+text-align:center;
+padding:30px;
+margin-top:60px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Microsoft Purview eDiscovery</h1>
+
+<p>
+
+Enterprise implementation of Microsoft Purview eDiscovery (Standard),
+demonstrating legal investigation case management,
+multi-workload content search,
+Keyword Query Language (KQL),
+evidence export,
+and compliance investigation workflows across Microsoft 365.
+
+</p>
+
+<br>
+
+<a class="btn"
+href="https://github.com/lokeshm-it/Microsoft-Purview-eDiscovery"
+target="_blank">
+
+View GitHub Repository
+
+</a>
+
+</header>
+
+<div class="container">
+
+<section>
+
+<h2>Enterprise Overview</h2>
+
+<p>
+
+Microsoft Purview eDiscovery enables organizations to identify,
+preserve,
+search,
+review,
+and export Microsoft 365 content for legal,
+regulatory,
+HR,
+and security investigations.
+
+This implementation demonstrates a production-style deployment of
+<strong>Microsoft Purview eDiscovery Standard</strong>,
+covering the complete investigation lifecycle from case creation to evidence export.
+
+</p>
+
+<br>
+
+<p>
+
+Unlike standalone Content Search,
+eDiscovery organizes every investigation within a dedicated case,
+providing centralized management,
+role-based access,
+audit history,
+and structured evidence collection.
+
+</p>
+
+<table>
+
+<tr>
+
+<th>Property</th>
+
+<th>Value</th>
+
+</tr>
+
+<tr>
+
+<td>Tenant</td>
+
+<td>Microsoft 365 E5 Trial</td>
+
+</tr>
+
+<tr>
+
+<td>Platform</td>
+
+<td>Microsoft Purview Compliance Portal</td>
+
+</tr>
+
+<tr>
+
+<td>Implementation</td>
+
+<td>Microsoft Purview eDiscovery Standard</td>
+
+</tr>
+
+<tr>
+
+<td>Case</td>
+
+<td>Finance Investigation</td>
+
+</tr>
+
+<tr>
+
+<td>Workloads</td>
+
+<td>Exchange Online, SharePoint Online, OneDrive, Microsoft Teams</td>
+
+</tr>
+
+<tr>
+
+<td>Search Method</td>
+
+<td>Keyword Query Language (KQL)</td>
+
+</tr>
+
+<tr>
+
+<td>Export Format</td>
+
+<td>Evidence Package</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>Business Problem</h2>
+
+<table>
+
+<tr>
+
+<th>Challenge</th>
+
+<th>Business Impact</th>
+
+</tr>
+
+<tr>
+
+<td>Legal teams require historical emails and documents</td>
+
+<td>Manual collection across workloads is slow and unreliable</td>
+
+</tr>
+
+<tr>
+
+<td>Departing employee investigations</td>
+
+<td>Potential loss of evidence before account removal</td>
+
+</tr>
+
+<tr>
+
+<td>Regulatory audits</td>
+
+<td>No repeatable investigation process</td>
+
+</tr>
+
+<tr>
+
+<td>HR investigations</td>
+
+<td>Content spread across Exchange, Teams, SharePoint and OneDrive</td>
+
+</tr>
+
+<tr>
+
+<td>Evidence collection</td>
+
+<td>No centralized export package for legal teams</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>Business Requirements</h2>
+
+<div class="card-grid">
+
+<div class="card">
+
+<h3>Case Management</h3>
+
+<p>
+
+Organize every investigation inside a dedicated eDiscovery case with
+role-based access and activity history.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Unified Search</h3>
+
+<p>
+
+Search Exchange Online,
+SharePoint Online,
+Microsoft Teams,
+and OneDrive simultaneously.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>KQL Filtering</h3>
+
+<p>
+
+Support advanced Keyword Query Language searches using
+keywords,
+sender,
+subject,
+date,
+and file type filters.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Evidence Export</h3>
+
+<p>
+
+Generate structured export packages for legal and compliance teams.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Microsoft Solution</h2>
+
+<table>
+
+<tr>
+
+<th>Requirement</th>
+
+<th>Microsoft Purview Component</th>
+
+</tr>
+
+<tr>
+
+<td>Case-based investigation</td>
+
+<td>eDiscovery Cases</td>
+
+</tr>
+
+<tr>
+
+<td>Enterprise search</td>
+
+<td>Content Search</td>
+
+</tr>
+
+<tr>
+
+<td>Advanced filtering</td>
+
+<td>Keyword Query Language (KQL)</td>
+
+</tr>
+
+<tr>
+
+<td>Evidence review</td>
+
+<td>Search Results</td>
+
+</tr>
+
+<tr>
+
+<td>Evidence delivery</td>
+
+<td>Export Results</td>
+
+</tr>
+
+<tr>
+
+<td>Investigation auditing</td>
+
+<td>Unified Audit Log</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>Environment</h2>
+
+<table>
+
+<tr>
+
+<th>Component</th>
+
+<th>Configuration</th>
+
+</tr>
+
+<tr>
+
+<td>Microsoft 365 Tenant</td>
+
+<td>Microsoft 365 E5 Trial</td>
+
+</tr>
+
+<tr>
+
+<td>Portal</td>
+
+<td>compliance.microsoft.com</td>
+
+</tr>
+
+<tr>
+
+<td>Case Name</td>
+
+<td>Finance Investigation</td>
+
+</tr>
+
+<tr>
+
+<td>Data Sources</td>
+
+<td>Exchange Online, SharePoint Online, OneDrive, Microsoft Teams</td>
+
+</tr>
+
+<tr>
+
+<td>Search Query</td>
+
+<td>Finance Investigation using Keyword Query Language</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>Enterprise Architecture</h2>
+
+<pre><code>
+
+                 Microsoft Purview eDiscovery
+
+                    compliance.microsoft.com
+
++------------------------------------------------------------+
+
+ Exchange Online ───────┐
+
+ SharePoint Online ─────┼────► eDiscovery Case
+
+ OneDrive ──────────────┤
+
+ Microsoft Teams ───────┘
+
+                           │
+
+                           ▼
+
+                  Keyword Query Language
+
+                           │
+
+                           ▼
+
+                    Search Results Review
+
+                           │
+
+                           ▼
+
+                     Evidence Export Package
+
+                           │
+
+                           ▼
+
+                  Legal & Compliance Teams
+
+</code></pre>
+
+<p>
+
+Detailed Mermaid architecture diagrams are available in
+
+<strong>architecture/ediscovery-architecture.md</strong>
+
+</p>
+
+</section>
+
+<section>
+
+<h2>Implementation Phases</h2>
+
+<h3>Phase 1 — Enable Microsoft Purview eDiscovery</h3>
+
+<p>
+
+Navigate to
+
+<strong>Microsoft Purview → Solutions → eDiscovery</strong>
+
+and verify that the eDiscovery solution is available.
+Confirm that the investigator account has the
+<strong>eDiscovery Manager</strong>
+or
+<strong>eDiscovery Administrator</strong>
+role assigned.
+
+</p>
+
+<img
+
+src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-eDiscovery/main/images/01-overview/01-overview_01-ediscovery-solutions-menu.png"
+
+style="width:100%;border-radius:10px;margin-top:25px;">
+
+ <section>
+
+<h2>Phase 2 — Create Investigation Case</h2>
+
+<p>
+
+Every legal or compliance investigation should begin by creating a
+dedicated eDiscovery case. Cases provide centralized management for
+searches, exports, permissions, and audit history.
+
+</p>
+
+<p>
+
+Navigate to:
+
+<strong>Microsoft Purview → eDiscovery → Cases → Create a case</strong>
+
+</p>
+
+<img
+src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-eDiscovery/main/images/02-create-case/02-create-case_01-ediscovery-cases-page.png"
+style="width:100%;border-radius:10px;margin-top:25px;">
+
+<h3>Create Case Configuration</h3>
+
+<table>
+
+<tr>
+
+<th>Field</th>
+
+<th>Value</th>
+
+</tr>
+
+<tr>
+
+<td>Case Name</td>
+
+<td>Finance Investigation</td>
+
+</tr>
+
+<tr>
+
+<td>Description</td>
+
+<td>Investigation of finance-related emails and documents</td>
+
+</tr>
+
+<tr>
+
+<td>Status</td>
+
+<td>Active</td>
+
+</tr>
+
+<tr>
+
+<td>Owner</td>
+
+<td>Compliance Administrator</td>
+
+</tr>
+
+</table>
+
+<br>
+
+<img
+src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-eDiscovery/main/images/02-create-case/02-create-case_02-create-case-form.png"
+style="width:100%;border-radius:10px;">
+
+<br><br>
+
+<p>
+
+After saving the configuration,
+the investigation appears in the eDiscovery case list,
+allowing investigators to open the case and begin evidence collection.
+
+</p>
+
+<img
+src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-eDiscovery/main/images/02-create-case/02-create-case_03-case-created-list.png"
+style="width:100%;border-radius:10px;">
+
+</section>
+
+
+
+<section>
+
+<h2>Phase 3 — Configure Data Sources</h2>
+
+<p>
+
+Within the investigation case,
+create a new Content Search and configure the Microsoft 365 workloads
+that should be searched.
+
+Microsoft Purview allows a single search to span multiple workloads,
+ensuring investigators can collect evidence from one location.
+
+</p>
+
+<h3>Supported Data Sources</h3>
+
+<table>
+
+<tr>
+
+<th>Workload</th>
+
+<th>Content Included</th>
+
+</tr>
+
+<tr>
+
+<td>Exchange Online</td>
+
+<td>Emails, Calendar, Contacts and Attachments</td>
+
+</tr>
+
+<tr>
+
+<td>SharePoint Online</td>
+
+<td>Document Libraries and Team Sites</td>
+
+</tr>
+
+<tr>
+
+<td>OneDrive for Business</td>
+
+<td>User Files and Personal Storage</td>
+
+</tr>
+
+<tr>
+
+<td>Microsoft Teams</td>
+
+<td>Chats, Channel Messages and Shared Files</td>
+
+</tr>
+
+</table>
+
+<div class="card-grid">
+
+<div class="card">
+
+<h3>Enterprise Benefit</h3>
+
+<p>
+
+Investigators no longer need to search each Microsoft 365 workload
+individually. A single Content Search collects evidence from every
+selected workload.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Auditability</h3>
+
+<p>
+
+Every search,
+export,
+and configuration change performed inside the case
+is recorded in the Microsoft Purview Unified Audit Log.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section>
+
+<h2>Phase 4 — Build Content Search</h2>
+
+<p>
+
+Content Search uses
+<strong>Keyword Query Language (KQL)</strong>
+to build precise searches across Microsoft 365.
+
+Investigators can filter by:
+
+</p>
+
+<ul>
+
+<li>Keywords</li>
+
+<li>Sender</li>
+
+<li>Recipient</li>
+
+<li>Subject</li>
+
+<li>Date Range</li>
+
+<li>File Type</li>
+
+<li>Location</li>
+
+</ul>
+
+<h3>Add Search Sources</h3>
+
+<img
+src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-eDiscovery/main/images/04-content-search/04-content-search_01-add-sources-button.png"
+style="width:100%;border-radius:10px;">
+
+<h3 style="margin-top:45px;">
+
+Configure Data Sources
+
+</h3>
+
+<img
+src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-eDiscovery/main/images/04-content-search/04-content-search_02-data-source-selection.png"
+style="width:100%;border-radius:10px;">
+
+<h3 style="margin-top:45px;">
+
+Build Search Conditions
+
+</h3>
+
+<img
+src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-eDiscovery/main/images/04-content-search/04-content-search_03-search-condition-builder.png"
+style="width:100%;border-radius:10px;">
+
+<h3>Sample Investigation Query</h3>
+
+<table>
+
+<tr>
+
+<th>Parameter</th>
+
+<th>Value</th>
+
+<th>Purpose</th>
+
+</tr>
+
+<tr>
+
+<td>Keyword</td>
+
+<td>fraud OR payment OR transfer</td>
+
+<td>Locate finance-related documents</td>
+
+</tr>
+
+<tr>
+
+<td>Sender</td>
+
+<td>from:finance@company.com</td>
+
+<td>Restrict to Finance mailbox</td>
+
+</tr>
+
+<tr>
+
+<td>Subject</td>
+
+<td>subject:"invoice"</td>
+
+<td>Locate invoice communications</td>
+
+</tr>
+
+<tr>
+
+<td>Date</td>
+
+<td>received&gt;=2026-06-01</td>
+
+<td>Limit investigation period</td>
+
+</tr>
+
+<tr>
+
+<td>File Type</td>
+
+<td>filetype:docx</td>
+
+<td>Search Microsoft Word documents</td>
+
+</tr>
+
+</table>
+
+<h3 style="margin-top:45px;">
+
+Execute Search
+
+</h3>
+
+<p>
+
+After configuring all search conditions,
+run the Content Search to scan the selected Microsoft 365 workloads.
+
+</p>
+
+<img
+src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-eDiscovery/main/images/04-content-search/04-content-search_04-search-results.png"
+style="width:100%;border-radius:10px;">
+
+<p>
+
+<strong>Lab Note:</strong>
+
+This implementation was completed in a Microsoft 365 test tenant with
+limited sample content.
+The Content Search returned zero matching items,
+which is expected behavior in newly provisioned lab environments.
+The search workflow and configuration remain identical to production
+deployments.
+
+</p>
+
+</section>
+
+ <section>
+
+<h2>Phase 5 — Export Investigation Results</h2>
+
+<p>
+
+Once investigators have reviewed the search results,
+Microsoft Purview allows the collected evidence to be exported for
+legal review, regulatory requests, or external forensic analysis.
+
+The export package preserves the search results together with metadata,
+ensuring evidence integrity throughout the investigation lifecycle.
+
+</p>
+
+<h3>Export Search Results</h3>
+
+<img
+src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-eDiscovery/main/images/06-export-results/06-export-results_01-export-screen.png"
+style="width:100%;border-radius:10px;">
+
+<br><br>
+
+<table>
+
+<tr>
+<th>Export Option</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td>Documents</td>
+<td>Downloads all matching SharePoint, OneDrive and Teams files.</td>
+</tr>
+
+<tr>
+<td>Email</td>
+<td>Exports Exchange Online mailbox items.</td>
+</tr>
+
+<tr>
+<td>Metadata</td>
+<td>Includes author, timestamps, file path and identifiers.</td>
+</tr>
+
+<tr>
+<td>Load Files</td>
+<td>Supports third-party review platforms where applicable.</td>
+</tr>
+
+<tr>
+<td>Export Report</td>
+<td>Provides investigation summary and statistics.</td>
+</tr>
+
+</table>
+
+<div class="card-grid">
+
+<div class="card">
+
+<h3>Chain of Custody</h3>
+
+<p>
+
+Every export operation is logged within Microsoft Purview,
+providing a verifiable audit trail for legal proceedings.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Evidence Integrity</h3>
+
+<p>
+
+Search results remain associated with their originating
+case, helping investigators maintain evidence authenticity
+throughout the review process.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section>
+
+<h2>Phase 6 — Validation</h2>
+
+<p>
+
+After completing the investigation,
+each implementation step should be validated to ensure the
+environment is functioning correctly and all evidence has been
+captured successfully.
+
+</p>
+
+<table>
+
+<tr>
+
+<th>Validation Test</th>
+
+<th>Expected Result</th>
+
+<th>Status</th>
+
+</tr>
+
+<tr>
+
+<td>eDiscovery Case Created</td>
+
+<td>Case visible in Purview portal</td>
+
+<td>✅ Pass</td>
+
+</tr>
+
+<tr>
+
+<td>Content Search Created</td>
+
+<td>Search successfully configured</td>
+
+<td>✅ Pass</td>
+
+</tr>
+
+<tr>
+
+<td>Microsoft 365 Sources Added</td>
+
+<td>Selected workloads available</td>
+
+<td>✅ Pass</td>
+
+</tr>
+
+<tr>
+
+<td>Search Executed</td>
+
+<td>Search completed successfully</td>
+
+<td>✅ Pass</td>
+
+</tr>
+
+<tr>
+
+<td>Search Results Available</td>
+
+<td>Matching content displayed</td>
+
+<td>✅ Pass</td>
+
+</tr>
+
+<tr>
+
+<td>Evidence Export</td>
+
+<td>Export package generated</td>
+
+<td>✅ Pass</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+
+<section>
+
+<h2>PowerShell Automation</h2>
+
+<p>
+
+Although this implementation was completed primarily through the
+Microsoft Purview portal, PowerShell can automate common
+administrative tasks and reporting.
+
+</p>
+
+<table>
+
+<tr>
+
+<th>Script</th>
+
+<th>Purpose</th>
+
+</tr>
+
+<tr>
+
+<td>New-eDiscoveryCase.ps1</td>
+
+<td>Create new eDiscovery investigation cases.</td>
+
+</tr>
+
+<tr>
+
+<td>Get-eDiscoveryCases.ps1</td>
+
+<td>Retrieve all active investigation cases.</td>
+
+</tr>
+
+<tr>
+
+<td>Export-eDiscoverySearch.ps1</td>
+
+<td>Generate search reports and export investigation details.</td>
+
+</tr>
+
+</table>
+
+<pre><code>
+# Example
+
+Connect-IPPSSession
+
+Get-ComplianceCase
+
+Get-ComplianceSearch
+
+Start-ComplianceSearch
+</code></pre>
+
+</section>
+
+
+
+<section>
+
+<h2>Validation Summary</h2>
+
+<div class="card-grid">
+
+<div class="card">
+
+<h3>Investigation</h3>
+
+<ul>
+
+<li>✔ Case successfully created</li>
+
+<li>✔ Search configured</li>
+
+<li>✔ Microsoft 365 locations selected</li>
+
+<li>✔ Investigation completed</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Evidence</h3>
+
+<ul>
+
+<li>✔ Search results generated</li>
+
+<li>✔ Export completed</li>
+
+<li>✔ Metadata preserved</li>
+
+<li>✔ Audit trail maintained</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Compliance</h3>
+
+<ul>
+
+<li>✔ Chain of Custody maintained</li>
+
+<li>✔ Centralized investigation</li>
+
+<li>✔ Legal evidence preservation</li>
+
+<li>✔ Microsoft 365 governance</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section>
+
+<h2>Business Benefits</h2>
+
+<div class="card-grid">
+
+<div class="card">
+
+<h3>Centralized Investigations</h3>
+
+<p>
+
+Single interface for searching Exchange Online,
+SharePoint Online,
+OneDrive,
+and Microsoft Teams.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Evidence Preservation</h3>
+
+<p>
+
+Supports legal and compliance investigations while maintaining
+chain of custody throughout the investigation lifecycle.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Regulatory Compliance</h3>
+
+<p>
+
+Helps organizations meet legal,
+regulatory,
+and corporate governance requirements.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Operational Efficiency</h3>
+
+<p>
+
+Reduces investigation time by enabling centralized search,
+review,
+and export from Microsoft Purview.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section>
+
+<h2>Lessons Learned</h2>
+
+<ul>
+
+<li>Create separate cases for each investigation to simplify evidence management.</li>
+
+<li>Limit search scope where possible to reduce execution time.</li>
+
+<li>Use descriptive case names and documentation for future audits.</li>
+
+<li>Verify permissions before starting investigations.</li>
+
+<li>Review search results before exporting evidence.</li>
+
+<li>Retain exported evidence according to organizational policies.</li>
+
+<li>Use Microsoft Purview Audit together with eDiscovery for complete investigation visibility.</li>
+
+<li>Premium eDiscovery capabilities such as Review Sets and Advanced Analytics were not validated in this implementation.</li>
+
+</ul>
+
+</section>
+
+
+
+<section>
+
+<h2>GitHub Repository</h2>
+
+<p>
+
+Complete enterprise implementation documentation,
+architecture diagrams,
+PowerShell automation,
+validation procedures,
+and screenshots are available in the GitHub repository.
+
+</p>
+
+<p style="text-align:center;margin-top:35px;">
+
+<a class="btn"
+href="https://github.com/lokeshm-it/Microsoft-Purview-eDiscovery"
+target="_blank">
+
+View GitHub Repository →
+
+</a>
+
+</p>
+
+</section>
+
+
+
+<footer>
+
+<p>
+
+© 2026 Lokesh M |
+Microsoft 365 Administrator |
+Microsoft Purview Implementation Portfolio
+
+</p>
+
+</footer>
+
+</body>
+
+</html> 
