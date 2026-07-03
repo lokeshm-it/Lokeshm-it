@@ -1,1 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Microsoft Purview Data Loss Prevention | Lokesh M</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- HERO SECTION -->
+<!-- ========================= -->
+
+<section class="project-hero">
+
+<span class="project-badge">
+Microsoft Purview Compliance Project
+</span>
+
+<h1>
+Microsoft Purview Data Loss Prevention
+</h1>
+
+<p class="project-subtitle">
+
+Enterprise implementation of Microsoft Purview Data Loss Prevention (DLP)
+covering built-in Sensitive Information Types (SIT), Custom Sensitive
+Information Types, Endpoint DLP, Microsoft Defender for Endpoint
+integration, Activity Explorer, DLP Alerts, DLP Reports and
+Generative AI website protection.
+
+</p>
+
+</section>
+
+<hr class="section-divider">
+
+
+<!-- ========================= -->
+<!-- PROJECT OVERVIEW -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Project Overview</h2>
+
+<p>
+
+Data Loss Prevention (DLP) is one of the most critical capabilities in
+Microsoft Purview for preventing accidental or intentional exposure of
+sensitive organizational data.
+
+</p>
+
+<p>
+
+This project demonstrates an end-to-end enterprise implementation of
+Microsoft Purview Data Loss Prevention within a Microsoft 365 lab
+environment. The implementation progresses through six practical phases,
+starting with built-in Sensitive Information Types and extending to
+custom organizational data detection, endpoint protection, monitoring,
+Generative AI website controls, and policy enforcement.
+
+</p>
+
+<p>
+
+Unlike theoretical demonstrations, every configuration, screenshot,
+policy, alert, and validation included in this repository was implemented
+inside a Microsoft 365 lab tenant and validated using real testing
+scenarios.
+
+</p>
+
+<p>
+
+The project follows Microsoft's Zero Trust principle that sensitive data
+must always be protected regardless of where it resides—cloud services,
+endpoints, browsers, or AI applications.
+
+</p>
+
+<div class="info-box">
+
+<h3>Key Capabilities Implemented</h3>
+
+<ul>
+
+<li>✔ Microsoft Purview Data Loss Prevention</li>
+
+<li>✔ Built-in Sensitive Information Types (Credit Card)</li>
+
+<li>✔ Custom Sensitive Information Types (GSM)</li>
+
+<li>✔ Endpoint DLP</li>
+
+<li>✔ Microsoft Defender for Endpoint Integration</li>
+
+<li>✔ Activity Explorer</li>
+
+<li>✔ DLP Alerts</li>
+
+<li>✔ DLP Reports</li>
+
+<li>✔ Generative AI Website Protection</li>
+
+<li>✔ Simulation Mode Validation</li>
+
+<li>✔ Enforcement Mode Deployment</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<hr class="section-divider">
+
+
+<!-- ========================= -->
+<!-- ENVIRONMENT -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Lab Environment</h2>
+
+<table>
+
+<tr>
+
+<th>Component</th>
+
+<th>Value</th>
+
+</tr>
+
+<tr>
+
+<td>Tenant</td>
+
+<td>securem365lsb.onmicrosoft.com</td>
+
+</tr>
+
+<tr>
+
+<td>Platform</td>
+
+<td>Microsoft Purview Compliance Portal</td>
+
+</tr>
+
+<tr>
+
+<td>Test Device</td>
+
+<td>testing_machine (Windows 11 25H2)</td>
+
+</tr>
+
+<tr>
+
+<td>Test User</td>
+
+<td>testuser1@securem365lsb.onmicrosoft.com</td>
+
+</tr>
+
+<tr>
+
+<td>License</td>
+
+<td>Microsoft 365 E5 Compliance</td>
+
+</tr>
+
+<tr>
+
+<td>Lab Period</td>
+
+<td>June 28 – July 3, 2026</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<hr class="section-divider">
+
+
+<!-- ========================= -->
+<!-- TECHNOLOGIES -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Microsoft Technologies Used</h2>
+
+<div class="tech-grid">
+
+<div class="tech-card">
+Microsoft Purview
+</div>
+
+<div class="tech-card">
+Microsoft Purview DLP
+</div>
+
+<div class="tech-card">
+Sensitive Information Types
+</div>
+
+<div class="tech-card">
+Custom SIT
+</div>
+
+<div class="tech-card">
+Microsoft Defender for Endpoint
+</div>
+
+<div class="tech-card">
+Endpoint DLP
+</div>
+
+<div class="tech-card">
+Microsoft Edge
+</div>
+
+<div class="tech-card">
+Activity Explorer
+</div>
+
+<div class="tech-card">
+DLP Alerts
+</div>
+
+<div class="tech-card">
+DLP Reports
+</div>
+
+<div class="tech-card">
+Microsoft Entra ID
+</div>
+
+<div class="tech-card">
+Microsoft 365 E5 Compliance
+</div>
+
+</div>
+
+</section>
+
+<hr class="section-divider">
+
+
+<!-- ========================= -->
+<!-- BUSINESS PROBLEM -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Business Problem</h2>
+
+<p>
+
+Organizations store payment information, customer records, contracts,
+internal documents, and proprietary business data across Microsoft 365.
+Without Data Loss Prevention, this information can easily leave the
+organization through email, cloud storage, browser uploads, USB devices,
+or AI applications.
+
+</p>
+
+<p>
+
+Traditional security controls focus on protecting identities and devices,
+but they cannot determine whether sensitive business data is leaving the
+organization.
+
+</p>
+
+<p>
+
+This implementation addresses those challenges by protecting sensitive
+information regardless of where the data travels while maintaining
+visibility through centralized monitoring and reporting.
+
+</p>
+
+</section>
+
+<hr class="section-divider">
+
+
+<!-- ========================= -->
+<!-- PROJECT OBJECTIVES -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Project Objectives</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Protect Sensitive Data</h3>
+
+<p>
+
+Detect and protect financial information using Microsoft's built-in
+Sensitive Information Types.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Create Custom Detection</h3>
+
+<p>
+
+Implement a custom Sensitive Information Type (GSM) for proprietary
+organizational data.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Protect Endpoints</h3>
+
+<p>
+
+Extend Microsoft Purview protection to Windows devices using Endpoint DLP
+and Defender for Endpoint.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Block AI Uploads</h3>
+
+<p>
+
+Prevent sensitive documents from being uploaded to Generative AI websites
+using Microsoft's built-in Sensitive Service Domain Groups.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<hr class="section-divider">
+
+
+<!-- ========================= -->
+<!-- IMPLEMENTATION PHASES -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Implementation Phases</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<h3>Phase 1 — Standard Sensitive Information Types</h3>
+
+<p>
+
+Created a Microsoft Purview DLP policy using Microsoft's built-in Credit
+Card Sensitive Information Type and validated policy behavior in
+Simulation mode.
+
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>Phase 2 — Custom Sensitive Information Types</h3>
+
+<p>
+
+Built a custom GSM Sensitive Information Type using keyword matching and
+integrated it into the DLP policy.
+
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>Phase 3 — Monitoring & Investigation</h3>
+
+<p>
+
+Configured Activity Explorer, DLP Alerts, Incident Reports and DLP
+Reports for continuous monitoring.
+
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>Phase 4 — Endpoint DLP</h3>
+
+<p>
+
+Integrated Microsoft Defender for Endpoint, onboarded Windows devices,
+validated policy synchronization and browser restrictions.
+
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>Phase 5 — AI Website Protection</h3>
+
+<p>
+
+Blocked uploads to Microsoft Generative AI Website groups and validated
+ChatGPT upload blocking.
+
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>Phase 6 — Enforcement</h3>
+
+<p>
+
+Switched the policy from Simulation Mode to Enforcement Mode after
+successful validation.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<hr class="section-divider">
+
+  <!-- ========================= -->
+<!-- PHASE 1 -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Phase 1 — Standard Sensitive Information Type (Credit Card)</h2>
+
+<p>
+
+The first phase focused on creating an enterprise Data Loss Prevention
+policy using Microsoft's built-in Credit Card Number Sensitive
+Information Type.
+
+This policy protects sensitive financial information across supported
+Microsoft 365 workloads while allowing administrators to validate policy
+behavior in Simulation Mode before enabling enforcement.
+
+</p>
+
+<div class="implementation-grid">
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/01-standard-sit/01-purview-portal-solutions-menu.jpg">
+
+<h3>Purview Compliance Portal</h3>
+
+<p>
+
+Started from the Microsoft Purview portal and selected
+Data Loss Prevention.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/01-standard-sit/02-dlp-overview-dashboard.jpg">
+
+<h3>DLP Dashboard</h3>
+
+<p>
+
+Reviewed existing DLP policies and monitoring dashboard before creating
+a new enterprise policy.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/01-standard-sit/03-what-to-protect-enterprise-apps-devices.png">
+
+<h3>Protected Locations</h3>
+
+<p>
+
+Configured protection scope across Microsoft 365 workloads including
+Exchange, SharePoint, OneDrive and Endpoint devices.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/01-standard-sit/04-template-or-custom-policy.png">
+
+<h3>Create Custom Policy</h3>
+
+<p>
+
+Created a custom enterprise DLP policy instead of using predefined
+templates.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/01-standard-sit/05-name-policy-finance-credit-card-protection.png">
+
+<h3>Finance Credit Card Protection</h3>
+
+<p>
+
+Configured the enterprise DLP policy name and business description.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/01-standard-sit/06-admin-units-full-directory.png">
+
+<h3>Administrative Scope</h3>
+
+<p>
+
+Applied the policy across the Microsoft 365 tenant.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/01-standard-sit/07-protected-locations-all-workloads.png">
+
+<h3>Protected Workloads</h3>
+
+<p>
+
+Configured Exchange Online, SharePoint Online, OneDrive,
+Microsoft Teams and Endpoint Devices.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/01-standard-sit/08-advanced-dlp-rules-mode.jpg">
+
+<h3>Advanced Rule Builder</h3>
+
+<p>
+
+Used advanced policy configuration for granular rule creation.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/01-standard-sit/09-rule-builder-empty.png">
+
+<h3>Rule Configuration</h3>
+
+<p>
+
+Started with an empty rule set for complete customization.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/01-standard-sit/10-rule-condition-credit-card-number-sit.jpg">
+
+<h3>Credit Card Sensitive Information Type</h3>
+
+<p>
+
+Configured Microsoft's built-in Credit Card Number detection.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/01-standard-sit/11-rule-action-block-external-users.png">
+
+<h3>Policy Actions</h3>
+
+<p>
+
+Configured policy actions to restrict unauthorized sharing.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/01-standard-sit/12-user-notifications-policy-tips.png">
+
+<h3>User Policy Tips</h3>
+
+<p>
+
+Enabled policy tips to educate users before policy enforcement.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/01-standard-sit/13-policy-mode-simulation.jpg">
+
+<h3>Simulation Mode</h3>
+
+<p>
+
+Validated the policy in Simulation Mode before production enforcement.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/01-standard-sit/14-review-and-create-summary.png">
+
+<h3>Review Configuration</h3>
+
+<p>
+
+Verified all DLP settings before deployment.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/01-standard-sit/15-policies-list-sync-status.jpg">
+
+<h3>Policy Synchronization</h3>
+
+<p>
+
+Confirmed successful deployment and synchronization.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/01-standard-sit/16-policy-sync-status-detail.jpg">
+
+<h3>Synchronization Details</h3>
+
+<p>
+
+Verified policy deployment across Microsoft 365 workloads.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<hr class="section-divider">
+
+<!-- ========================= -->
+<!-- PHASE 2 -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Phase 2 — Custom Sensitive Information Type (GSM)</h2>
+
+<p>
+
+Most organizations possess proprietary identifiers that Microsoft's
+built-in Sensitive Information Types cannot detect.
+
+To solve this limitation, a custom Sensitive Information Type (SIT)
+named <strong>GSM</strong> was created using keyword-based detection and
+integrated into the Finance Credit Card Protection policy.
+
+</p>
+
+<div class="implementation-grid">
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/02-custom-sit-gsm/01-sensitive-info-types-list-327-built-in.png">
+
+<h3>Built-in Sensitive Information Types</h3>
+
+<p>
+
+Reviewed Microsoft's 327 built-in Sensitive Information Types before
+creating a custom enterprise SIT.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/02-custom-sit-gsm/02-name-custom-sit-gsm.jpg">
+
+<h3>Create GSM SIT</h3>
+
+<p>
+
+Created a new custom Sensitive Information Type named GSM.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/02-custom-sit-gsm/03-define-detection-pattern-keyword-list.jpg">
+
+<h3>Keyword Detection Pattern</h3>
+
+<p>
+
+Configured keyword matching logic for proprietary organizational data.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/02-custom-sit-gsm/04-review-and-create-gsm-sit.png">
+
+<h3>Review GSM Configuration</h3>
+
+<p>
+
+Validated detection logic before publishing the custom SIT.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/02-custom-sit-gsm/05-add-gsm-to-dlp-rule-condition.jpg">
+
+<h3>Integrate with DLP Policy</h3>
+
+<p>
+
+Added the GSM Sensitive Information Type to the enterprise DLP rule
+conditions.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<hr class="section-divider">
+
+ <!-- ========================= -->
+<!-- PHASE 3 -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Phase 3 — Monitoring, Activity Explorer & DLP Alerts</h2>
+
+<p>
+
+After deploying the Data Loss Prevention policy, Microsoft Purview
+provides centralized monitoring capabilities through Activity Explorer,
+DLP Alerts, Incident Reports, and Reporting dashboards.
+
+These monitoring capabilities allow security teams to investigate policy
+matches, review user activities, validate policy effectiveness, and
+perform incident triage without requiring endpoint access.
+
+</p>
+
+<div class="implementation-grid">
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/03-monitoring/01-activity-explorer-filters.jpg">
+
+<h3>Activity Explorer</h3>
+
+<p>
+
+Reviewed Activity Explorer filters to investigate DLP events generated
+across Microsoft 365 workloads.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/03-monitoring/02-open-policy-for-editing.jpg">
+
+<h3>Edit Existing Policy</h3>
+
+<p>
+
+Opened the deployed DLP policy to review monitoring and reporting
+configuration.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/03-monitoring/03-configure-incident-reports-alert-settings.jpg">
+
+<h3>Incident Reports</h3>
+
+<p>
+
+Configured incident reporting and email notifications for DLP policy
+matches.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/03-monitoring/04-verify-alert-configuration.jpg">
+
+<h3>Alert Configuration</h3>
+
+<p>
+
+Validated alert settings to ensure administrators receive notifications
+for policy violations.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/03-monitoring/05-email-alert-inbox-detail.jpg">
+
+<h3>Email Alert Notification</h3>
+
+<p>
+
+Verified administrator email notifications generated from Microsoft
+Purview DLP.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/03-monitoring/06-activity-explorer-endpoint-event-chain.jpg">
+
+<h3>Endpoint Activity Timeline</h3>
+
+<p>
+
+Reviewed the complete event timeline generated from Endpoint DLP
+activities.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/03-monitoring/07-dlp-alerts-dashboard-triage-agent.jpg">
+
+<h3>DLP Alerts Dashboard</h3>
+
+<p>
+
+Investigated DLP alerts and validated policy detections from the
+Microsoft Purview portal.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/03-monitoring/08-dlp-reports-most-triggered-rules.jpg">
+
+<h3>DLP Reports</h3>
+
+<p>
+
+Reviewed reporting dashboards to identify the most frequently triggered
+DLP rules and policy effectiveness.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<hr class="section-divider">
+
+<!-- ========================= -->
+<!-- PHASE 4 -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Phase 4 — Endpoint Data Loss Prevention</h2>
+
+<p>
+
+Endpoint Data Loss Prevention extends Microsoft Purview protection from
+Microsoft 365 cloud services to Windows devices managed through
+Microsoft Defender for Endpoint.
+
+Unlike traditional DLP that focuses only on Exchange Online,
+SharePoint, OneDrive, and Teams, Endpoint DLP monitors local file
+activities, removable media, clipboard operations, browser uploads,
+network shares, and cloud application interactions.
+
+Before Endpoint DLP policies can be enforced, Microsoft Defender for
+Endpoint onboarding must be enabled within Microsoft Purview settings so
+that protected devices synchronize automatically.
+
+</p>
+
+<div class="implementation-grid">
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/04-endpoint-dlp/01-device-onboarding-no-devices-yet.jpg">
+
+<h3>Enable Endpoint DLP</h3>
+
+<p>
+
+Initially no devices were available because Microsoft Defender for
+Endpoint onboarding had not yet completed.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/04-endpoint-dlp/02-device-list-not-updated.jpg">
+
+<h3>Synchronization Pending</h3>
+
+<p>
+
+Verified that Endpoint DLP requires synchronization with Defender for
+Endpoint before managed devices appear.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/04-endpoint-dlp/03-device-list-updated.jpg">
+
+<h3>Device Successfully Onboarded</h3>
+
+<p>
+
+After synchronization completed, the managed Windows endpoint became
+available for Endpoint DLP enforcement.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/04-endpoint-dlp/04-browser-and-domain-restrictions-firefox-blocked.jpg">
+
+<h3>Browser Restrictions</h3>
+
+<p>
+
+Configured Endpoint DLP browser protection and added Mozilla Firefox as
+a protected browser to prevent unauthorized uploads of sensitive data.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="info-box">
+
+<h3>Endpoint DLP Integration</h3>
+
+<ul>
+
+<li>Microsoft Purview integrates directly with Microsoft Defender for Endpoint.</li>
+
+<li>Managed Windows devices automatically synchronize after onboarding.</li>
+
+<li>Endpoint DLP extends protection beyond Microsoft 365 cloud workloads.</li>
+
+<li>Browser uploads, clipboard operations, removable media, and local files can all be monitored and controlled.</li>
+
+<li>This implementation validated successful Defender for Endpoint synchronization before enabling enforcement policies.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<hr class="section-divider">
+
+  <!-- ========================= -->
+<!-- PHASE 5 -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Phase 5 — AI Website Protection</h2>
+
+<p>
+
+One of the most valuable capabilities introduced in Microsoft Purview
+Endpoint DLP is the ability to prevent users from uploading sensitive
+enterprise information to Generative AI platforms.
+
+Microsoft maintains a built-in Sensitive Service Domain Group called
+<strong>Generative AI</strong>, which includes hundreds of AI services
+such as ChatGPT, Copilot, Claude, Gemini and many other public AI
+platforms.
+
+By combining Endpoint DLP with this domain group, organizations can
+prevent confidential files from being uploaded while still allowing
+normal web browsing.
+
+</p>
+
+<div class="implementation-grid">
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/05-ai-website-protection/01-sensitive-service-domain-groups-generative-ai.jpg">
+
+<h3>Generative AI Domain Group</h3>
+
+<p>
+
+Verified Microsoft's built-in Sensitive Service Domain Group containing
+hundreds of AI websites supported by Endpoint DLP.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/05-ai-website-protection/02-edit-rule-block-service-domains.jpg">
+
+<h3>DLP Rule Configuration</h3>
+
+<p>
+
+Updated the Endpoint DLP rule to block uploads to Microsoft's
+Generative AI domain group.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/05-ai-website-protection/03-sensitive-service-domain-restrictions-flyout.png">
+
+<h3>Protected AI Services</h3>
+
+<p>
+
+Configured browser restrictions that automatically apply to supported
+Generative AI services.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/05-ai-website-protection/04-chatgpt-upload-blocked-validation.jpg">
+
+<h3>ChatGPT Validation</h3>
+
+<p>
+
+Validated that uploading a sensitive document containing the configured
+Sensitive Information Type was successfully blocked.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/05-ai-website-protection/05-chatgpt-upload-blocked-duplicate-evidence.jpg">
+
+<h3>Policy Enforcement</h3>
+
+<p>
+
+Repeated testing confirmed consistent policy enforcement across browser
+sessions.
+
+</p>
+
+</div>
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/05-ai-website-protection/06-onedrive-policy-tip-gsm-test-docx.jpg">
+
+<h3>Policy Tip Validation</h3>
+
+<p>
+
+Verified that Microsoft Purview displayed policy tips informing users
+why file sharing was blocked.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<hr class="section-divider">
+
+<!-- ========================= -->
+<!-- PHASE 6 -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Phase 6 — Simulation to Enforcement</h2>
+
+<p>
+
+Microsoft recommends deploying Data Loss Prevention policies in
+Simulation Mode before enabling enforcement.
+
+Simulation mode allows administrators to validate policy behavior,
+review alerts, and fine-tune conditions without affecting end users.
+
+After validating all policy matches, the policy was switched to
+Enforcement Mode.
+
+</p>
+
+<div class="implementation-grid">
+
+<div class="implementation-card">
+
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention/main/images/06-enforcement/01-policies-list-enforce-mode-switch.jpg">
+
+<h3>Enforcement Mode Enabled</h3>
+
+<p>
+
+Successfully transitioned the DLP policy from Simulation Mode to
+Enforcement Mode after completing validation testing.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<hr class="section-divider">
+
+<!-- ========================= -->
+<!-- SECURITY CONTROLS -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Security Controls Implemented</h2>
+
+<table>
+
+<tr>
+
+<th>Security Control</th>
+
+<th>Status</th>
+
+</tr>
+
+<tr>
+
+<td>Standard Sensitive Information Types</td>
+
+<td>Implemented</td>
+
+</tr>
+
+<tr>
+
+<td>Custom Sensitive Information Types</td>
+
+<td>Implemented</td>
+
+</tr>
+
+<tr>
+
+<td>Endpoint Data Loss Prevention</td>
+
+<td>Implemented</td>
+
+</tr>
+
+<tr>
+
+<td>Microsoft Defender for Endpoint Integration</td>
+
+<td>Implemented</td>
+
+</tr>
+
+<tr>
+
+<td>Browser Restrictions</td>
+
+<td>Implemented</td>
+
+</tr>
+
+<tr>
+
+<td>Generative AI Domain Protection</td>
+
+<td>Implemented</td>
+
+</tr>
+
+<tr>
+
+<td>Activity Explorer Monitoring</td>
+
+<td>Implemented</td>
+
+</tr>
+
+<tr>
+
+<td>DLP Alerts & Incident Reports</td>
+
+<td>Implemented</td>
+
+</tr>
+
+<tr>
+
+<td>Simulation Mode Validation</td>
+
+<td>Completed</td>
+
+</tr>
+
+<tr>
+
+<td>Enforcement Mode</td>
+
+<td>Enabled</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<hr class="section-divider">
+
+<!-- ========================= -->
+<!-- VALIDATION -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Validation & Testing</h2>
+
+<ul>
+
+<li>Verified Standard Sensitive Information Type detection.</li>
+
+<li>Validated Custom GSM Sensitive Information Type.</li>
+
+<li>Confirmed Activity Explorer event generation.</li>
+
+<li>Verified administrator alert notifications.</li>
+
+<li>Validated Endpoint DLP synchronization with Defender for Endpoint.</li>
+
+<li>Confirmed Firefox browser protection.</li>
+
+<li>Successfully blocked uploads to Generative AI websites.</li>
+
+<li>Verified ChatGPT upload blocking using a sensitive test document.</li>
+
+<li>Confirmed policy tips displayed to end users.</li>
+
+<li>Validated policy behavior before switching to Enforcement Mode.</li>
+
+</ul>
+
+</section>
+
+<hr class="section-divider">
+
+<!-- ========================= -->
+<!-- KEY OUTCOMES -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Key Outcomes</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Enterprise DLP</h3>
+
+<p>
+
+Implemented Microsoft Purview Data Loss Prevention across Microsoft 365
+and Windows endpoints.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Endpoint Protection</h3>
+
+<p>
+
+Extended DLP beyond Exchange, SharePoint, OneDrive and Teams by
+protecting Windows endpoints.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>AI Data Protection</h3>
+
+<p>
+
+Prevented sensitive enterprise information from being uploaded to
+Generative AI services.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Continuous Monitoring</h3>
+
+<p>
+
+Validated DLP events through Activity Explorer, Alerts and Reporting
+Dashboards.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<hr class="section-divider">
+
+<!-- ========================= -->
+<!-- LESSONS -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Lessons Learned</h2>
+
+<ul>
+
+<li>Simulation Mode should always be used before enforcing DLP policies.</li>
+
+<li>Custom Sensitive Information Types provide greater flexibility for business-specific data.</li>
+
+<li>Endpoint DLP depends on successful Microsoft Defender for Endpoint onboarding.</li>
+
+<li>Policy synchronization may require several minutes before devices appear.</li>
+
+<li>Generative AI protection provides an effective control against accidental data leakage.</li>
+
+<li>Activity Explorer is essential for validating policy behavior and investigating incidents.</li>
+
+</ul>
+
+</section>
+
+<hr class="section-divider">
+
+<!-- ========================= -->
+<!-- FUTURE IMPROVEMENTS -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Future Improvements</h2>
+
+<ul>
+
+<li>Extend DLP protection to Exchange Online email.</li>
+
+<li>Validate SharePoint Online and OneDrive file protection.</li>
+
+<li>Implement Microsoft Teams DLP policies.</li>
+
+<li>Create Adaptive Protection policies using Insider Risk.</li>
+
+<li>Integrate Microsoft Purview with Microsoft Sentinel.</li>
+
+<li>Automate DLP reporting using PowerShell and Microsoft Graph.</li>
+
+</ul>
+
+</section>
+
+<hr class="section-divider">
+
+<!-- ========================= -->
+<!-- GITHUB -->
+<!-- ========================= -->
+
+<section class="project-section">
+
+<h2>Project Repository</h2>
+
+<p>
+
+View the complete implementation guide, architecture diagrams,
+PowerShell scripts, documentation and all screenshots in the GitHub
+repository.
+
+</p>
+
+<a class="btn primary"
+
+href="https://github.com/lokeshm-it/Microsoft-Purview-Data-Loss-Prevention"
+
+target="_blank">
+
+View Project on GitHub →
+
+</a>
+
+</section>
+
+ </body>
+</html> 
