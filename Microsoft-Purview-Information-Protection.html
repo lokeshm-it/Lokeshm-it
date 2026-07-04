@@ -1,1336 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>
-Microsoft Purview Information Protection | Lokesh M
-</title>
-
-<link rel="stylesheet" href="style.css">
-
+<title>Microsoft Purview Information Protection | Enterprise Implementation</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f7fb;color:#333;line-height:1.7;}
+header{background:linear-gradient(135deg,#0F6CBD,#083E73);color:#fff;padding:70px 20px;text-align:center;}
+header h1{font-size:42px;margin-bottom:15px;}
+header p{font-size:20px;max-width:950px;margin:auto;}
+.container{width:92%;max-width:1200px;margin:50px auto;}
+section{background:#fff;padding:40px;margin-bottom:40px;border-radius:14px;box-shadow:0 5px 18px rgba(0,0,0,.08);}
+h2{color:#0F6CBD;margin-bottom:20px;font-size:32px;}
+h3{margin-top:30px;margin-bottom:15px;color:#083E73;}
+table{width:100%;border-collapse:collapse;margin-top:25px;}
+table th{background:#0F6CBD;color:#fff;padding:14px;text-align:left;}
+table td{padding:14px;border:1px solid #ddd;}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-top:25px;}
+.card{background:#f7f9fc;padding:25px;border-left:5px solid #0F6CBD;border-radius:10px;}
+.img-cap{text-align:center;color:#666;font-size:14px;margin-top:8px;}
+.btn{display:inline-block;padding:14px 28px;background:#0F6CBD;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;margin-top:20px;}
+.btn:hover{background:#0b5ca4;}
+.pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
+.pill{background:#eaf2fb;color:#0F6CBD;border:1px solid #bcd7f2;padding:8px 16px;border-radius:20px;font-size:14px;font-weight:600;}
+footer{background:#083E73;color:#fff;text-align:center;padding:30px;margin-top:60px;}
+</style>
 </head>
-
 <body>
-
-<header class="hero">
-
-<div class="hero-content">
-
-<span class="hero-badge">
-Project 3 • Microsoft Purview
-</span>
-
-<h1>
-Microsoft Purview Information Protection
-</h1>
-
-<p class="hero-subtitle">
-
-Enterprise implementation of Microsoft Purview Information Protection
-covering Sensitivity Labels, Label Policies,
-Manual Classification, Automatic Labeling,
-Encryption, and Information Protection across
-Microsoft 365 workloads.
-
-</p>
-
-<div class="hero-tags">
-
-<span>Microsoft Purview</span>
-<span>Sensitivity Labels</span>
-<span>Auto Labeling</span>
-<span>Encryption</span>
-<span>Microsoft 365</span>
-
-</div>
-
-</div>
-
+<header>
+<h1>Microsoft Purview Information Protection</h1>
+<p>Enterprise implementation of Microsoft Purview Information Protection covering Sensitivity Labels, Label Policies, Manual Classification, Automatic Labeling, Encryption, and Information Protection across Microsoft 365 workloads.</p>
+<br>
+<a class="btn" href="https://github.com/lokeshm-it/Microsoft-Purview-Information-Protection" target="_blank">View GitHub Repository</a>
 </header>
-
-<main class="container">
-
-<!-- ====================================================== -->
-
+<div class="container">
 <section>
-
-<h2>
-Project Overview
-</h2>
-
-<p>
-
-This project demonstrates the implementation of
-Microsoft Purview Information Protection within a
-Microsoft 365 enterprise environment.
-
-The objective is to establish a standardized data
-classification framework using Sensitivity Labels,
-publish those labels to users, apply encryption and
-access control, and automate classification using
-Sensitive Information Types (SITs).
-
-The implementation forms the foundation for
-Microsoft Purview Data Loss Prevention,
-Microsoft Purview Audit,
-Microsoft Defender for Cloud Apps,
-and Microsoft Purview Data Lifecycle Management.
-
-</p>
-
+<h2>Enterprise Overview</h2>
+<p>This project demonstrates the implementation of Microsoft Purview Information Protection within a Microsoft 365 enterprise environment. The objective is to establish a standardized data classification framework using Sensitivity Labels, publish those labels to users, apply encryption and access control, and automate classification using Sensitive Information Types (SITs).</p><br>
+<p>The implementation forms the foundation for Microsoft Purview Data Loss Prevention, Microsoft Purview Audit, Microsoft Defender for Cloud Apps, and Microsoft Purview Data Lifecycle Management.</p>
 </section>
-
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-Business Problem
-</h2>
-
-<p>
-
-Organizations create thousands of documents,
-emails and collaboration files every day.
-
-Without centralized information protection:
-
-</p>
-
-<ul>
-
+<h2>Business Problem</h2>
+<p>Organizations create thousands of documents, emails and collaboration files every day. Without centralized information protection:</p>
+<ul style="margin-left:22px;margin-top:15px;">
 <li>Users classify documents inconsistently.</li>
-
 <li>Sensitive files are accidentally shared externally.</li>
-
 <li>Financial and personal information remains unprotected.</li>
-
 <li>Regulatory compliance becomes difficult.</li>
-
 <li>Manual protection does not scale.</li>
-
-</ul>
-
-<p>
-
-A standardized information classification model
-is required before implementing downstream
-security controls such as DLP.
-
-</p>
-
+</ul><br>
+<p>A standardized information classification model is required before implementing downstream security controls such as DLP.</p>
 </section>
-
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-Business Requirements
-</h2>
-
-<table class="feature-table">
-
-<tr>
-
-<th>Requirement</th>
-
-<th>Purpose</th>
-
-</tr>
-
-<tr>
-
-<td>Enterprise Classification</td>
-
-<td>Standardize data classification across Microsoft 365</td>
-
-</tr>
-
-<tr>
-
-<td>Sensitivity Labels</td>
-
-<td>Protect confidential information consistently</td>
-
-</tr>
-
-<tr>
-
-<td>Encryption</td>
-
-<td>Restrict document access to authorized users</td>
-
-</tr>
-
-<tr>
-
-<td>Automatic Classification</td>
-
-<td>Reduce human error through automation</td>
-
-</tr>
-
-<tr>
-
-<td>Label Policies</td>
-
-<td>Publish labels to users and workloads</td>
-
-</tr>
-
-<tr>
-
-<td>Microsoft 365 Integration</td>
-
-<td>Protect Exchange, SharePoint, OneDrive and Teams</td>
-
-</tr>
-
+<h2>Business Requirements</h2>
+<table><tr><th>Requirement</th><th>Purpose</th></tr>
+<tr><td>Enterprise Classification</td><td>Standardize data classification across Microsoft 365</td></tr>
+<tr><td>Sensitivity Labels</td><td>Protect confidential information consistently</td></tr>
+<tr><td>Encryption</td><td>Restrict document access to authorized users</td></tr>
+<tr><td>Automatic Classification</td><td>Reduce human error through automation</td></tr>
+<tr><td>Label Policies</td><td>Publish labels to users and workloads</td></tr>
+<tr><td>Microsoft 365 Integration</td><td>Protect Exchange, SharePoint, OneDrive and Teams</td></tr>
 </table>
-
 </section>
-
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-Microsoft Solution
-</h2>
-
-<table class="feature-table">
-
-<tr>
-
-<th>Capability</th>
-
-<th>Description</th>
-
-</tr>
-
-<tr>
-
-<td>Sensitivity Labels</td>
-
-<td>Classify and protect Microsoft 365 content</td>
-
-</tr>
-
-<tr>
-
-<td>Label Policies</td>
-
-<td>Publish labels across Microsoft 365 workloads</td>
-
-</tr>
-
-<tr>
-
-<td>Manual Labeling</td>
-
-<td>User-driven document classification</td>
-
-</tr>
-
-<tr>
-
-<td>Automatic Labeling</td>
-
-<td>Detect Sensitive Information Types automatically</td>
-
-</tr>
-
-<tr>
-
-<td>Encryption</td>
-
-<td>Azure Rights Management protection</td>
-
-</tr>
-
-<tr>
-
-<td>Content Marking</td>
-
-<td>Headers, footers and watermarks</td>
-
-</tr>
-
-<tr>
-
-<td>Microsoft 365 Integration</td>
-
-<td>Exchange, SharePoint, OneDrive, Teams and Office Apps</td>
-
-</tr>
-
+<h2>Microsoft Solution</h2>
+<table><tr><th>Capability</th><th>Description</th></tr>
+<tr><td>Sensitivity Labels</td><td>Classify and protect Microsoft 365 content</td></tr>
+<tr><td>Label Policies</td><td>Publish labels across Microsoft 365 workloads</td></tr>
+<tr><td>Manual Labeling</td><td>User-driven document classification</td></tr>
+<tr><td>Automatic Labeling</td><td>Detect Sensitive Information Types automatically</td></tr>
+<tr><td>Encryption</td><td>Azure Rights Management protection</td></tr>
+<tr><td>Content Marking</td><td>Headers, footers and watermarks</td></tr>
+<tr><td>Microsoft 365 Integration</td><td>Exchange, SharePoint, OneDrive, Teams and Office Apps</td></tr>
 </table>
-
 </section>
-
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-Enterprise Perspective
-</h2>
-
-<table class="feature-table">
-
-<tr>
-
-<th>Stage</th>
-
-<th>Implementation</th>
-
-</tr>
-
-<tr>
-
-<td>Business Problem</td>
-
-<td>Unclassified enterprise information increases the risk of accidental data exposure.</td>
-
-</tr>
-
-<tr>
-
-<td>Business Requirement</td>
-
-<td>Implement enterprise-wide data classification with encryption and policy-based protection.</td>
-
-</tr>
-
-<tr>
-
-<td>Microsoft Solution</td>
-
-<td>Microsoft Purview Information Protection using Sensitivity Labels and Auto Labeling.</td>
-
-</tr>
-
-<tr>
-
-<td>Configuration</td>
-
-<td>Custom labels, label policies, manual labeling and automatic labeling configured.</td>
-
-</tr>
-
-<tr>
-
-<td>Validation</td>
-
-<td>Labels successfully published and available across Microsoft 365 applications.</td>
-
-</tr>
-
-<tr>
-
-<td>Outcome</td>
-
-<td>Enterprise information is consistently classified and protected before sharing.</td>
-
-</tr>
-
+<h2>Enterprise Perspective</h2>
+<table><tr><th>Stage</th><th>Implementation</th></tr>
+<tr><td>Business Problem</td><td>Unclassified enterprise information increases the risk of accidental data exposure.</td></tr>
+<tr><td>Business Requirement</td><td>Implement enterprise-wide data classification with encryption and policy-based protection.</td></tr>
+<tr><td>Microsoft Solution</td><td>Microsoft Purview Information Protection using Sensitivity Labels and Auto Labeling.</td></tr>
+<tr><td>Configuration</td><td>Custom labels, label policies, manual labeling and automatic labeling configured.</td></tr>
+<tr><td>Validation</td><td>Labels successfully published and available across Microsoft 365 applications.</td></tr>
+<tr><td>Outcome</td><td>Enterprise information is consistently classified and protected before sharing.</td></tr>
 </table>
-
 </section>
-
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-Architecture Overview
-</h2>
-
-<img
-class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/architecture-diagram.avif"
-alt="Purview Information Protection Architecture">
-
-<p class="img-caption">
-
-Enterprise Information Protection Architecture
-
-</p>
-
+<h2>Architecture Overview</h2>
+<img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/architecture-diagram.avif" alt="Purview Information Protection Architecture" style="width:100%;border-radius:10px;margin-top:10px;">
+<p class="img-cap">Enterprise Information Protection Architecture</p>
 </section>
-
- <!-- ====================================================== -->
-
 <section>
-
-<h2>
-Implementation Phase 1 – Microsoft Purview Overview
-</h2>
-
-<p>
-
-Microsoft Purview Information Protection provides a centralized platform
-for classifying, protecting and governing enterprise information across
-Microsoft 365 workloads. During this lab the Information Protection
-solution was accessed through the Microsoft Purview portal where
-Sensitivity Labels, Label Policies and Auto-labeling Policies were
-configured.
-
-</p>
-
-<div class="image-grid">
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/01-overview/01-overview__01-purview-portal-home.avif"
-alt="Purview Portal">
-
-<p class="img-caption">
-Microsoft Purview Compliance Portal
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/01-overview/01-overview__02-information-protection-solution.avif"
-alt="Information Protection">
-
-<p class="img-caption">
-Information Protection Solution
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/01-overview/01-overview__03-sensitivity-labels-navigation.avif"
-alt="Sensitivity Labels Navigation">
-
-<p class="img-caption">
-Sensitivity Labels Navigation
-</p>
-
-</div>
-
-</div>
-
+<h2>Implementation Phase 1 &ndash; Microsoft Purview Overview</h2>
+<p>Microsoft Purview Information Protection provides a centralized platform for classifying, protecting and governing enterprise information across Microsoft 365 workloads. During this lab the Information Protection solution was accessed through the Microsoft Purview portal where Sensitivity Labels, Label Policies and Auto-labeling Policies were configured.</p>
+<div class="card-grid"><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/01-overview/01-overview__01-purview-portal-home.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Microsoft Purview Compliance Portal</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/01-overview/01-overview__02-information-protection-solution.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Information Protection Solution</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/01-overview/01-overview__03-sensitivity-labels-navigation.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Sensitivity Labels Navigation</p></div></div>
 </section>
-
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-Implementation Phase 2 – Creating Enterprise Sensitivity Labels
-</h2>
-
-<p>
-
-Sensitivity Labels provide the foundation for Microsoft Information
-Protection. Labels classify enterprise information while optionally
-applying encryption, permissions, content marking and access control.
-
-In this implementation multiple enterprise labels were created for
-different business classifications.
-
-</p>
-
-<table class="feature-table">
-
-<tr>
-<th>Label</th>
-<th>Purpose</th>
-</tr>
-
-<tr>
-<td>Public</td>
-<td>Unrestricted Information</td>
-</tr>
-
-<tr>
-<td>General</td>
-<td>Internal Business Information</td>
-</tr>
-
-<tr>
-<td>Confidential</td>
-<td>Encrypted Business Data</td>
-</tr>
-
-<tr>
-<td>Highly Confidential</td>
-<td>Restricted Enterprise Data</td>
-</tr>
-
-<tr>
-<td>Finance Confidential</td>
-<td>Automatic Credit Card Protection</td>
-</tr>
-
+<h2>Implementation Phase 2 &ndash; Creating Enterprise Sensitivity Labels</h2>
+<p>Sensitivity Labels provide the foundation for Microsoft Information Protection. Labels classify enterprise information while optionally applying encryption, permissions, content marking and access control. In this implementation multiple enterprise labels were created for different business classifications.</p>
+<table><tr><th>Label</th><th>Purpose</th></tr>
+<tr><td>Public</td><td>Unrestricted Information</td></tr>
+<tr><td>General</td><td>Internal Business Information</td></tr>
+<tr><td>Confidential</td><td>Encrypted Business Data</td></tr>
+<tr><td>Highly Confidential</td><td>Restricted Enterprise Data</td></tr>
+<tr><td>Finance Confidential</td><td>Automatic Credit Card Protection</td></tr>
 </table>
-
-<div class="image-grid">
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/02-sensitivity-labels/02-sensitivity-labels__01-sensitivity-labels-list.avif">
-
-<p class="img-caption">
-Sensitivity Labels List
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/02-sensitivity-labels/02-sensitivity-labels__02-create-label-name.avif">
-
-<p class="img-caption">
-Create Label
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/02-sensitivity-labels/02-sensitivity-labels__03-create-label-description.avif">
-
-<p class="img-caption">
-Label Description
-</p>
-
-</div>
-
-</div>
-
+<div class="card-grid"><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/02-sensitivity-labels/02-sensitivity-labels__01-sensitivity-labels-list.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Sensitivity Labels List</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/02-sensitivity-labels/02-sensitivity-labels__02-create-label-name.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Create Label</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/02-sensitivity-labels/02-sensitivity-labels__03-create-label-description.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Label Description</p></div></div>
 </section>
-
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-Label Scope Configuration
-</h2>
-
-<p>
-
-Each Sensitivity Label was configured to protect Files and Emails,
-allowing Microsoft 365 applications such as Word, Excel, PowerPoint,
-Outlook, SharePoint Online and OneDrive to recognize the label.
-
-The Groups & Sites scope was not configured in this foundational lab.
-
-</p>
-
-<div class="image-grid">
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/02-sensitivity-labels/02-sensitivity-labels__04-label-scope-files-emails.avif">
-
-<p class="img-caption">
-Files & Emails Scope
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/02-sensitivity-labels/02-sensitivity-labels__12-create-label-basic-info.avif">
-
-<p class="img-caption">
-Basic Label Information
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/02-sensitivity-labels/02-sensitivity-labels__13-label-scope-selection.avif">
-
-<p class="img-caption">
-Scope Selection
-</p>
-
-</div>
-
-</div>
-
+<h2>Label Scope Configuration</h2>
+<p>Each Sensitivity Label was configured to protect Files and Emails, allowing Microsoft 365 applications such as Word, Excel, PowerPoint, Outlook, SharePoint Online and OneDrive to recognize the label. The Groups &amp; Sites scope was not configured in this foundational lab.</p>
+<div class="card-grid"><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/02-sensitivity-labels/02-sensitivity-labels__04-label-scope-files-emails.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Files & Emails Scope</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/02-sensitivity-labels/02-sensitivity-labels__12-create-label-basic-info.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Basic Label Information</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/02-sensitivity-labels/02-sensitivity-labels__13-label-scope-selection.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Scope Selection</p></div></div>
 </section>
-
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-Protection Configuration
-</h2>
-
-<p>
-
-Microsoft Purview allows each Sensitivity Label to enforce encryption,
-assign permissions, restrict offline access and configure content
-markings such as headers, footers and watermarks.
-
-These settings ensure protection remains attached to the document
-regardless of where it is stored or shared.
-
-</p>
-
-<div class="image-grid">
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/02-sensitivity-labels/02-sensitivity-labels__05-label-protection-settings.avif">
-
-<p class="img-caption">
-Protection Settings
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/02-sensitivity-labels/02-sensitivity-labels__06-label-access-control.avif">
-
-<p class="img-caption">
-Access Control
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/02-sensitivity-labels/02-sensitivity-labels__14-protection-access-control.avif">
-
-<p class="img-caption">
-Encryption Permissions
-</p>
-
-</div>
-
-</div>
-
+<h2>Protection Configuration</h2>
+<p>Microsoft Purview allows each Sensitivity Label to enforce encryption, assign permissions, restrict offline access and configure content markings such as headers, footers and watermarks. These settings ensure protection remains attached to the document regardless of where it is stored or shared.</p>
+<div class="card-grid"><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/02-sensitivity-labels/02-sensitivity-labels__05-label-protection-settings.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Protection Settings</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/02-sensitivity-labels/02-sensitivity-labels__06-label-access-control.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Access Control</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/02-sensitivity-labels/02-sensitivity-labels__14-protection-access-control.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Encryption Permissions</p></div></div>
 </section>
-
-  
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-Implementation Phase 3 – Publishing Sensitivity Label Policies
-</h2>
-
-<p>
-
-After creating the enterprise sensitivity labels, a Label Policy was
-configured to publish them to Microsoft 365 users. Publishing makes the
-labels available within Outlook, Word, Excel, PowerPoint, SharePoint,
-OneDrive and Teams.
-
-The policy synchronizes automatically across Microsoft 365 once
-published.
-
-</p>
-
-<div class="image-grid">
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/03-label-policies/03-label-policies__02-publish-label-policy-name.avif">
-
-<p class="img-caption">
-Create Label Policy
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/03-label-policies/03-label-policies__03-publish-label-choose-labels.avif">
-
-<p class="img-caption">
-Select Labels
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/03-label-policies/03-label-policies__04-publish-label-scope-users.avif">
-
-<p class="img-caption">
-Assign Users
-</p>
-
-</div>
-
-</div>
-
-<div class="image-grid">
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/03-label-policies/03-label-policies__05-publish-label-policy-settings.avif">
-
-<p class="img-caption">
-Policy Settings
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/03-label-policies/03-label-policies__06-policy-synchronization-status.avif">
-
-<p class="img-caption">
-Policy Synchronization
-</p>
-
-</div>
-
-</div>
-
+<h2>Implementation Phase 3 &ndash; Publishing Sensitivity Label Policies</h2>
+<p>After creating the enterprise sensitivity labels, a Label Policy was configured to publish them to Microsoft 365 users. Publishing makes the labels available within Outlook, Word, Excel, PowerPoint, SharePoint, OneDrive and Teams. The policy synchronizes automatically across Microsoft 365 once published.</p>
+<div class="card-grid"><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/03-label-policies/03-label-policies__02-publish-label-policy-name.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Create Label Policy</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/03-label-policies/03-label-policies__03-publish-label-choose-labels.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Select Labels</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/03-label-policies/03-label-policies__04-publish-label-scope-users.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Assign Users</p></div></div>
+<div class="card-grid"><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/03-label-policies/03-label-policies__05-publish-label-policy-settings.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Policy Settings</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/03-label-policies/03-label-policies__06-policy-synchronization-status.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Policy Synchronization</p></div></div>
 </section>
-
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-Implementation Phase 4 – Manual Sensitivity Labels
-</h2>
-
-<p>
-
-Manual labeling enables users to classify documents themselves directly
-from Microsoft Office applications.
-
-This approach provides flexibility while still enforcing encryption,
-permissions and organizational classification standards.
-
-</p>
-
-<div class="image-grid">
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/04-manual-labels/04-manual-labels__01-purview-portal-admin-view.avif">
-
-<p class="img-caption">
-Purview Administration
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/04-manual-labels/04-manual-labels__02-sensitivity-labels-overview.avif">
-
-<p class="img-caption">
-Sensitivity Labels Overview
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/04-manual-labels/04-manual-labels__03-label-applied-word.avif">
-
-<p class="img-caption">
-Manual Label Applied in Microsoft Word
-</p>
-
-</div>
-
-</div>
-
+<h2>Implementation Phase 4 &ndash; Manual Sensitivity Labels</h2>
+<p>Manual labeling enables users to classify documents themselves directly from Microsoft Office applications. This approach provides flexibility while still enforcing encryption, permissions and organizational classification standards.</p>
+<div class="card-grid"><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/04-manual-labels/04-manual-labels__01-purview-portal-admin-view.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Purview Administration</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/04-manual-labels/04-manual-labels__02-sensitivity-labels-overview.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Sensitivity Labels Overview</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/04-manual-labels/04-manual-labels__03-label-applied-word.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Manual Label Applied in Microsoft Word</p></div></div>
 </section>
-
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-Implementation Phase 5 – Automatic Sensitivity Labels
-</h2>
-
-<p>
-
-Automatic labeling removes the dependency on users manually selecting a
-classification.
-
-Microsoft Purview scans content for Sensitive Information Types (SITs)
-such as Credit Card Numbers and automatically applies the configured
-Sensitivity Label.
-
-This greatly reduces human error and improves compliance.
-
-</p>
-
-<table class="feature-table">
-
-<tr>
-
-<th>Detection</th>
-
-<th>Configured Action</th>
-
-</tr>
-
-<tr>
-
-<td>Credit Card Number</td>
-
-<td>Apply Finance Confidential Label</td>
-
-</tr>
-
-<tr>
-
-<td>Encryption</td>
-
-<td>Enabled</td>
-
-</tr>
-
-<tr>
-
-<td>Label Publishing</td>
-
-<td>Completed</td>
-
-</tr>
-
-<tr>
-
-<td>Automatic Classification</td>
-
-<td>Enabled</td>
-
-</tr>
-
+<h2>Implementation Phase 5 &ndash; Automatic Sensitivity Labels</h2>
+<p>Automatic labeling removes the dependency on users manually selecting a classification. Microsoft Purview scans content for Sensitive Information Types (SITs) such as Credit Card Numbers and automatically applies the configured Sensitivity Label. This greatly reduces human error and improves compliance.</p>
+<table><tr><th>Detection</th><th>Configured Action</th></tr>
+<tr><td>Credit Card Number</td><td>Apply Finance Confidential Label</td></tr>
+<tr><td>Encryption</td><td>Enabled</td></tr>
+<tr><td>Label Publishing</td><td>Completed</td></tr>
+<tr><td>Automatic Classification</td><td>Enabled</td></tr>
 </table>
-
-<div class="image-grid">
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__01-create-label-basic-settings.avif">
-
-<p class="img-caption">
-Create Auto Label Policy
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__02-create-label-scope.avif">
-
-<p class="img-caption">
-Scope Configuration
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__03-auto-labeling-enable.avif">
-
-<p class="img-caption">
-Enable Auto Labeling
-</p>
-
-</div>
-
-</div>
-
-<div class="image-grid">
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__04-auto-labeling-conditions.avif">
-
-<p class="img-caption">
-Detection Conditions
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__05-sensitive-info-type-selection.avif">
-
-<p class="img-caption">
-Sensitive Information Type
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__06-credit-card-sit-configuration.avif">
-
-<p class="img-caption">
-Credit Card Detection Configuration
-</p>
-
-</div>
-
-</div>
-
+<div class="card-grid"><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__01-create-label-basic-settings.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Create Auto Label Policy</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__02-create-label-scope.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Scope Configuration</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__03-auto-labeling-enable.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Enable Auto Labeling</p></div></div>
+<div class="card-grid"><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__04-auto-labeling-conditions.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Detection Conditions</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__05-sensitive-info-type-selection.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Sensitive Information Type</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__06-credit-card-sit-configuration.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Credit Card Detection Configuration</p></div></div>
 </section>
-
-  <!-- ====================================================== -->
-
 <section>
-
-<h2>
-Auto-Label Policy Validation
-</h2>
-
-<p>
-
-The automatic labeling policy was configured to detect Credit Card
-Numbers using Microsoft's built-in Sensitive Information Types (SITs).
-When the configured detection threshold is met, Microsoft Purview
-automatically applies the <strong>Finance Confidential</strong>
-Sensitivity Label.
-
-This minimizes user dependency while ensuring sensitive financial
-information is consistently protected.
-
-</p>
-
-<div class="image-grid">
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__07-auto-label-review-finish.avif">
-
-<p class="img-caption">
-Review Auto-label Configuration
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__08-publish-auto-label-policy.avif">
-
-<p class="img-caption">
-Publish Auto-label Policy
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__09-auto-labeling-policy-wizard.avif">
-
-<p class="img-caption">
-Auto-label Policy Wizard
-</p>
-
-</div>
-
-</div>
-
-<div class="image-grid">
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__10-auto-labeling-policy-scope.avif">
-
-<p class="img-caption">
-Policy Scope
-</p>
-
-</div>
-
-<div>
-
-<img class="responsive-img"
-src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__11-auto-labeling-policy-review.avif">
-
-<p class="img-caption">
-Final Policy Review
-</p>
-
-</div>
-
-</div>
-
+<h2>Auto-Label Policy Validation</h2>
+<p>The automatic labeling policy was configured to detect Credit Card Numbers using Microsoft's built-in Sensitive Information Types (SITs). When the configured detection threshold is met, Microsoft Purview automatically applies the <strong>Finance Confidential</strong> Sensitivity Label. This minimizes user dependency while ensuring sensitive financial information is consistently protected.</p>
+<div class="card-grid"><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__07-auto-label-review-finish.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Review Auto-label Configuration</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__08-publish-auto-label-policy.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Publish Auto-label Policy</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__09-auto-labeling-policy-wizard.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Auto-label Policy Wizard</p></div></div>
+<div class="card-grid"><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__10-auto-labeling-policy-scope.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Policy Scope</p></div><div><img src="https://raw.githubusercontent.com/lokeshm-it/Microsoft-Purview-Information-Protection/main/images/05-auto-labels/05-auto-labels__11-auto-labeling-policy-review.avif" style="width:100%;border-radius:10px;"><p class="img-cap">Final Policy Review</p></div></div>
 </section>
-
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-Validation Results
-</h2>
-
-<table class="feature-table">
-
-<tr>
-
-<th>Validation Item</th>
-
-<th>Status</th>
-
-</tr>
-
-<tr>
-
-<td>Purview Portal Accessible</td>
-
-<td>✅ Verified</td>
-
-</tr>
-
-<tr>
-
-<td>Enterprise Sensitivity Labels Created</td>
-
-<td>✅ Completed</td>
-
-</tr>
-
-<tr>
-
-<td>Label Policies Published</td>
-
-<td>✅ Completed</td>
-
-</tr>
-
-<tr>
-
-<td>Manual Labeling Tested</td>
-
-<td>✅ Verified</td>
-
-</tr>
-
-<tr>
-
-<td>Automatic Labeling Policy Configured</td>
-
-<td>✅ Verified</td>
-
-</tr>
-
-<tr>
-
-<td>Credit Card Detection Configured</td>
-
-<td>✅ Verified</td>
-
-</tr>
-
-<tr>
-
-<td>Encryption Settings Configured</td>
-
-<td>✅ Verified</td>
-
-</tr>
-
-<tr>
-
-<td>Microsoft 365 Integration</td>
-
-<td>✅ Verified</td>
-
-</tr>
-
+<h2>Validation Results</h2>
+<table><tr><th>Validation Item</th><th>Status</th></tr>
+<tr><td>Purview Portal Accessible</td><td>Verified</td></tr>
+<tr><td>Enterprise Sensitivity Labels Created</td><td>Completed</td></tr>
+<tr><td>Label Policies Published</td><td>Completed</td></tr>
+<tr><td>Manual Labeling Tested</td><td>Verified</td></tr>
+<tr><td>Automatic Labeling Policy Configured</td><td>Verified</td></tr>
+<tr><td>Credit Card Detection Configured</td><td>Verified</td></tr>
+<tr><td>Encryption Settings Configured</td><td>Verified</td></tr>
+<tr><td>Microsoft 365 Integration</td><td>Verified</td></tr>
 </table>
-
 </section>
-
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-Skills Demonstrated
-</h2>
-
-<div class="skills-grid">
-
-<span class="skill-pill">Microsoft Purview</span>
-
-<span class="skill-pill">Information Protection</span>
-
-<span class="skill-pill">Sensitivity Labels</span>
-
-<span class="skill-pill">Label Policies</span>
-
-<span class="skill-pill">Manual Classification</span>
-
-<span class="skill-pill">Automatic Labeling</span>
-
-<span class="skill-pill">Encryption</span>
-
-<span class="skill-pill">Microsoft 365</span>
-
-<span class="skill-pill">Exchange Online</span>
-
-<span class="skill-pill">SharePoint Online</span>
-
-<span class="skill-pill">OneDrive</span>
-
-<span class="skill-pill">Microsoft Teams</span>
-
+<h2>Skills Demonstrated</h2>
+<div class="pill-row">
+<span class="pill">Microsoft Purview</span>
+<span class="pill">Information Protection</span>
+<span class="pill">Sensitivity Labels</span>
+<span class="pill">Label Policies</span>
+<span class="pill">Manual Classification</span>
+<span class="pill">Automatic Labeling</span>
+<span class="pill">Encryption</span>
+<span class="pill">Microsoft 365</span>
+<span class="pill">Exchange Online</span>
+<span class="pill">SharePoint Online</span>
+<span class="pill">OneDrive</span>
+<span class="pill">Microsoft Teams</span>
 </div>
-
 </section>
-
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-MS-102 Exam Objectives Covered
-</h2>
-
-<ul>
-
+<h2>MS-102 Exam Objectives Covered</h2>
+<ul style="margin-left:22px;">
 <li>Configure Microsoft Purview Information Protection.</li>
-
 <li>Create and manage Sensitivity Labels.</li>
-
 <li>Publish Label Policies.</li>
-
 <li>Configure Manual Labeling.</li>
-
 <li>Create Automatic Labeling Policies.</li>
-
 <li>Configure Sensitive Information Types.</li>
-
 <li>Apply Encryption and Access Control.</li>
-
 <li>Understand Microsoft Information Protection architecture.</li>
-
 </ul>
-
 </section>
-
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-Zero Trust Alignment
-</h2>
-
-<table class="feature-table">
-
-<tr>
-
-<th>Zero Trust Principle</th>
-
-<th>Implementation</th>
-
-</tr>
-
-<tr>
-
-<td>Verify Explicitly</td>
-
-<td>Every document is classified before protection.</td>
-
-</tr>
-
-<tr>
-
-<td>Least Privilege</td>
-
-<td>Encryption limits access to authorized users.</td>
-
-</tr>
-
-<tr>
-
-<td>Assume Breach</td>
-
-<td>Protection remains attached to the file wherever it travels.</td>
-
-</tr>
-
+<h2>Zero Trust Alignment</h2>
+<table><tr><th>Zero Trust Principle</th><th>Implementation</th></tr>
+<tr><td>Verify Explicitly</td><td>Every document is classified before protection.</td></tr>
+<tr><td>Least Privilege</td><td>Encryption limits access to authorized users.</td></tr>
+<tr><td>Assume Breach</td><td>Protection remains attached to the file wherever it travels.</td></tr>
 </table>
-
 </section>
-
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-PowerShell Automation
-</h2>
-
-<table class="feature-table">
-
-<tr>
-
-<th>Script</th>
-
-<th>Purpose</th>
-
-</tr>
-
-<tr>
-
-<td>New-SensitivityLabels.ps1</td>
-
-<td>Create enterprise sensitivity labels.</td>
-
-</tr>
-
-<tr>
-
-<td>New-AutoLabelingPolicy.ps1</td>
-
-<td>Create Auto-labeling Policy.</td>
-
-</tr>
-
-<tr>
-
-<td>Get-SensitivityLabelReport.ps1</td>
-
-<td>Generate Information Protection reports.</td>
-
-</tr>
-
+<h2>PowerShell Automation</h2>
+<table><tr><th>Script</th><th>Purpose</th></tr>
+<tr><td>New-SensitivityLabels.ps1</td><td>Create enterprise sensitivity labels.</td></tr>
+<tr><td>New-AutoLabelingPolicy.ps1</td><td>Create Auto-labeling Policy.</td></tr>
+<tr><td>Get-SensitivityLabelReport.ps1</td><td>Generate Information Protection reports.</td></tr>
 </table>
-
 </section>
-
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-Related Projects
-</h2>
-
-<ul>
-
+<h2>Related Projects</h2>
+<ul style="margin-left:22px;">
 <li>Microsoft Purview Data Loss Prevention</li>
-
 <li>Microsoft Purview Data Lifecycle Management</li>
-
 <li>Microsoft Purview Audit</li>
-
 <li>Microsoft Purview eDiscovery</li>
-
 <li>Microsoft Defender for Cloud Apps</li>
-
 </ul>
-
 </section>
-
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-Lessons Learned
-</h2>
-
-<ul>
-
+<h2>Lessons Learned</h2>
+<ul style="margin-left:22px;">
 <li>Information Protection should be implemented before Data Loss Prevention.</li>
-
 <li>Automatic Labeling significantly reduces human error.</li>
-
 <li>Encryption should be combined with enterprise classification.</li>
-
 <li>Label Policies require synchronization before appearing in Office applications.</li>
-
 <li>Sensitivity Labels become reusable conditions for DLP, Defender for Cloud Apps and Microsoft Purview compliance solutions.</li>
-
 </ul>
-
 </section>
-
-<!-- ====================================================== -->
-
 <section>
-
-<h2>
-Conclusion
-</h2>
-
-<p>
-
-This project demonstrates a complete Microsoft Purview Information
-Protection implementation using Sensitivity Labels, Label Policies,
-Manual Classification and Automatic Labeling.
-
-The environment establishes an enterprise-ready data classification
-framework supporting Microsoft 365 security, compliance and Zero Trust
-initiatives while providing a strong practical reference for
-MS-102 Microsoft 365 Administrator exam preparation.
-
-</p>
-
+<h2>Conclusion</h2>
+<p>This project demonstrates a complete Microsoft Purview Information Protection implementation using Sensitivity Labels, Label Policies, Manual Classification and Automatic Labeling. The environment establishes an enterprise-ready data classification framework supporting Microsoft 365 security, compliance and Zero Trust initiatives while providing a strong practical reference for MS-102 Microsoft 365 Administrator exam preparation.</p>
+<p style="text-align:center;margin-top:35px;"><a class="btn" href="https://github.com/lokeshm-it/Microsoft-Purview-Information-Protection" target="_blank">View GitHub Repository &rarr;</a></p>
 </section>
-
-</main>
-
-<footer class="footer">
-
-<p>
-
-© 2026 Lokesh M • Senior Infrastructure Engineer • Microsoft 365 •
-Microsoft Purview • GitHub Portfolio
-
-</p>
-
+</div>
+<footer>
+<p>&copy; 2026 Lokesh M &bull; Senior Infrastructure Engineer &bull; Microsoft 365 &bull; Microsoft Purview &bull; GitHub Portfolio</p>
 </footer>
-
 </body>
 </html>
